@@ -1,7 +1,16 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+// const QQMapWX = require('../../utils/qqmap-wx-jssdk.js');
+// const chooseLocation = requirePlugin('chooseLocation');
+// let key = 'H3GBZ-6CV6I-H4CGI-5CIDB-KWZ5K-E2BBU';  //使用在腾讯位置服务申请的key
+// let referer = '南宁同城信息网';   //调用插件的app的名称
+// let endPoint = JSON.stringify({  //终点
+//   'name': '吉野家(北京西站北口店)',
+//   'latitude': 39.89631551,
+//   'longitude': 116.323459711
+// });
+// var qqmapsdk;
 Page({
   data: {
     motto: 'Hello World',
@@ -9,15 +18,24 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  //事件处理函数
-  bindViewTap: function() {
-    console.log(11);
-    return false;
+  goIn: function(){
     wx.navigateTo({
-      url: '../logs/logs'
+      url: '../logs/logs?user_id=111'　　// 页面 A
     })
   },
+  //事件处理函数
+  bindViewTap: function() {
+    // console.log(11);
+    // wx.navigateTo({
+    //   url: 'plugin://chooseLocation/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint
+    // });
+ 
+  },
   onLoad: function () {
+    // 实例化API核心类
+    // qqmapsdk = new QQMapWX({
+    //   key: 'H3GBZ-6CV6I-H4CGI-5CIDB-KWZ5K-E2BBU'
+    // });
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -53,5 +71,9 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  onShow: function () {
+    // 调用接口
+    // const location = chooseLocation.getLocation();
   }
 })

@@ -1,21 +1,51 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.container{
+  overflow: hidden;
+  height: 100%;
+  
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.text{
+     margin:0 90rpx;
+    position: absolute;
+    top:180rpx;
+    z-index: 10;
+    left:0;
+    box-sizing: border-box;
+  }
+  .text text{
+    font-size: 28rpx;
+  }
+.goIn{
+   position: absolute;
+   bottom:50rpx;
+   width:375rpx;
+   height: 122rpx;
+   z-index: 10;
+   background-image: url(https://cdn-1251334980.cos.ap-shanghai.myqcloud.com/btn.png);
+   background-size: 100%;
 }
-
-.userinfo-nickname {
-  color: #aaa;
+.goIn text{
+   text-align: center;
+   width:100%;
+   display: block;
+   line-height: 35rpx;
+   color: #d64004;
+   font-family: '微软雅黑'
 }
+.indexTopBg{
+  width:100%;
+  position: absolute;
+  top:0;
+  z-index: 10;
+}
+.bottomBg{
+  width:100%;
+  position: absolute;
+  bottom:0;
+  z-index: 10;
+}
+.middleBg{
+  width:100%;
 
-.usermotto {
-  margin-top: 200px;
+  z-index: 0;
 }

@@ -1,6 +1,26 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
+<view class="container" >
+
+   <image class="indexTopBg" src="../../assets/images/indexTopBg.jpg"></image>
+   <image class="middleBg" src="../../assets/images/middleBg.jpg"></image>
+   <image class="middleBg" src="../../assets/images/middleBg.jpg"></image>
+   <image class="bottomBg" src="../../assets/images/bottomBg.jpg"></image>
+  <view class="text">
+   <text>
+     1.任何人都可以根据自己的实际情况，发布 或者参1.任何人都可以根据自己的实际情况，发布 或者参1.任何人都可以根据自己的实际情况，发布 或者参1.任何人都可以根据自己的实际情况，发布 或者参1.任何人都可以根据自己的实际情况，发布 或者参
+   </text>
+  </view>
+  <view class="text">
+   <text>
+     1.任何人都可以根据自己的实际情况，发布 或者参1.任何人都可以根据自己的实际情况，发布 或者参1.任何人都可以根据自己的实际情况，发布 或者参1.任何人都可以根据自己的实际情况，发布 或者参1.任何人都可以根据自己的实际情况，发布 或者参
+   </text>
+  </view>
+  <view class="goIn" >
+        <text bindtap="goIntap" >
+            立即进入
+        </text>
+  </view>
+  <!-- <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
@@ -9,5 +29,5 @@
   </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
-  </view>
+  </view> -->
 </view>
