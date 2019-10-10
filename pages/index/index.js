@@ -10,6 +10,7 @@ const app = getApp()
 //   'latitude': 39.89631551,
 //   'longitude': 116.323459711
 // });
+
 // var qqmapsdk;
 Page({
   data: {
@@ -18,9 +19,9 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  goIn: function(){
-    wx.navigateTo({
-      url: '../logs/logs?user_id=111'　　// 页面 A
+  goIn: function() {
+    wx.switchTab({
+      url: '/pages/home/home/home'　　 // 页面 A
     })
   },
   //事件处理函数
@@ -29,9 +30,9 @@ Page({
     // wx.navigateTo({
     //   url: 'plugin://chooseLocation/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint
     // });
- 
+
   },
-  onLoad: function () {
+  onLoad: function() {
     // 实例化API核心类
     // qqmapsdk = new QQMapWX({
     //   key: 'H3GBZ-6CV6I-H4CGI-5CIDB-KWZ5K-E2BBU'
@@ -41,7 +42,7 @@ Page({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-    } else if (this.data.canIUse){
+    } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
@@ -72,7 +73,8 @@ Page({
       hasUserInfo: true
     })
   },
-  onShow: function () {
+  onShow: function() {
+    
     // 调用接口
     // const location = chooseLocation.getLocation();
   }

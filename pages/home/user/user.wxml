@@ -1,0 +1,39 @@
+<!--pages/home/user/user.wxml-->
+<view class="wrapper">
+  <view class="top flex">
+    <view class="infoImg">
+      <image src=""></image>
+    </view>
+    <view class="infoMsg">
+      <text>郑哈哈</text>
+      <view class="label">
+        <image src="/assets/images/home/huang.png"></image>
+        <text>您的信誉度99%</text>
+      </view>
+    </view>
+  </view>
+  <view class="content">
+    <view class="navButton flex-ar">
+      <view class="flex-bt" wx:for="{{navButton}}" bindtap="goToUrl" data-url="{{link}}" wx:key="k">
+        <text>{{item.num}}</text>
+        <text>{{item.text}}</text>
+      </view>
+    </view>
+    <view class="priceSum flex-bt">
+      <view class="flex-bt">
+        <text>账户余额</text>
+        <text>760.00</text>
+      </view>
+      <view class="flex-bt">
+        <text>去提现</text>
+        <image src="/assets/images/home/more.png"></image>
+      </view>
+    </view>
+    <view class="buttonList flex-bt">
+      <view class="flex-bt" wx:for="{{buttonList}}" bindtap="goToUrl" data-url="{{link}}" wx:key="k">
+        <image src="{{item.imgurl}}"></image>
+        <text>{{item.text}}</text>
+      </view>
+    </view>
+  </view>
+</view>

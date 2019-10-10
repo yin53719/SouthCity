@@ -1,0 +1,12 @@
+page {
+  --colorY: #fdbd10;
+  --defaultColor:#222222;
+  --size34: 36rpx;
+  --size34: 34rpx;
+  --size30: 30rpx;
+  --size28: 28rpx;
+  --size26: 26rpx;
+  --size24: 24rpx;
+  --size22: 22rpx;
+  --size20: 20rpx;
+}

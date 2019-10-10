@@ -1,8 +1,39 @@
 {
   "pages": [
+    "pages/home/user/user",
+    "pages/home/home/home",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/home/join/join",
+    "pages/test/test"
   ],
+  "tabBar": {
+    "custom": true,
+    "color": "#242424",
+    "selectedColor": "#242424",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/join/join",
+        "iconPath": "assets/images/home/homejoin.png",
+        "selectedIconPath": "assets/images/home/homejoin.png",
+        "text": "参与"
+      },
+      {
+        "pagePath": "pages/home/home/home",
+        "iconPath": "assets/images/home/home.png",
+        "selectedIconPath": "assets/images/home/home.png",
+        "text": ""
+      },
+      {
+        "pagePath": "pages/home/user/user",
+        "iconPath": "assets/images/home/user.png",
+        "selectedIconPath": "assets/images/home/user.png",
+        "text": "用户"
+      }
+    ]
+  },
   "plugins": {
     "chooseLocation": {
       "version": "1.0.0",
@@ -18,7 +49,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "南宁同城信息网",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "navigationStyle":"custom"
   },
   "sitemapLocation": "sitemap.json"
 }

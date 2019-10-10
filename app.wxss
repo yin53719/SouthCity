@@ -1,3 +1,7 @@
+
+
+@import "/common/wxss/variable.wxss";
+@import "/common/wxss/reset.wxss";
 /**app.wxss**/
 .container {
   height: 100%;
