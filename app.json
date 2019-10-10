@@ -1,7 +1,8 @@
 {
-  "pages": [
+  "pages": [  
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/participate/participate",
+    "pages/release/release"
   ],
   "plugins": {
     "chooseLocation": {

@@ -2,14 +2,20 @@
 .container{
   overflow: hidden;
   height: 100%;
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 200rpx 0; */
+  box-sizing: border-box;
+  font-size: 28rpx;
 }
 
 .text{
     width:100%;
      padding:0 90rpx;
     position: absolute;
-    top:210rpx;
+    top:200rpx;
     z-index: 10;
     left:0;
     box-sizing: border-box;
@@ -20,9 +26,11 @@
    text-align: center;
    width: 100%;
    display: block;
+   font-size: 34rpx;
 }
   .text text.body{
     font-size: 28rpx;
+    float: left;
   }
 .goIn{
    position: absolute;

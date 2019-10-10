@@ -1,0 +1,49 @@
+.container{
+  padding:0 30rpx;
+  font-size: 28rpx;
+  height: 100%;
+}
+.top{
+  height: 56rpx;
+  line-height: 56rpx;
+ display: flex;
+}
+.top .location{
+  display: inline-block;
+  float: left;
+  margin-right: 30rpx;
+  
+}
+.top .location image{
+   width: 22rpx;
+   height: 29rpx;
+   margin-right: 10rpx;
+   vertical-align: -1rpx;
+}
+.top .search{
+  height: 56rpx;
+  margin-left: 10rpx;
+  background: #f7f7f7;
+  border-radius: 28rpx;
+  display: inline-block;
+  flex: 1;
+}
+.top .search image{
+  margin-left: 20rpx;
+  width:22rpx;
+  height: 27rpx;
+  margin-top: 15rpx;
+}
+.top .search input{
+  display: inline-block;
+  width:200rpx;
+}
+.top .nice{
+  display: inline-block;
+  float: right;
+  margin-left: 30rpx;
+}
+.top .nice image{
+  width:48rpx;
+  height: 47rpx;
+}

@@ -20,7 +20,7 @@ Page({
   },
   goIntap: function(){
     wx.navigateTo({
-      url: '../logs/logs?user_id=111'　　// 页面 A
+      url: '../participate/participate?user_id=111'　　// 页面 A
     })
   },
   //事件处理函数

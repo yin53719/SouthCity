@@ -1,0 +1,20 @@
+<view class="container">
+  <!-- 头部 -->
+  <view class="top">
+    <view class="location">
+        <image src="../../assets/images/location.png"></image>
+        <text>{{ location }}</text>
+    </view>
+    
+    <view class="search">
+      <image class="location" src="../../assets/images/search.png"></image>
+      <input></input>
+    </view>
+    <view class="nice">
+        <image src="../../assets/images/nice.png"></image>
+    </view>
+  </view>
+  <view>
+     <image style="width:690rpx;height:196rpx;margin-top:20rpx;" src="../../assets/images/banner.jpg"></image>
+  </view>
+</view>
