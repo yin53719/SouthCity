@@ -1,4 +1,8 @@
 /**app.wxss**/
+page{
+  height: 100%;
+  font-family: 'PingFang SC Medium';
+}
 .container {
   font-size: 28rpx;
 } 

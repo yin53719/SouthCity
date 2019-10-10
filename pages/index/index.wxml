@@ -2,8 +2,7 @@
 <view class="container" >
 
    <image class="indexTopBg" src="../../assets/images/indexTopBg.jpg"></image>
-   <image class="middleBg" src="../../assets/images/middleBg.jpg"></image>
-   <image class="middleBg" src="../../assets/images/middleBg.jpg"></image>
+  
    <image class="bottomBg" src="../../assets/images/bottomBg.jpg"></image>
    <!-- 内容 -->
   <view class="text">

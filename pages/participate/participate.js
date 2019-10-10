@@ -4,8 +4,34 @@ const QQMapWX = require('../../utils/qqmap-wx-jssdk.js');
 
 Page({
   data: {
-    location:'上海'
+    location:'上海',
+    navArray:[{
+      name:'全部',
+      type:0
+    }, {
+        name: 'KTV',
+        type: 1
+      },{
+        name: '酒吧',
+        type: 2
+      }, {
+        name: '美食',
+        type: 3
+      }, {
+        name: '景点',
+        type: 4
+      }, {
+        name: '网吧',
+        type: 5
+      }],
+      navType:0
   },
+  navTap: function (navType) {
+    console.log(navType.target)
+      this.setData({
+        navType: navType.target.dataset.type
+      })
+    },
   onLoad: function () {
 
 
