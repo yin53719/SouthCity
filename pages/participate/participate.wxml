@@ -1,0 +1,50 @@
+<view class="container">
+  <!-- 头部 -->
+  <view class="top">
+    <view class="location">
+        <image src="../../assets/images/location.png"></image>
+        <text>{{ location }}</text>
+    </view>
+    
+    <view class="search">
+      <image class="location" src="../../assets/images/search.png"></image>
+      <input confirm-type="search" ></input>
+    </view>
+    <view class="nice">
+        <image src="../../assets/images/nice.png"></image>
+    </view>
+  </view>
+  <!-- banner -->
+  <view>
+     <image style="width:690rpx;height:196rpx;margin-top:20rpx;" src="../../assets/images/banner.jpg"></image>
+  </view>
+  <!-- 导航 -->
+  <view class="navBar">
+     <view    wx:for="{{navArray}}" wx:for-index="idx" wx:for-item="itemName" >
+        <text bindtap="navTap" data-type="{{ itemName.type }}" class="{{itemName.type == navType ? 'active':'' }}" >
+          {{itemName.name}}
+        </text>
+        <text  class="line {{itemName.type == navType ? 'active':'' }}" >
+        </text>
+     </view>
+  </view>
+  <!-- 导航2  -->
+  <view class="navStatus">
+      <view>
+        <text>热门聚会</text>
+        <image src="../../assets/images/arrow.png" ></image>
+      </view>
+      <view>
+        <text>距离最近</text>
+        <image src="../../assets/images/arrow.png" ></image>
+      </view>
+      <view>
+        <text>价格最低</text>
+        <image src="../../assets/images/arrow.png" ></image>
+      </view>
+       <view>
+        <text>综合排序</text>
+        <image src="../../assets/images/arrow.png" ></image>
+      </view>
+  </view>
+</view>

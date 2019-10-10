@@ -1,28 +1,47 @@
 /**index.wxss**/
 .container{
-  overflow: hidden;
+  width: 100%;
   height: 100%;
-  
+  position: relative;
+  display: block;
+  float: left;
+  font-size: 28rpx;
+  background-image: url(https://cdn-1251334980.cos.ap-shanghai.myqcloud.com/middleBg.jpg);
+  background-size: 100%;
 }
+
 .text{
-     margin:0 90rpx;
+    width:100%;
+     padding:0 90rpx;
     position: absolute;
-    top:180rpx;
+    top:204rpx;
     z-index: 10;
     left:0;
     box-sizing: border-box;
   }
-  .text text{
+  .text .title{
+   color: #d64004;
+   font-family: 'PingFang SC Heavy';
+   text-align: center;
+   width: 100%;
+   display: block;
+   font-size: 34rpx;
+}
+  .text text.body{
     font-size: 28rpx;
+    float: left;
+    font-family: 'PingFang SC Medium';
   }
 .goIn{
    position: absolute;
-   bottom:50rpx;
+   left:187.5rpx;
+   bottom:45rpx;
    width:375rpx;
    height: 122rpx;
    z-index: 10;
    background-image: url(https://cdn-1251334980.cos.ap-shanghai.myqcloud.com/btn.png);
    background-size: 100%;
+
 }
 .goIn text{
    text-align: center;
@@ -30,22 +49,25 @@
    display: block;
    line-height: 35rpx;
    color: #d64004;
-   font-family: '微软雅黑'
+   font-family: '微软雅黑';
+   font-weight: bold;
+   font-size: 38rpx;
 }
 .indexTopBg{
   width:100%;
+  height: 841rpx;
   position: absolute;
   top:0;
   z-index: 10;
 }
 .bottomBg{
   width:100%;
+  height: 398rpx;
   position: absolute;
   bottom:0;
   z-index: 10;
 }
 .middleBg{
   width:100%;
-
   z-index: 0;
 }

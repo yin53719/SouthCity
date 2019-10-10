@@ -19,9 +19,9 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  goIn: function() {
-    wx.switchTab({
-      url: '/pages/home/home/home'　　 // 页面 A
+  goIntap: function(){
+    wx.navigateTo({
+      url: '../participate/participate'　　// 页面 A
     })
   },
   //事件处理函数

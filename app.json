@@ -1,11 +1,14 @@
 {
   "pages": [
-    "pages/home/user/user",
-    "pages/home/home/home",
     "pages/index/index",
+    "pages/home/user/user",
+    
+    "pages/home/home/home",
     "pages/logs/logs",
     "pages/home/join/join",
-    "pages/test/test"
+    "pages/test/test",
+    "pages/participate/participate",
+    "pages/release/release"
   ],
   "tabBar": {
     "custom": true,
