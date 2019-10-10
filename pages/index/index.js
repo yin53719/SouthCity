@@ -18,7 +18,7 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  goIn: function(){
+  goIntap: function(){
     wx.navigateTo({
       url: '../logs/logs?user_id=111'　　// 页面 A
     })

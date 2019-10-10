@@ -5,16 +5,16 @@
    <image class="middleBg" src="../../assets/images/middleBg.jpg"></image>
    <image class="middleBg" src="../../assets/images/middleBg.jpg"></image>
    <image class="bottomBg" src="../../assets/images/bottomBg.jpg"></image>
+   <!-- 内容 -->
   <view class="text">
-   <text>
-     1.任何人都可以根据自己的实际情况，发布 或者参1.任何人都可以根据自己的实际情况，发布 或者参1.任何人都可以根据自己的实际情况，发布 或者参1.任何人都可以根据自己的实际情况，发布 或者参1.任何人都可以根据自己的实际情况，发布 或者参
-   </text>
+      <text class="title">
+        聚餐规则
+      </text>
+      <text class="body">
+        1.任何人都可以根据自己的实际情况，发布 或者参1.任何人都可以根据自己的实际情况，发布 或者参1.任何人都可以根据自己的实际情况，发布 或者参1.任何人都可以根据自己的实际情况，发布 或者参1.任何人都可以根据自己的实际情况，发布 或者参
+      </text>
   </view>
-  <view class="text">
-   <text>
-     1.任何人都可以根据自己的实际情况，发布 或者参1.任何人都可以根据自己的实际情况，发布 或者参1.任何人都可以根据自己的实际情况，发布 或者参1.任何人都可以根据自己的实际情况，发布 或者参1.任何人都可以根据自己的实际情况，发布 或者参
-   </text>
-  </view>
+  <!-- btn -->
   <view class="goIn" >
         <text bindtap="goIntap" >
             立即进入

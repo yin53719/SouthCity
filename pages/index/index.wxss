@@ -4,15 +4,24 @@
   height: 100%;
   
 }
+
 .text{
-     margin:0 90rpx;
+    width:100%;
+     padding:0 90rpx;
     position: absolute;
-    top:180rpx;
+    top:210rpx;
     z-index: 10;
     left:0;
     box-sizing: border-box;
   }
-  .text text{
+  .text .title{
+   color: #d64004;
+   font-family: '微软雅黑';
+   text-align: center;
+   width: 100%;
+   display: block;
+}
+  .text text.body{
     font-size: 28rpx;
   }
 .goIn{
@@ -34,18 +43,19 @@
 }
 .indexTopBg{
   width:100%;
+  height: 841rpx;
   position: absolute;
   top:0;
   z-index: 10;
 }
 .bottomBg{
   width:100%;
+  height: 398rpx;
   position: absolute;
   bottom:0;
   z-index: 10;
 }
 .middleBg{
   width:100%;
-
   z-index: 0;
 }
