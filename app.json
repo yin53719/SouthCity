@@ -1,8 +1,7 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/home/user/user",
-    
+    "pages/home/user/user", 
     "pages/home/home/home",
     "pages/logs/logs",
     "pages/home/join/join",
@@ -18,7 +17,7 @@
     "backgroundColor": "#ffffff",
     "list": [
       {
-        "pagePath": "pages/home/join/join",
+        "pagePath": "pages/participate/participate",
         "iconPath": "assets/images/home/homejoin.png",
         "selectedIconPath": "assets/images/home/homejoin.png",
         "text": "参与"
@@ -52,8 +51,7 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "南宁同城信息网",
-    "navigationBarTextStyle": "black",
-    "navigationStyle":"custom"
+    "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json"
 }

@@ -10,7 +10,7 @@ Component({
     color: "#242424",
     selectedColor: "#242424",
     list: [{
-      pagePath: "/pages/home/join/join",
+      pagePath: "/pages/participate/participate",
       iconPath: "/assets/images/home/homejoin.png",
       selectedIconPath: "/assets/images/home/homejoin.png",
       text: "参与"

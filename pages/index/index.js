@@ -20,7 +20,8 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   goIntap: function(){
-    wx.navigateTo({
+    console.log(111)
+    wx.reLaunch({
       url: '../participate/participate'　　// 页面 A
     })
   },
