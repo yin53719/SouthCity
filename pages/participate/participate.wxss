@@ -118,4 +118,5 @@
 .content{
   padding: 30rpx 0;
   background: var(--backColor);
+  margin-bottom: 80rpx;
 }

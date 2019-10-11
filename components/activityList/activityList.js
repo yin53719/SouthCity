@@ -31,7 +31,7 @@ Component({
   methods: {
     goJoin:function(){
       if (this.data.type == 2){
-        wx.redirectTo({
+        wx.navigateTo({
           url: '/pages/join/join',
           success: function(res) {},
           fail: function(res) {},
