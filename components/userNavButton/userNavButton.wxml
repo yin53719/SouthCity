@@ -1,0 +1,6 @@
+<view class="navButton flex-ar">
+  <view class="flex-bt" wx:for="{{navButton}}" bindtap="goToUrl" data-url="{{item.link}}" wx:key="k">
+    <text>{{item.num}}</text>
+    <text>{{item.text}}</text>
+  </view>
+</view>

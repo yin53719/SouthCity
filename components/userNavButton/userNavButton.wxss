@@ -1,0 +1,16 @@
+/* components/userNavButton/userNavButton.wxss */
+.navButton {
+  margin: 30rpx 0;
+}
+.navButton .flex-bt{
+  flex-direction: column;
+}
+
+.navButton .flex-bt text:first-child{
+  font-size: var(--size36)
+}
+
+.navButton .flex-bt text:last-child{
+  font-size: var(--size24);
+  color: var(--defaultColor)
+}

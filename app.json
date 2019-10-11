@@ -1,13 +1,16 @@
 {
   "pages": [
+    "pages/userCenter/userCenter",
+    "pages/home/user/user",
+    "pages/myActivity/myActivity",
     "pages/index/index",
-    "pages/home/user/user", 
     "pages/home/home/home",
     "pages/logs/logs",
     "pages/home/join/join",
     "pages/test/test",
     "pages/participate/participate",
-    "pages/release/release"
+    "pages/release/release",
+    "pages/myFollow/myFollow"
   ],
   "tabBar": {
     "custom": true,

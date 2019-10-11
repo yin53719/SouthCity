@@ -1,0 +1,124 @@
+/* components/activityList/activityList.wxss */
+
+.wrapper {
+  margin: 0 30rpx 30rpx;
+  border-radius: 30rpx;
+  background: #fff;
+}
+
+.local {
+  flex-direction: column;
+}
+
+.top {
+  padding: 20rpx;
+  border-bottom: 1rpx solid var(--borderColor);
+}
+
+.top .title {
+  font-size: var(--size28);
+}
+
+.message text {
+  position: relative;
+  padding: 0 10rpx;
+  color: var(--colorG);
+  font-size: var(--size24);
+}
+
+.message text::after {
+  content: "";
+  display: block;
+  width: 1rpx;
+  height: 20rpx;
+  background: var(--colorG);
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.top-center {
+  margin-top: 10rpx;
+  margin-bottom: 5rpx;
+}
+
+.local {
+  font-size: var(--size22);
+  color: var(--defaultColorP);
+}
+
+.button {
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 130rpx;
+  padding: 12rpx 0;
+  box-sizing: content-box;
+  font-size: var(--size22);
+  color: #fff;
+  border-radius: 50rpx;
+}
+
+.button.seeData {
+  background: linear-gradient(to left bottom, #40e59b, #96f3c9); /* 标准的语法 */
+  box-shadow: 0rpx 3rpx 10rpx 3rpx #96f3c9;
+}
+
+.button.sign {
+  background: linear-gradient(to left bottom, #fdbd10, #fbd56f); /* 标准的语法 */
+  box-shadow: 0rpx 3rpx 10rpx 3rpx #fbd56f;
+}
+.button.hexiao {
+  background: linear-gradient(to left bottom, #fe5e5e, #ff978f); /* 标准的语法 */
+  box-shadow: 0rpx 3rpx 10rpx 3rpx #ff978f;
+}
+.button image{
+  margin-right: 10rpx;
+  width: 25rpx;
+  height: 25rpx;
+}
+
+.label text {
+  margin-right: 15rpx;
+  padding: 0 10rpx;
+  background: var(--colorSpanBk);
+  color: var(--colorSpan);
+  font-size: var(--size22);
+}
+
+.bottom {
+  line-height: 1;
+  padding: 20rpx;
+}
+
+.man image {
+  width: 17rpx;
+  height: 24rpx;
+}
+
+.man text {
+  margin-left: 8rpx;
+  font-size: var(--size24);
+  color: #75c4ef;
+}
+
+.woman image {
+  width: 17rpx;
+  height: 24rpx;
+}
+
+.woman text {
+  margin-left: 8rpx;
+  font-size: var(--size24);
+  color: var(--colorSpan);
+}
+.check{
+  margin: 0;
+}
+.check image{
+  margin-left: 12rpx;
+  width: 24rpx;
+  height: 24rpx;
+}

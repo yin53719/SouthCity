@@ -1,7 +1,8 @@
 
-
 @import "/common/wxss/variable.wxss";
 @import "/common/wxss/reset.wxss";
+@import "/common/wxss/common.wxss";
+
 /**app.wxss**/
 page{
   height: 100%;

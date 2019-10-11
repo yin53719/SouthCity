@@ -1,24 +1,8 @@
 <!--pages/home/user/user.wxml-->
 <view class="wrapper">
-  <view class="top flex">
-    <view class="infoImg">
-      <image src=""></image>
-    </view>
-    <view class="infoMsg">
-      <text>郑哈哈</text>
-      <view class="label">
-        <image src="/assets/images/home/huang.png"></image>
-        <text>您的信誉度99%</text>
-      </view>
-    </view>
-  </view>
+  <user-top></user-top>
   <view class="content">
-    <view class="navButton flex-ar">
-      <view class="flex-bt" wx:for="{{navButton}}" bindtap="goToUrl" data-url="{{link}}" wx:key="k">
-        <text>{{item.num}}</text>
-        <text>{{item.text}}</text>
-      </view>
-    </view>
+    <user-nav-button></user-nav-button>
     <view class="priceSum flex-bt">
       <view class="flex-bt">
         <text>账户余额</text>
@@ -30,7 +14,7 @@
       </view>
     </view>
     <view class="buttonList flex-bt">
-      <view class="flex-bt" wx:for="{{buttonList}}" bindtap="goToUrl" data-url="{{link}}" wx:key="k">
+      <view class="flex-bt" wx:for="{{buttonList}}" bindtap="goToUrl" data-url="{{item.link}}" wx:key="k">
         <image src="{{item.imgurl}}"></image>
         <text>{{item.text}}</text>
       </view>

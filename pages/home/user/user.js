@@ -5,33 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    navButton: [{
-      link: "",
-      text: "待参加",
-      num: "0"
-    }, {
-      link: "",
-      text: "已参加",
-      num: "0"
-    }, {
-      link: "",
-      text: "已关注",
-      num: "0"
-    }, {
-      link: "",
-      text: "未举办",
-      num: "0"
-    }],
     buttonList: [{
-      link: '',
-      text: "我得活动",
+      link: '/pages/myActivity/myActivity',
+      text: "我的活动",
       imgurl: "/assets/images/home/hd.png"
     }, {
       link: '',
       text: "活动规则",
       imgurl: "/assets/images/home/gz.png"
     }, {
-      link: '',
+      link: '/pages/userCenter/userCenter',
       text: "个人资料",
       imgurl: "/assets/images/home/zl.png"
     }, {
@@ -101,7 +84,9 @@ Page({
 
   goToUrl: function(e) {
     const data = e.currentTarget.dataset
-    console.log(data)
+    wx.navigateTo({
+      url: data.url,
+    })
   }
 
 })

@@ -1,0 +1,6 @@
+/* pages/myFollow/myFollow.wxss */
+
+.content{
+  padding: 30rpx 0;
+  background: var(--backColor);
+}

@@ -1,0 +1,63 @@
+<!--components/activityList/activityList.wxml-->
+<view class="wrapper">
+  <view class="top">
+    <view class="flex-bt">
+      <text class="title">{{data.title}}</text>
+      <view class="flex-bt message">
+        <text>{{data.status}}</text>
+        <text>{{data.message}}</text>
+      </view>
+    </view>
+    <view class="flex-bt top-center">
+      <view class="flex-bt local">
+        <text>{{data.time}}</text>
+        <text>{{data.local}}</text>
+      </view>
+      <view class="button seeData">{{type=="1"?"查看详情":"我要参与"}}</view>
+    </view>
+    <view class="flex-bt">
+      <view class="flex-bt label">
+        <text wx:for="{{data.label}}" wx:key="key">{{item}}</text>
+      </view>
+      <view wx:if="{{type ==='1'}}" class="button sign">
+        <view class="flex">
+          <image src="/assets/images/home/qiandao.png"></image>
+          <text>签到</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="bottom flex-bt">
+    <view>
+      <view class="flex">
+        <view class="man flex">
+          <image src="/assets/images/home/man.png"></image>
+          <text>男</text>
+        </view>
+        <view class="check">
+          <image wx:for="{{data.manNum * 1}}" wx:key="key" src="/assets/images/home/manchecked.png"></image>
+          <image wx:for="{{(data.manAllNum - data.manNum)*1}}" wx:key="key" src="/assets/images/home/check.png"></image>
+        </view>
+      </view>
+      <view class=" flex">
+        <view class="woman flex">
+          <image src="/assets/images/home/woman.png"></image>
+          <text>女</text>
+        </view>
+        <view class="check">
+          <image wx:for="{{data.womanNum * 1}}" wx:key="key" src="/assets/images/home/womanchecked.png"></image>
+          <image wx:for="{{(data.womanAllNum - data.womanNum)*1}}" wx:key="key" src="/assets/images/home/check.png"></image>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{type ==='1'}}" class="button hexiao">
+      <view class="flex">
+        <image src="/assets/images/home/hexiao.png"></image>
+        <text>核销</text>
+      </view>
+    </view>
+
+  </view>
+
+</view>

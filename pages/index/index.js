@@ -21,7 +21,7 @@ Page({
   },
   goIntap: function(){
     console.log(111)
-    wx.reLaunch({
+    wx.switchTab({
       url: '../participate/participate'　　// 页面 A
     })
   },

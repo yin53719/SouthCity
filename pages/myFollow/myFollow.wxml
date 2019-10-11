@@ -1,0 +1,8 @@
+<!--pages/myFollow/myFollow.wxml-->
+<view class="wrapper">
+  <user-top></user-top>
+  <user-nav-button></user-nav-button>
+  <view class="content">
+    <activity-list type="2" wx:for="{{activityList}}" wx:key="key" data="{{item}}"></activity-list>
+  </view>
+</view>

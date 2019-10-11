@@ -1,0 +1,5 @@
+<!--pages/userCenter/userCenter.wxml-->
+<view class="wrapper">
+  <user-top type="2"></user-top>
+ 
+</view>

@@ -1,0 +1,16 @@
+<!--components/userTop/userTop.wxml-->
+<view class="top flex">
+  <view class="infoImg">
+    <image src=""></image>
+  </view>
+  <view class="infoMsg">
+    <text>郑哈哈</text>
+    <view wx:if="{{type == ''}}" class="label">
+      <image src="/assets/images/home/huang.png"></image>
+      <text>您的信誉度99%</text>
+    </view>
+    <view wx:else class="label labelE">
+      <text>设置/更换个人头像</text>
+    </view>
+  </view>
+</view>

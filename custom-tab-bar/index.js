@@ -29,7 +29,10 @@ Component({
   properties: {
 
   },
-  attached() {},
+  attached() {
+
+
+  },
   methods: {
     switchTab(e) {
       const data = e.currentTarget.dataset
