@@ -15,7 +15,7 @@ Component({
       selectedIconPath: "/assets/images/home/homejoin.png",
       text: "参与"
     }, {
-      pagePath: "/pages/home/home/home",
+        pagePath: "/pages/release/release",
       iconPath: "/assets/images/home/home.png",
       selectedIconPath: "/assets/images/home/home.png",
       text: ""

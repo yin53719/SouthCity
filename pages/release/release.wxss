@@ -1,1 +1,85 @@
-/* pages/release/release.wxss */
+.container{
+  padding:0 30rpx;
+  font-size: 28rpx;
+  height: 100%;
+}
+.top{
+  height: 56rpx;
+  line-height: 56rpx;
+ display: flex;
+}
+.top .search{
+  height: 56rpx;
+  margin-left: 10rpx;
+  background: #f7f7f7;
+  border-radius: 28rpx;
+  display: flex;
+  flex: 1;
+ 
+
+}
+.top .search image{
+  margin-left: 20rpx;
+  width:22rpx;
+  height: 27rpx;
+   margin-top: 15rpx;
+}
+.top .search input{
+  display: inline-block;
+ flex: 1;
+ padding-left: 10rpx;
+}
+.top .nice{
+  display: inline-block;
+  margin-left: 20rpx;
+}
+.top .nice image{
+  width:48rpx;
+  height: 47rpx;
+}
+.navBar{
+  display: flex;
+}
+.navBar view{
+  flex: 1;
+  text-align: center;
+  font-size: 28rpx;
+  
+}
+.navBar text.active{
+  color: #40e59b;
+  font-family: 'PingFang SC Bold';
+}
+.navBar view text.line{
+  background: #40e59b;
+  width: 50rpx;
+  height: 10rpx;
+  display: none;
+  border-radius: 5px;
+}
+.navBar view text.line.active{
+  display: inline-block;
+}
+.navStatus {
+  display: flex;
+  padding-top: 30rpx;
+  border-top: solid 1px #f5f5f5;
+}
+.navStatus view {
+  flex: 1;
+  margin-right: 50rpx;
+  height: 26rpx;
+  font-size: 26rpx;
+}
+.navStatus view image{
+  width: 14rpx;
+  height: 6rpx;
+  margin-left: 12rpx;
+  /* float: right; */
+  vertical-align: middle;
+  /* display: inline-block; */
+}
+.navStatus view:last-child{
+  margin-right: 0;
+  flex: none;
+}
