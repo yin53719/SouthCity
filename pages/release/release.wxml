@@ -1,2 +1,42 @@
-<!--pages/release/release.wxml-->
-<text>pages/release/release.wxml</text>
+<view class="container">
+  <!-- 头部 -->
+  <view class="top">
+   <view class="nice">
+        <image src="../../assets/images/gather.png"></image>
+    </view>
+    <view class="search">
+      <image class="location" src="../../assets/images/search.png"></image>
+      <input confirm-type="search" placeholder="搜索你喜欢的商家"></input>
+    </view>
+   
+  </view>
+  <!-- 导航 -->
+  <view class="navBar">
+     <view    wx:for="{{navArray}}" wx:for-index="idx" wx:for-item="itemName" >
+        <text bindtap="navTap" data-type="{{ itemName.type }}" class="{{itemName.type == navType ? 'active':'' }}" >
+          {{itemName.name}}
+        </text>
+        <text  class="line {{itemName.type == navType ? 'active':'' }}" >
+        </text>
+     </view>
+  </view>
+  <!-- 导航2  -->
+  <view class="navStatus">
+      <view>
+        <text>热门聚会</text>
+        <image src="../../assets/images/arrow.png" ></image>
+      </view>
+      <view>
+        <text>距离最近</text>
+        <image src="../../assets/images/arrow.png" ></image>
+      </view>
+      <view>
+        <text>价格最低</text>
+        <image src="../../assets/images/arrow.png" ></image>
+      </view>
+       <view>
+        <text>综合排序</text>
+        <image src="../../assets/images/arrow.png" ></image>
+      </view>
+  </view>
+</view>
