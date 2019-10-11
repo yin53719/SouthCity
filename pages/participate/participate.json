@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "参与",
-  "usingComponents": {}
+  "usingComponents": {
+    "activity-cell": "/components/activityList/activityList"
+  }
 }

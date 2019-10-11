@@ -1,0 +1,9 @@
+<!--pages/home/join/join.wxml-->
+<view>
+  <view class="banner">
+     <image src="../../assets/images/join-banner.jpg"></image>
+  </view>
+
+
+
+</view>

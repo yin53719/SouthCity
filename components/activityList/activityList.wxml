@@ -13,7 +13,7 @@
         <text>{{data.time}}</text>
         <text>{{data.local}}</text>
       </view>
-      <view class="button seeData">{{type=="1"?"查看详情":"我要参与"}}</view>
+      <view class="button seeData" bindtap="goJoin" >{{type=="1"?"查看详情":"我要参与"}}</view>
     </view>
     <view class="flex-bt">
       <view class="flex-bt label">

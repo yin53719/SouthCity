@@ -29,6 +29,16 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    goJoin:function(){
+      if (this.data.type == 2){
+        wx.redirectTo({
+          url: '/pages/join/join',
+          success: function(res) {},
+          fail: function(res) {},
+          complete: function(res) {},
+        })
+      }
+      console.log(this.data.type)
+    }
   }
 })
