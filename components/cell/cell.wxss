@@ -1,1 +1,62 @@
 /* components/cell/cell.wxss */
+
+.flex-bt {
+  border-bottom: 1rpx solid var(--borderColor);
+  padding: 20rpx 0;
+  margin: 0 30rpx;
+}
+
+.flex-bt input {
+  font-size: var(--size26);
+  color: var(--defaultColorP);
+  width: 100%;
+  text-align: right;
+}
+
+.flex-bt text {
+  font-size: var(--size30);
+  color: var(--defaultColor);
+  flex: 1;
+  white-space: nowrap;
+}
+
+.flex-bt image {
+  margin-left: 10rpx;
+  width: 21rpx;
+  height: 21rpx;
+}
+
+text.getVarCode {
+  color: var(--colorG);
+  font-size: var(--size20);
+  border: 1rpx solid var(--colorG);
+  border-radius: 30rpx;
+  padding: 3rpx 10rpx;
+  margin-left: 15rpx;
+}
+
+checkbox-group {
+  width: 100%;
+  flex-wrap: wrap;
+  padding-bottom: 20rpx;
+}
+
+.checkbox{
+  margin-top:30rpx;
+}
+.checkbox text {
+  margin-right: 20rpx;
+  padding: 10rpx 45rpx;
+  border: 1rpx solid var(--borderColor);
+  border-radius: 50rpx;
+}
+
+.checkbox checkbox {
+  display: none;
+}
+
+checkbox-group text.active {
+  color: #fff;
+  background: var(--colorG);
+  border: 1rpx solid var(--colorG);
+}

@@ -1,11 +1,11 @@
 page {
   --colorY: #fdbd10;
-  --defaultColor:#222222;
-  --defaultColorP:#5d5d5d;
-  --colorSpanBk:#fff3f7;
-  --colorSpan:#f85b92;
-  --colorG:#3eec9e;
-  --backColor:#f8f8f8;
+  --defaultColor: #222;
+  --defaultColorP: #5d5d5d;
+  --colorSpanBk: #fff3f7;
+  --colorSpan: #f85b92;
+  --colorG: #3eec9e;
+  --backColor: #f8f8f8;
   --size34: 36rpx;
   --size34: 34rpx;
   --size30: 30rpx;
@@ -14,5 +14,5 @@ page {
   --size24: 24rpx;
   --size22: 22rpx;
   --size20: 20rpx;
-  --borderColor:#efefef;
+  --borderColor: #efefef;
 }

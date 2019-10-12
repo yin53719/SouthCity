@@ -14,6 +14,11 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const dateReplace = (str,t)=>{
+  return str.replace(/\-/g, t)
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  dateReplace: dateReplace
 }

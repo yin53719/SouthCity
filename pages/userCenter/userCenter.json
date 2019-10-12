@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "user-top": "/components/userTop/userTop"
+    "user-top": "/components/userTop/userTop",
+    "cell": "/components/cell/cell"
   }
 }

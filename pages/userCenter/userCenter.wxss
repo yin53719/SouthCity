@@ -1,1 +1,6 @@
 /* pages/userCenter/userCenter.wxss */
+
+
+.wrapper .form{
+  margin-top: 30rpx;
+}

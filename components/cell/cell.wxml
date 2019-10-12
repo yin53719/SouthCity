@@ -1,2 +1,28 @@
 <!--components/cell/cell.wxml-->
-<text>components/cell/cell.wxml</text>
+<view class="flex-bt" style="flex-wrap:{{type == 'checkbox'?'wrap':'nowrap'}}">
+  <text>{{title}}</text>
+
+  <block wx:if="{{type=='text'}}" class="flex-bt">
+    <input type="{{type}}" disabled="{{disable}}" placeholder="{{placeholder}}"></input>
+    <image wx:if="{{!disable}}" src="/assets/images/editor.png"></image>
+  </block>
+  <block wx:if="{{type=='date'}}" class="flex-bt">
+    <picker mode="date" value="{{placeholder}}" bindchange="bindDateChange">
+      <input type="text" disabled="{{true}}" placeholder="{{placeholder}}"></input>
+    </picker>
+    <image wx:if="{{!disable}}" src="/assets/images/editor.png"></image>
+  </block>
+  <block wx:if="{{type=='number'}}" class="flex-bt">
+    <input type="{{type}}" maxlength="{{maxlength}}" disabled="{{disable}}" placeholder="{{placeholder}}"></input>
+    <text class="getVarCode">获取验证码</text>
+  </block>
+  <block wx:if="{{type=='checkbox'}}">
+    <checkbox-group bindchange="checkboxChange" class="flex">
+      <label class="checkbox" wx:for="{{items}}" wx:key="index" bindtap="setCheckboxItem">
+        <text class="{{item.checked?'active':''}}" data-index="{{index}}" data-checked="{{item.checked}}">{{item.name}}</text>
+        <checkbox value="{{item.code}}" checked="{{item.checked}}" />
+      </label>
+    </checkbox-group>
+  </block>
+
+</view>
