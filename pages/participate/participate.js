@@ -1,5 +1,5 @@
 
-const QQMapWX = require('../../utils/qqmap-wx-jssdk.js');
+// const QQMapWX = require('../../utils/qqmap-wx-jssdk.js');
 
 
 Page({
@@ -114,9 +114,9 @@ Page({
     var that = this;
 
     　　　　　//1.2实例化腾讯地图API核心类
-    that.globalData.qqmapsdk = new QQMapWX({
-      key: 'H3GBZ-6CV6I-H4CGI-5CIDB-KWZ5K-E2BBU'
-    });
+    // that.globalData.qqmapsdk = new QQMapWX({
+    //   key: 'H3GBZ-6CV6I-H4CGI-5CIDB-KWZ5K-E2BBU'
+    // });
     　　　　　//1.3wx.getLocation方法获取当前位置坐标。
     wx.getLocation({
       altitude: false,

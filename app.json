@@ -7,6 +7,7 @@
     "pages/home/home/home",
     "pages/logs/logs",
     "pages/join/join",
+    "pages/joinPay/join",
     "pages/test/test",
     "pages/participate/participate",
     "pages/release/release",

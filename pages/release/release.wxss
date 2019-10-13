@@ -1,14 +1,14 @@
 .container{
-  padding:0 30rpx;
+  /* padding:0 30rpx; */
   font-size: 28rpx;
   height: 100%;
 }
-.top{
+.topBar{
   height: 56rpx;
   line-height: 56rpx;
  display: flex;
 }
-.top .search{
+.topBar .search{
   height: 56rpx;
   margin-left: 10rpx;
   background: #f7f7f7;
@@ -18,32 +18,40 @@
  
 
 }
-.top .search image{
+.topBar .search image{
   margin-left: 20rpx;
   width:22rpx;
   height: 27rpx;
    margin-top: 15rpx;
 }
-.top .search input{
+.topBar .search input{
   display: inline-block;
  flex: 1;
  padding-left: 10rpx;
 }
-.top .nice{
+.topBar .nice{
   display: inline-block;
   margin-left: 20rpx;
 }
-.top .nice image{
+.topBar .nice image{
   width:48rpx;
   height: 47rpx;
 }
 .navBar{
   display: flex;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
 }
-.navBar view{
+.navBar>view{
   flex: 1;
   text-align: center;
-  font-size: 28rpx;
+  font-size: 28rpx;  
+  margin-top: 30rpx;
+}
+.navBar text{
+  display: block;
+  float: left;
+  width: 100%;
   
 }
 .navBar text.active{
@@ -56,6 +64,8 @@
   height: 10rpx;
   display: none;
   border-radius: 5px;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
 }
 .navBar view text.line.active{
   display: inline-block;
@@ -64,6 +74,11 @@
   display: flex;
   padding-top: 30rpx;
   border-top: solid 1px #f5f5f5;
+  width: 100%;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  margin-bottom: 30rpx;
+  box-sizing: border-box;
 }
 .navStatus view {
   flex: 1;
@@ -82,4 +97,9 @@
 .navStatus view:last-child{
   margin-right: 0;
   flex: none;
+}
+.content{
+  padding: 30rpx 0;
+  background: var(--backColor);
+  margin-bottom: 80rpx;
 }

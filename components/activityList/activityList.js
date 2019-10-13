@@ -38,6 +38,14 @@ Component({
           complete: function(res) {},
         })
       }
+      if (this.data.type == 3) {
+        wx.navigateTo({
+          url: '/pages/joinPay/join',
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+      }
       console.log(this.data.type)
     }
   }

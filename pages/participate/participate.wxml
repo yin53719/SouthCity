@@ -45,6 +45,7 @@
         <image src="../../assets/images/arrow.png" ></image>
       </view>
   </view>
+  <!-- 活动列表-->
   <view class="content">
     <activity-cell type="2" wx:for="{{activityList}}" wx:key="key" data="{{item}}"></activity-cell>
   </view>

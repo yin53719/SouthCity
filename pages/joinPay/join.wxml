@@ -6,7 +6,6 @@
   <view class="titleCell mt60">
       <view> 佰分迪KTV娱乐会所,随心所欲，想唱就唱</view>
       <view class="right" style="width:200rpx;">
-          <button class="btn">+关注</button >
           <text>浏览量：4417</text>
       </view>
   </view>
@@ -94,14 +93,8 @@
  <!-- 套餐详情 -->
  <view class="setMeal">
      <!-- tabbar -->
-    <view class="tabbar">
-       <view class="active">
-          <text>详情</text>
-          <text class="line"></text>
-       </view>
-       <view>
-          <text>留言</text>
-       </view>
+    <view class="title">
+       商家套餐详情
     </view>
     <!-- 详情导航 -->
     <view class="detils">
@@ -123,23 +116,12 @@
 </view>
 <!-- 底部操作按钮 -->
 <view class="footer">
-  <view class="btnbar" bindtap="goHome" >
-     <image src="../../assets/images/iconhome.png" ></image>
-     <text>
-     首页</text>
-  </view>
-  <view class="btnbar">
-     <image src="../../assets/images/iconMessage.png" ></image>
-     <text>
-     留言</text>
-  </view>
-  <view class="btnbar">
-      <image src="../../assets/images/iconShare.png" ></image>
-     <text>
-     转发</text>
+  <view class="money">
+     <text >￥<text style="font-size:56rpx;">138</text></text>
+     <text>您的AA费用</text>
   </view>
   <view class="btn">
      <image src="../../assets/images/joinBtn.png" ></image>
-     <text>马上参与</text>
+     <text>立即支付</text>
   </view>
 </view>

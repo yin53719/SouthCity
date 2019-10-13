@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "发布列表",
-  "usingComponents": {}
+  "usingComponents": {
+    "activity-cell": "/components/activityList/activityList"
+  }
 }

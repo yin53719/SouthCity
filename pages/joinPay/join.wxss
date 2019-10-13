@@ -143,6 +143,11 @@ image{
   padding:0 30rpx;
   padding-bottom: 50rpx;
 }
+.setMeal .title{
+  color: #151515;
+  font-weight: bold;
+  padding: 30rpx 0;
+}
 .setMeal .tabbar{
   text-align: center;
   margin-top: 30rpx;
@@ -154,9 +159,6 @@ image{
 .setMeal .tabbar view{
   display: inline-block;
   font-weight: bold;
-}
-.setMeal .tabbar view.active{
-  color: #40e59b;
 }
 .setMeal .tabbar view text.line{
   height: 6rpx;
@@ -218,17 +220,15 @@ image{
   padding: 0 30rpx;
   box-sizing: border-box;
 }
-.footer view.btnbar{
+.footer view.money{
   flex: 1;
   color: #222;
   font-size: 22rpx;
-  text-align: center;
-  padding-top: 25rpx;
 }
-.footer view.btnbar image{
-  width: 48rpx;
-  height:48rpx;
-  display:inline-block;
+.footer view.money>text:first-child{
+  color: #f85b92;
+  font-size: 28rpx;
+  display: block;
 }
 .footer view.btn image{
   width: 376rpx;
@@ -248,7 +248,6 @@ image{
   font-size: 30rpx;
   
 }
-
 
 
 
