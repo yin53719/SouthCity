@@ -1,10 +1,11 @@
 <!--components/userTop/userTop.wxml-->
 <view class="top flex">
   <view class="infoImg">
-    <image src=""></image>
+    <open-data type="userAvatarUrl" style="border-radius:50%" ></open-data>
   </view>
   <view class="infoMsg">
-    <text>郑哈哈</text>
+    <!-- <text>郑哈哈</text> -->
+    <open-data type="userNickName"></open-data>
     <view wx:if="{{type == ''}}" class="label">
       <image src="/assets/images/home/huang.png"></image>
       <text>您的信誉度99%</text>
