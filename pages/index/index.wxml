@@ -1,9 +1,9 @@
 <!--index.wxml-->
 <view class="container" >
 
-   <image class="indexTopBg" src="../../assets/images/homeImgPeople.png"  > </image>
-   <image class="bottomBg" src="../../assets/images/homeImgbottom.png"  > </image>
    
+   <image class="bottomBg" src="../../assets/images/homeImgbottom.png"  > </image>
+   <image class="indexTopBg" src="../../assets/images/homeImgPeople.png"  > </image>
    <!-- <image  src="../../assets/images/indexTopBg.jpg"></image>
   
    <image class="bottomBg" src="../../assets/images/bottomBg.jpg"></image> -->

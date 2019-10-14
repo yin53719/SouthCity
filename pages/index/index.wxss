@@ -57,14 +57,14 @@
 }
 .indexTopBg{
   width:100%;
-  height: 548rpx;
+  height: 834rpx;
   position: absolute;
   top:0;
   z-index: 10;
 }
 .bottomBg{
   width:100%;
-  height: 840rpx;
+  height: 791rpx;
   position: absolute;
   bottom:0;
   z-index: 10;
