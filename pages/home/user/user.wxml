@@ -8,7 +8,7 @@
         <text>账户余额</text>
         <text>760.00</text>
       </view>
-      <view class="flex-bt">
+      <view class="flex-bt" bindtap="getCash" >
         <text>去提现</text>
         <image src="/assets/images/home/more.png"></image>
       </view>

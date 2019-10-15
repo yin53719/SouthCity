@@ -10,7 +10,7 @@ Page({
       text: "我的活动",
       imgurl: "/assets/images/home/hd.png"
     }, {
-      link: '',
+      link: '/pages/index/index',
       text: "活动规则",
       imgurl: "/assets/images/home/gz.png"
     }, {
@@ -87,6 +87,24 @@ Page({
     wx.navigateTo({
       url: data.url,
     })
+  },
+  getCash(){
+    //发起网络请求
+    wx.request({
+      url: 'https://juaa.shu0.cn',
+      method:'post',
+      data: {
+        code: 123
+      },
+      success(){
+        wx.showToast({
+          title: '提现成功',
+          // icon: 'loading',
+          duration: 1000
+        });
+      }
+    })
+    
   }
 
 })

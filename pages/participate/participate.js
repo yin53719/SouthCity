@@ -1,7 +1,10 @@
 
-// const QQMapWX = require('../../utils/qqmap-wx-jssdk.js');
-
-
+const QQMapWX = require('../../utils/qqmap-wx-jssdk.js');
+//1.2实例化腾讯地图API核心类
+const qqmapsdk = new QQMapWX({
+  key: 'H3GBZ-6CV6I-H4CGI-5CIDB-KWZ5K-E2BBU'
+});
+let app = getApp()
 Page({
   data: {
     location:'上海',
@@ -109,47 +112,37 @@ Page({
       })
     },
   onLoad: function () {
-
-
-    var that = this;
-
-    　　　　　//1.2实例化腾讯地图API核心类
-    // that.globalData.qqmapsdk = new QQMapWX({
-    //   key: 'H3GBZ-6CV6I-H4CGI-5CIDB-KWZ5K-E2BBU'
-    // });
-    　　　　　//1.3wx.getLocation方法获取当前位置坐标。
+    
+    //1.3wx.getLocation方法获取当前位置坐标。
     wx.getLocation({
       altitude: false,
-      success: function (res) {
-        console.log(res)
+      success: (res)=> {
+       
         var latitude = res.latitude;
         var longitude = res.longitude;
 
-        that.globalData.location = {
+        app.globalData.location = {
 
           latitude: latitude,
           longitude: longitude
         }
-
-        that.globalData.qqmapsdk.reverseGeocoder({       //qqmapsdk.reverseGeocoder
+        console.log(app)
+        qqmapsdk.reverseGeocoder({       //qqmapsdk.reverseGeocoder
 
           location: {
-            latitude: that.globalData.location.latitude,
-            longitude: that.globalData.location.longitude
+            latitude: app.globalData.location.latitude,
+            longitude: app.globalData.location.longitude
           },
-          success: function (res) {
+          success:  (res) =>{
             console.log(res)
-            var address = res.result.address_component.city;
+            let address = res.result.address_component.city;
 
-            that.setData({
-
+            this.setData({
               location: address
-
             });
 
           },
           fail: function (res) {
-
             wx.showToast({
               title: '解析地址错误',
               icon: 'loading',
