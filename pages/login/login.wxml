@@ -63,8 +63,8 @@
         </view>
       </view>
     </view>
-    <view class="flex uploadcard ">
-      <image src='/assets/images/login/uploadcard.png'></image>
+    <view class="flex uploadcard " bindtap="uploadCard" >
+      <image src='{{ cardUrl }}'></image>
       <text>（点击上传营业执照）</text>
     </view>
     <view class="loginButton ">提交审核</view>

@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    switch: '1' //0登录  1注册
+    switch: '0', //0登录  1注册,
+    cardUrl:'/assets/images/login/uploadcard.png'
   },
 
   /**
@@ -75,6 +76,20 @@ Page({
     console.log('picker发送选择改变，携带值为',e.detail.value)
     this.setData({businessTime:e.detail.value})
   },
-
+  uploadCard(){
+    const that = this;
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success(res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePaths = res.tempFilePaths;
+        that.setData({
+          cardUrl: tempFilePaths
+        })
+      }
+    })
+  }
 
 })
