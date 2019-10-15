@@ -6,8 +6,6 @@
   display: block;
   float: left;
   font-size: 28rpx;
-  /* background-image: url(https://cdn-1251334980.cos.ap-shanghai.myqcloud.com/middleBg.jpg); */
-  /* background-size: 100%; */
    background: linear-gradient(to bottom, #e7fd8f 0%,#4ce293 100%);
 }
 
