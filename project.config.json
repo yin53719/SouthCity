@@ -22,7 +22,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.7.1",
-  "appid":"wx31d29d1366a785e0",
+	"appid": "wx31d29d1366a785e0",
 	"projectname": "SouthCity",
 	"debugOptions": {
 		"hidedInDevtools": []

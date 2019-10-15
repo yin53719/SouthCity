@@ -43,7 +43,7 @@
             <text>07-09 12:00:00</text>
           </view>
       </view>
-      <view>
+      <view bindtap="goLocation" data-latitude="31.38467505202846" data-longitude="121.2264036080268">
          <view class="left">
             <image  src="../../assets/images/location2.png" ></image>
             <text>企业广场</text>
@@ -51,7 +51,7 @@
           <view class="right"><image src="../../assets/images/right.png" ></image> </view>
       </view>
       <!-- 联系方式 -->
-      <view>
+      <view bindtap="makePhoneCall" data-phoneNumber="17717038360" >
          <view class="left">
             <image  src="../../assets/images/call.png" ></image>
             <text>1380000000000</text>
