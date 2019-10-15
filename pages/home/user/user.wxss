@@ -31,7 +31,7 @@
 
 .priceSum view:first-child{
   flex-direction: column;
-  align-items: normal;
+  align-items: flex-start;
 }
 .priceSum view:first-child text:first-child{
   font-size: var(--size24);
@@ -49,6 +49,9 @@
 
 .priceSum view:last-child text{
   font-size: var(--size28);
+}
+.buttonList{
+  flex-wrap: nowrap;
 }
 
 .buttonList image{
