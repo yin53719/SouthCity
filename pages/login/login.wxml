@@ -1,0 +1,76 @@
+<!--pages/login/login.wxml-->
+
+<view class="wrapper">
+  <view class="logo flex">
+    <image src="/assets/images/login/loginlogo.png"></image>
+    <text>商家中心</text>
+  </view>
+
+  <view class="navblock flex-ar">
+    <text bindtap="changeSwitch" data-type="0" class="{{switch=='0'?'active':''}}">登录</text>
+    <text bindtap="changeSwitch" data-type="1" class="{{switch=='1'?'active':''}}">注册</text>
+    <view class="block {{switch=='0'?'rightToLeft':'leftToRight'}}"></view>
+  </view>
+
+
+  <view class="login" wx:if="{{switch=='0'}}">
+    <view class="flex-bt">
+      <image class="username" src="/assets/images/login/username.png"></image>
+      <input placeholder-class="phcolor" type="text" placeholder="请输入账号"></input>
+    </view>
+    <view class="flex-bt">
+      <image class="password" src="/assets/images/login/password.png"></image>
+      <input placeholder-class="phcolor" type="text" placeholder="请输入登录密码"></input>
+      <image class="cansee" src="/assets/images/login/cansee.png"></image>
+    </view>
+    <view class="loginButton">登录</view>
+    <view class="help">忘记密码?</view>
+  </view>
+
+
+  <view class="login registered" wx:else>
+    <view class="flex-bt">
+      <image class="password" src="/assets/images/login/icon-hy.png"></image>
+      <input placeholder-class="phcolor" disabled="true" type="text" placeholder="请选择行业"></input>
+      <image class="rightMore" src="/assets/images/login/rightMore.png"></image>
+    </view>
+    <view class="flex-bt">
+      <image class="password" src="/assets/images/login/icon-dm.png"></image>
+      <input placeholder-class="phcolor" type="text" placeholder="请输入店名"></input>
+    </view>
+    <view class="flex-bt">
+      <image class="password" src="/assets/images/login/icon-dz.png"></image>
+      <input placeholder-class="phcolor" type="text" placeholder="请输入地址"></input>
+    </view>
+    <view class="flex-bt">
+      <image class="password" src="/assets/images/login/icon-sj.png"></image>
+      <picker mode="date" value="{{businessTime}}" bindchange="bindDateChange">
+        <input placeholder-class="phcolor" disabled="true" value="{{businessTime}}" type="text" placeholder="请选择时间"></input>
+      </picker>
+      <image class="rightMore " src="/assets/images/login/rightMore.png "></image>
+    </view>
+    <view class="flex-bt ">
+      <image class="password " src="/assets/images/login/icon-lxr.png "></image>
+      <input placeholder-class="phcolor " type="text " placeholder="请输入联系人 "></input>
+    </view>
+    <view class="flex-bt ">
+      <image class="password " src="/assets/images/login/icon-sj-07.png "></image>
+      <view class="flex ">
+        <input placeholder-class="phcolor " type="text " placeholder="请输入联系人 " value="13800000000 "></input>
+        <view class="flex getCode ">
+          <text>更换</text>
+          <text>获取验证码</text>
+        </view>
+      </view>
+    </view>
+    <view class="flex uploadcard ">
+      <image src='/assets/images/login/uploadcard.png'></image>
+      <text>（点击上传营业执照）</text>
+    </view>
+    <view class="loginButton ">提交审核</view>
+  </view>
+
+
+
+
+</view>

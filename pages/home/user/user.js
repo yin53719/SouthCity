@@ -18,7 +18,7 @@ Page({
       text: "个人资料",
       imgurl: "/assets/images/home/zl.png"
     }, {
-      link: '',
+      link: '/pages/login/login',
       text: "商家入驻",
       imgurl: "/assets/images/home/rz.png"
     }]
