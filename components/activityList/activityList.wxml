@@ -13,9 +13,10 @@
         <text>{{data.time}}</text>
         <text>{{data.local}}</text>
       </view>
-      <view class="button seeData" bindtap="goJoin" wx:if="{{ type=='1'}}" >查看详情</view>
+      <view class="button seeData" bindtap="goJoin" wx:if="{{ type=='1'}}">查看详情</view>
       <view class="button seeData" bindtap="goJoin" wx:if="{{ type=='2'}}">我要参与</view>
       <view class="button seeData" bindtap="goJoin" wx:if="{{ type=='3'}}">我要发布</view>
+      <view class="button seeData" bindtap="goJoin" wx:if="{{ type=='4'}}">查看详情</view>
     </view>
     <view class="flex-bt">
       <view class="flex-bt label">
@@ -25,6 +26,12 @@
         <view class="flex">
           <image src="/assets/images/home/qiandao.png"></image>
           <text>签到</text>
+        </view>
+      </view>
+      <view wx:if="{{type ==='4'}}" class="button hexiao">
+        <view class="flex">
+          <image src="/assets/images/home/hexiao.png"></image>
+          <text>核销</text>
         </view>
       </view>
     </view>

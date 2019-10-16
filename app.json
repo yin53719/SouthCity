@@ -1,6 +1,10 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/businessPackage/businessPackage",
+    "pages/businessData/businessData",
+    "pages/businessUser/businessUser",
+    "pages/businessActivity/businessActivity",
     "pages/login/login",
     "pages/userCenter/userCenter",
     "pages/home/user/user",

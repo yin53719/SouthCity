@@ -4,7 +4,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    navButton: {
+      type:Array,
+      value:()=>[]
+    },
   },
   options: {
     addGlobalClass: true
@@ -13,23 +16,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    navButton: [{
-      link: "",
-      text: "待参加",
-      num: "0"
-    }, {
-      link: "",
-      text: "已参加",
-      num: "0"
-    }, {
-      link: "/pages/myFollow/myFollow",
-      text: "已关注",
-      num: "0"
-    }, {
-      link: "",
-      text: "未举办",
-      num: "0"
-    }],
+    
   },
 
   /**

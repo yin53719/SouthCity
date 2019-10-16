@@ -26,7 +26,7 @@
   font-size: var(--size24);
 }
 
-.message text::after {
+.message text:first-child:after {
   content: "";
   display: block;
   width: 1rpx;
@@ -49,7 +49,7 @@
 }
 
 .button {
-  line-height: 1.5;
+  line-height: 1;
   display: flex;
   align-items: center;
   justify-content: space-around;

@@ -41,6 +41,12 @@ checkbox-group {
   padding-bottom: 20rpx;
 }
 
+radio-group {
+  width: 100%;
+  flex-wrap: wrap;
+  padding-bottom: 20rpx;
+}
+
 .checkbox{
   margin-top:30rpx;
 }

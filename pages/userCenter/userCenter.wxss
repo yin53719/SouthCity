@@ -4,3 +4,20 @@
 .wrapper .form{
   margin-top: 30rpx;
 }
+
+
+
+.save{
+  padding:0 30rpx;
+  box-sizing: content-box;
+  
+}
+.save text{
+  display: block;
+  margin-top: 130rpx;
+  padding: 25rpx 0;
+  width: 100%;
+  background: #4ce293;
+  text-align: center;
+  color: #fff;
+}

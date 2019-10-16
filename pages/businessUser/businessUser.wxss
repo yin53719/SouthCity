@@ -1,0 +1,65 @@
+/* pages/businessUser/businessUser.wxss */
+
+.content {
+  padding: 0 30rpx;
+}
+
+.priceSum {
+  margin-top: 20rpx;
+  width: 100%;
+  background-size: 100% 100%;
+  background-image: url("https://cdn-1251334980.cos.ap-shanghai.myqcloud.com/busniessPriceBack.png");
+  padding: 40rpx 50rpx;
+  box-sizing: border-box;
+  color: #fff;
+}
+
+.cluem {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.cluem text:first-child{
+  font-size: var(--size24);
+}
+.cluem text:last-child{
+  font-size: 54rpx;
+}
+.tell{
+  font-size: 24rpx;
+}
+.grtCash{
+  font-size: 28rpx;
+}
+
+.priceSum image {
+  margin-left: 10rpx;
+  width: 14rpx;
+  height: 23rpx;
+}
+
+.buttonList {
+  flex-wrap: nowrap;
+}
+
+.buttonList image {
+  height: 47rpx;
+  width: 60rpx;
+}
+
+.buttonList .flex-bt {
+  flex-direction: column;
+}
+
+.buttonList {
+  margin-top: 40rpx;
+}
+
+.buttonList .flex-bt text {
+  margin-top: 30rpx;
+  font-size: var(--size24);
+  color: var(--defaultColor);
+}
+
+.buttonList image {
+  width: 45rpx;
+}

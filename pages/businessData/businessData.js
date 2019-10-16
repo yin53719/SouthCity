@@ -1,12 +1,54 @@
-// pages/login/login.js
+// pages/businessData/businessData.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    switch: '0', //0登录  1注册,
-    cardUrl:'/assets/images/login/uploadcard.png'
+    cardUrl: '/assets/images/login/uploadcard.png',
+    checkBoxItems: [{
+        name: 'KTV',
+        code: '1',
+        checked: false,
+
+      },
+      {
+        name: '酒吧',
+        code: '2',
+        checked: true,
+
+      },
+      {
+        name: '美食',
+        code: '3',
+        checked: false,
+
+      },
+      {
+        name: '景点',
+        code: '4',
+        checked: false,
+
+      },
+      {
+        name: '美丽',
+        code: '5',
+        checked: false,
+
+      },
+      {
+        name: '电影',
+        checked: true,
+        code: '6'
+      },
+      {
+        name: '网吧',
+        checked: false,
+        code: '7'
+      }
+    ],
+    birthDay: '2013.01.12',
+    bitList: []
   },
 
   /**
@@ -64,19 +106,18 @@ Page({
   onShareAppMessage: function() {
 
   },
-
-  changeSwitch(e) {
-    console.log(e.target.dataset)
+  boxchangeindex: function (e) {
+    const temp = `checkBoxItems[${e.detail.index}].checked`
     this.setData({
-      switch: e.target.dataset.type
+      [temp]: !e.detail.checked
     })
-    console.log(this.data.switch)
   },
-  bindDateChange: function(e) {
-    console.log('picker发送选择改变，携带值为',e.detail.value)
-    this.setData({businessTime:e.detail.value})
+  getchecked: function (e) {
+    this.setData({
+      bitList: e.detail
+    })
   },
-  uploadCard(){
+  uploadCard() {
     const that = this;
     wx.chooseImage({
       count: 1,
@@ -91,15 +132,4 @@ Page({
       }
     })
   },
-  login(){
-    wx.navigateTo({
-      url: "/pages/businessUser/businessUser"
-    })
-  },
-  registered(){
-    wx.navigateTo({
-      url: "/pages/businessPackage/businessPackage"
-    })
-  },
-
 })

@@ -6,7 +6,7 @@
   box-sizing: border-box;
   padding: 0 30rpx;
   background-size: 100% 100%;
-  background-image: url("https://cdn-1251334980.cos.ap-shanghai.myqcloud.com/userTop.png");
+  
 }
 
 .infoImg {

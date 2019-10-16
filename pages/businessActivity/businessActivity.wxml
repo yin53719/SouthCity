@@ -1,0 +1,8 @@
+<!--pages/businessActivity/businessActivity.wxml-->
+<view class="wrapper">
+  <user-top type="3"></user-top>
+  <user-nav-button></user-nav-button>
+  <view class="content">
+    <activity-list type="4" wx:for="{{activityList}}" wx:key="key" data="{{item}}"></activity-list>
+  </view>
+</view>

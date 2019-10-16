@@ -2,7 +2,7 @@
 <view class="wrapper">
   <user-top></user-top>
   <view class="content">
-    <user-nav-button></user-nav-button>
+    <user-nav-button navButton="{{navButton}}"></user-nav-button>
     <view class="priceSum flex-bt">
       <view class="flex-bt">
         <text>账户余额</text>

@@ -1,0 +1,32 @@
+<!--pages/businessUser/businessUser.wxml-->
+<view class="wrapper">
+  <user-top type="3"></user-top>
+  <view class="content">
+    <user-nav-button navButton="{{navButton}}"></user-nav-button>
+    <view class="priceSum">
+      <view class="flex-bt">
+        <view class="flex-bt cluem">
+          <text>可提现金额</text>
+          <text>760.00</text>
+        </view>
+        <view class="flex-bt cluem">
+          <text>总营业额</text>
+          <text>10000</text>
+        </view>
+      </view>
+      <view class="flex-bt">
+        <text class="tell">(注：商家提现需要扣除一定比例的手续费)</text>
+        <view class="flex-bt" bindtap="getCash">
+          <text class="grtCash">去提现</text>
+          <image src="/assets/images/home/more.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class="buttonList flex-ar">
+      <view class="flex-bt" wx:for="{{buttonList}}" bindtap="goToUrl" data-url="{{item.link}}" wx:key="k">
+        <image src="{{item.imgurl}}"></image>
+        <text>{{item.text}}</text>
+      </view>
+    </view>
+  </view>
+</view>

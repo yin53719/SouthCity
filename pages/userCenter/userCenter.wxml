@@ -8,4 +8,7 @@
     <cell title="修改手机号" maxlength="11" type="number" placeholder="13321100909"></cell>
     <cell title="个人优点（可多选）" bind:getchecked="getchecked" bind:boxchangeindex="boxchangeindex" type="checkbox" items="{{checkBoxItems}}"></cell>
   </view>
+   <view class="save">
+    <text>保存修改</text>
+  </view>
 </view>

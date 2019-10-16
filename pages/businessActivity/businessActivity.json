@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+
+    "user-top": "/components/userTop/userTop",
+    "user-nav-button": "/components/userNavButton/userNavButton",
+    "activity-list": "/components/activityList/activityList"
+  }
+}

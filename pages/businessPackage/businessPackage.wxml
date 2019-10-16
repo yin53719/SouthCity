@@ -1,0 +1,40 @@
+<!--pages/businessPackage/businessPackage.wxml-->
+
+
+<view class="wrapper">
+  <text class="title">套餐设置</text>
+  <view class="form">
+    <input placeholder="请输入标题"></input>
+    <view class="th flex-bt">
+      <text>人数</text>
+      <text class="ipt">套餐提供</text>
+    </view>
+    <view class="td flex-bt">
+      <text>1男1女</text>
+      <input class="ipt" placeholder="请输入标题" value="果盘1个，啤酒10瓶"></input>
+    </view>
+    <view class="td flex-bt">
+      <text>1男1女</text>
+      <input class="ipt" placeholder="请输入标题" value="果盘1个，啤酒10瓶"></input>
+    </view>
+    <view class="td flex-bt">
+      <text>1男1女</text>
+      <input class="ipt" placeholder="请输入标题" value="果盘1个，啤酒10瓶"></input>
+    </view>
+    <view class="td flex-bt">
+      <text>1男1女</text>
+      <input class="ipt" placeholder="请输入标题" value="果盘1个，啤酒10瓶"></input>
+    </view>
+    <view class="checkImg flex">
+      <image src="/assets/images/home/guanggaotu.png"></image>
+      <text>更换</text>
+    </view>
+
+  </view>
+   <view bindtap="gotolink" class="save">
+    <text>保存修改</text>
+  </view>
+
+
+
+</view>

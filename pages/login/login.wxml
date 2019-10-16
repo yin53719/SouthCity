@@ -23,7 +23,7 @@
       <input placeholder-class="phcolor" type="text" placeholder="请输入登录密码"></input>
       <image class="cansee" src="/assets/images/login/cansee.png"></image>
     </view>
-    <view class="loginButton">登录</view>
+    <view class="loginButton" bindtap="login">登录</view>
     <view class="help">忘记密码?</view>
   </view>
 
@@ -67,7 +67,7 @@
       <image src='{{ cardUrl }}'></image>
       <text>（点击上传营业执照）</text>
     </view>
-    <view class="loginButton ">提交审核</view>
+    <view bindtap="registered" class="loginButton ">提交审核</view>
   </view>
 
 

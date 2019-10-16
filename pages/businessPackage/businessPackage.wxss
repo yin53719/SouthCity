@@ -1,0 +1,82 @@
+/* pages/businessPackage/businessPackage.wxss */
+
+.wrapper {
+  padding: 0 30rpx;
+}
+
+.title {
+  display: block;
+  line-height: 1;
+  font-size: 34rpx;
+  padding-left: 10rpx;
+  border-left: 8rpx solid #4de293;
+  margin-bottom: 50rpx;
+}
+
+input {
+  margin: 20rpx 0;
+  padding: 20rpx 30rpx;
+  background: #f8f8f8;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+}
+
+.th {
+  margin-top: 40rpx;
+  padding-bottom: 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+.td input{
+  margin-top: 25rpx;
+  margin-bottom: 0;
+}
+
+.flex-bt text {
+  font-size: 28rpx;
+}
+
+.th.flex-bt text {
+  color: #4de293;
+}
+
+.flex-bt text:first-child {
+  flex: 1;
+  text-align: center;
+}
+
+.ipt {
+  width: 450rpx;
+}
+
+text.ipt {
+  text-align: center;
+}
+.checkImg{
+  text-align: center;
+  flex-direction: column;
+}
+.checkImg image{
+  margin-top: 20rpx;
+  width: 500rpx;
+  height: 200rpx;
+}
+.checkImg text{
+  font-size: 22rpx;
+  color:#4de293;
+  text-decoration-line: underline; 
+}
+
+.save{
+  padding:0 30rpx;
+  box-sizing: content-box;
+  
+}
+.save text{
+  display: block;
+  margin-top: 30rpx;
+  padding: 25rpx 0;
+  width: 100%;
+  background: #4ce293;
+  text-align: center;
+  color: #fff;
+}

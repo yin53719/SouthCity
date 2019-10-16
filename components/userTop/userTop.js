@@ -4,7 +4,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    type: String
+    type: {
+      type:String,
+      value:'1'
+    }
   },
   options: {
     addGlobalClass: true

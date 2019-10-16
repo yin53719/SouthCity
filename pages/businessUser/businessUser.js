@@ -1,4 +1,4 @@
-// pages/home/user/user.js
+// pages/businessUser/businessUser.js
 Page({
 
   /**
@@ -7,11 +7,11 @@ Page({
   data: {
     navButton: [{
       link: "",
-      text: "待参加",
+      text: "待举办",
       num: "0"
     }, {
       link: "",
-      text: "已参加",
+      text: "待参加",
       num: "0"
     }, {
       link: "/pages/myFollow/myFollow",
@@ -23,21 +23,17 @@ Page({
       num: "0"
     }],
     buttonList: [{
-      link: '/pages/myActivity/myActivity',
-      text: "我的活动",
-      imgurl: "/assets/images/home/hd.png"
+      link: '/pages/businessPackage/businessPackage',
+      text: "我的套餐",
+      imgurl: "/assets/images/home/taocan.png"
     }, {
-      link: '/pages/index/index',
-      text: "活动规则",
-      imgurl: "/assets/images/home/gz.png"
+        link: '/pages/businessActivity/businessActivity',
+      text: "我的接待",
+        imgurl: "/assets/images/home/jiedai.png"
     }, {
-      link: '/pages/userCenter/userCenter',
-      text: "个人资料",
-      imgurl: "/assets/images/home/zl.png"
-    }, {
-      link: '/pages/login/login',
-      text: "商家入驻",
-      imgurl: "/assets/images/home/rz.png"
+        link: '/pages/businessData/businessData',
+      text: "商家资料",
+      imgurl: "/assets/images/home/ziliao.png"
     }]
   },
 
@@ -59,9 +55,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    this.getTabBar().setData({
-      selected: 2
-    })
+
   },
 
   /**
@@ -98,30 +92,10 @@ Page({
   onShareAppMessage: function() {
 
   },
-
-  goToUrl: function(e) {
+  goToUrl: function (e) {
     const data = e.currentTarget.dataset
     wx.navigateTo({
       url: data.url,
     })
   },
-  getCash(){
-    //发起网络请求
-    wx.request({
-      url: 'https://juaa.shu0.cn',
-      method:'post',
-      data: {
-        code: 123
-      },
-      success(){
-        wx.showToast({
-          title: '提现成功',
-          // icon: 'loading',
-          duration: 1000
-        });
-      }
-    })
-    
-  }
-
 })
