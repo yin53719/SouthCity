@@ -1,0 +1,184 @@
+/* pages/login/login.wxss */
+
+.wrapper {
+  padding: 0 130rpx;
+}
+
+.logo {
+  margin-top: 50rpx;
+  text-align: center;
+  flex-direction: column;
+}
+
+.logo image {
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.logo text {
+  margin-top: 15rpx;
+  font-size: var(--size30);
+  color: #5be492;
+}
+
+.navblock {
+  position: relative;
+  margin: 65rpx auto 0;
+  padding: 7rpx;
+  width: 440rpx;
+  height: 60rpx;
+  background: #d9d9d9;
+  border-radius: 50rpx;
+}
+
+.navblock text {
+  position: relative;
+  width: 50%;
+  text-align: center;
+  font-size: var(--size30);
+  color: #fff;
+  z-index: 2;
+}
+
+.navblock text.active {
+  color: #1c1c1c;
+}
+
+.block {
+  position: absolute;
+  left: 7rpx;
+  right: auto;
+  height: 60rpx;
+  width: 50%;
+  background: #fff;
+  border-radius: 50rpx;
+  z-index: 1;
+}
+
+.block.leftToRight {
+  animation: leftToRight 200ms linear forwards;
+}
+
+.block.rightToLeft {
+  animation: rightToLeft 200ms linear forwards;
+}
+
+@keyframes leftToRight {
+  0% {
+    left: 7rpx;
+    right: auto;
+  }
+
+  100% {
+    left: 50%;
+    transform: translateX(-7rpx);
+  }
+}
+
+@keyframes rightToLeft {
+  0% {
+    left: 50%;
+    transform: translateX(-7rpx);
+  }
+
+  100% {
+    left: 7rpx;
+    right: auto;
+  }
+}
+
+.login {
+  margin-top: 30rpx;
+}
+
+.login image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.login .cansee {
+  width: 25rpx;
+  height: 15rpx;
+}
+
+.login .rightMore {
+  width: 13rpx;
+  height: 24rpx;
+}
+
+.login .flex-bt {
+  padding: 45rpx 0;
+  border-bottom: 1rpx solid var(--borderColor);
+  flex-wrap: nowrap;
+}
+
+.login .flex-bt picker {
+  font-size: var(--size26);
+  width: 100%;
+}
+
+.login .flex-bt input {
+  margin-left: 25rpx;
+  font-size: var(--size26);
+  width: 100%;
+}
+
+.phcolor {
+  color: #a8a7a7;
+}
+
+.loginButton {
+  margin-top: 75rpx;
+  width: 470rpx;
+  height: 100rpx;
+  border-radius: 100rpx;
+  background-image: url('https://cdn-1251334980.cos.ap-shanghai.myqcloud.com/button-back.png');
+  background-size: 100% 100%;
+  text-align: center;
+  line-height: 100rpx;
+  color: #fff;
+  box-shadow: -5rpx 10rpx 35rpx 5rpx rgba(151, 150, 150, 0.3);
+}
+
+.help {
+  margin-top: 50rpx;
+  text-decoration-line: underline;
+  text-align: center;
+  font-size: var(--size26);
+  color: #a8a7a7;
+}
+
+.registered .flex-bt {
+  padding: 25rpx 0;
+}
+
+.getCode {
+  font-size: var(--size22);
+  color: #4de293;
+}
+
+.getCode text {
+  white-space: nowrap;
+}
+
+.getCode text:last-child {
+  margin-left: 15rpx;
+  padding: 3rpx 10rpx;
+  border: 1rpx solid #4de293;
+  border-radius: 50rpx;
+}
+
+.uploadcard {
+  margin-top: 20rpx;
+}
+
+.uploadcard image {
+  width: 110rpx;
+  height: 70rpx;
+}
+
+.uploadcard text {
+  margin-left: 30rpx;
+  font-size: var(--size26);
+  color: #2b2929;
+}
