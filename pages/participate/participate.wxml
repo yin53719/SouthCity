@@ -30,7 +30,7 @@
   <view class="navStatus">
       <view>
         <text>热门聚会</text>
-        <image src="../../assets/images/arrow.png" ></image>
+        <image class="rotate180" src="../../assets/images/arrow.png" ></image>
       </view>
       <view>
         <text>距离最近</text>
