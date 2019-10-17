@@ -57,12 +57,17 @@
       <input placeholder-class="phcolor" type="text" value="{{ postData.address }}"  placeholder="请输入地址" bindtap="goLocation" ></input>
     </view>
     <view class="flex-bt">
-      <image class="password" src="/assets/images/login/icon-sj.png"></image>
-      <picker mode="date" value="{{businessTime}}" bindchange="bindDateChange">
-        <input placeholder-class="phcolor" disabled="true" value="{{businessTime}}" type="text" placeholder="请选择时间"></input>
+      <image class="password" style="width:70rpx;" src="/assets/images/login/icon-sj.png"></image>
+      <picker mode="time" start="00:00" end="23:59" value="{{businessTimestart}}" bindchange="bindDateChangestart">
+        <input placeholder-class="phcolor" disabled="true" value="{{businessTimestart}}" type="text" placeholder="请选择时间"></input>
+      </picker>
+      -
+           <picker mode="time" start="00:00" end="23:59" value="{{businessTimeend}}" bindchange="bindDateChangeend">
+        <input placeholder-class="phcolor" disabled="true" value="{{businessTimeend}}" type="text" placeholder="请选择时间"></input>
       </picker>
       <image class="rightMore " src="/assets/images/login/rightMore.png "></image>
     </view>
+     
     <view class="flex-bt ">
       <image class="password " src="/assets/images/login/icon-lxr.png "></image>
       <input placeholder-class="phcolor " type="text " placeholder="请输入联系人 "></input>

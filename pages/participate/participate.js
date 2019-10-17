@@ -15,25 +15,31 @@ Page({
       priceType:1,
       sortType:0
     },
-    activityList: [{
-      title: "佰分迪KTV娱乐会所",
-      local: "南宁市青秀区厢竹大道5号",
-      time: "2019.9.15  20:00 - 12:00",
-      label: [
-        "KTV",
-        "3男3女",
-        "68元/男"
-      ],
-      status: "活动招募中",
-      message: "缺1男2女",
-      manAllNum: "3",
-      manNum: "1",
-      womanAllNum: "3",
-      womanNum: "1",
-    }]
+    activityList: []
   },
   onLoad: function () {
-    
+    let activityList = [];
+    for(let i=0;i<10;i++){
+      activityList.push({
+        title: "佰分迪KTV娱乐会所",
+        local: "南宁市青秀区厢竹大道5号",
+        time: "2019.9.15  20:00 - 12:00",
+        label: [
+          "KTV",
+          "3男3女",
+          "68元/男"
+        ],
+        status: "活动招募中",
+        message: "缺1男2女",
+        manAllNum: "3",
+        manNum: "1",
+        womanAllNum: "3",
+        womanNum: "1",
+      })
+    }
+    this.setData({
+      activityList
+    })
     //1.3wx.getLocation方法获取当前位置坐标。
     wx.getLocation({
       altitude: false,
@@ -88,6 +94,7 @@ Page({
           ...this.data.postData,...navType
         }
       })
+      this.getPageList()
     }
   },
   getPageList(){
@@ -100,5 +107,11 @@ Page({
         console.log(res)
       }
     })
+  },
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom(){
+    this.getPageList()
   }
 })

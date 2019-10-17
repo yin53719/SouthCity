@@ -91,9 +91,13 @@ Page({
     })
     console.log(this.data.switch)
   },
-  bindDateChange: function(e) {
+  bindDateChangestart: function(e) {
     console.log('picker发送选择改变，携带值为',e.detail.value)
-    this.setData({businessTime:e.detail.value})
+    this.setData({ businessTimestart:e.detail.value})
+  },
+  bindDateChangeend: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({ businessTimeend: e.detail.value })
   },
   // 上传营业执照
   uploadCard(){

@@ -210,6 +210,19 @@ image{
 .setMeal .detils.cell text.center{
   border:none;
 }
+.activityDetils{
+  border-top: solid 20rpx #f1f1f1;
+
+}
+.activityDetils .title{
+  color: #151515;
+  font-weight: bold;
+  padding: 30rpx 0;
+}
+
+
+
+
 .footer{
   background: #f9f9f9;
   height: 114rpx;

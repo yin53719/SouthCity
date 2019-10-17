@@ -64,7 +64,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "南宁同城信息网",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "onReachBottomDistance": 0
   },
   "sitemapLocation": "sitemap.json"
 }
