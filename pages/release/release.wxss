@@ -37,67 +37,7 @@
   width:48rpx;
   height: 47rpx;
 }
-.navBar{
-  display: flex;
-  padding-left: 30rpx;
-  padding-right: 30rpx;
-}
-.navBar>view{
-  flex: 1;
-  text-align: center;
-  font-size: 28rpx;  
-  margin-top: 30rpx;
-}
-.navBar text{
-  display: block;
-  float: left;
-  width: 100%;
-  
-}
-.navBar text.active{
-  color: #40e59b;
-  font-family: 'PingFang SC Bold';
-}
-.navBar view text.line{
-  background: #40e59b;
-  width: 50rpx;
-  height: 10rpx;
-  display: none;
-  border-radius: 5px;
-  margin-left: 30rpx;
-  margin-top: 20rpx;
-}
-.navBar view text.line.active{
-  display: inline-block;
-}
-.navStatus {
-  display: flex;
-  padding-top: 30rpx;
-  border-top: solid 1px #f5f5f5;
-  width: 100%;
-  padding-left: 30rpx;
-  padding-right: 30rpx;
-  margin-bottom: 30rpx;
-  box-sizing: border-box;
-}
-.navStatus view {
-  flex: 1;
-  margin-right: 50rpx;
-  height: 26rpx;
-  font-size: 26rpx;
-}
-.navStatus view image{
-  width: 14rpx;
-  height: 6rpx;
-  margin-left: 12rpx;
-  /* float: right; */
-  vertical-align: middle;
-  /* display: inline-block; */
-}
-.navStatus view:last-child{
-  margin-right: 0;
-  flex: none;
-}
+
 .content{
   padding: 30rpx 0;
   background: var(--backColor);

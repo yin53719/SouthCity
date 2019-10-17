@@ -30,6 +30,14 @@ Component({
    */
   methods: {
     goJoin:function(){
+      if (this.data.type == 1){
+        wx.navigateTo({
+          url: '/pages/join/join',
+          success: function(res) {},
+          fail: function(res) {},
+          complete: function(res) {},
+        })
+      }
       if (this.data.type == 2){
         wx.navigateTo({
           url: '/pages/join/join',

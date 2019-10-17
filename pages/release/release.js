@@ -3,26 +3,6 @@
 Page({
   data: {
     location: '上海',
-    navArray: [{
-      name: '全部',
-      type: 0
-    }, {
-      name: 'KTV',
-      type: 1
-    }, {
-      name: '酒吧',
-      type: 2
-    }, {
-      name: '美食',
-      type: 3
-    }, {
-      name: '景点',
-      type: 4
-    }, {
-      name: '网吧',
-      type: 5
-    }],
-    navType: 0,
     activityList: [{
       title: "佰分迪KTV娱乐会所",
       local: "南宁市青秀区厢竹大道5号",

@@ -1,0 +1,16 @@
+<!-- 导航 组件-->
+<!-- 导航 -->
+  <view class="navBar">
+     <view wx:for="{{navArray}}" wx:key="idx" wx:for-item="item" >
+        <text bindtap="navTap" data-type="{{ item.type }}" class="{{item.type == navType ? 'active':'' }}" >{{item.name}}</text>      
+  <text  class="line {{item.type == navType ? 'active':'' }}" ></text>
+        
+     </view>
+  </view>
+  <!-- 导航2  -->
+  <view class="navStatus">
+      <view bindtap="navStatusHandle" data-type="{{ item.type }}" data-index="{{ idx }}" wx:for="{{ navStatusArray }}" wx:key="idx" wx:for-item="item" wx:for-index="idx">
+        <text>{{ item.name }}</text>
+        <image class="{{ item.status === 1?'rotate180':'' }}" src="../../assets/images/arrow.png" ></image>
+      </view>
+  </view>

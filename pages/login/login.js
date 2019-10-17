@@ -1,4 +1,7 @@
-// pages/login/login.js
+let plugin = requirePlugin('routePlan');
+const chooseLocation = requirePlugin('chooseLocation');
+const key = 'H3GBZ-6CV6I-H4CGI-5CIDB-KWZ5K-E2BBU'; //使用在腾讯位置服务申请的key
+const referer = '南宁同城信息网'; //调用插件的app的名称
 Page({
 
   /**
@@ -6,7 +9,11 @@ Page({
    */
   data: {
     switch: '0', //0登录  1注册,
-    cardUrl:'/assets/images/login/uploadcard.png'
+    postData:{
+      address:'',
+      cardUrl:'/assets/images/login/uploadcard.png',
+    },
+    isClickChooseLocation:false
   },
 
   /**
@@ -27,7 +34,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    const location = chooseLocation.getLocation();
+    console.log(location);
+    // 腾讯内置导航
+    if(location && this.data.isClickChooseLocation){
+      // let postData = {}
+      this.setData({
+        isClickChooseLocation:false,
+        postData:{
+          ...this.data.postData, ...location
+        }
+      })
 
+    }
   },
 
   /**
@@ -76,6 +95,7 @@ Page({
     console.log('picker发送选择改变，携带值为',e.detail.value)
     this.setData({businessTime:e.detail.value})
   },
+  // 上传营业执照
   uploadCard(){
     const that = this;
     wx.chooseImage({
@@ -86,7 +106,9 @@ Page({
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths;
         that.setData({
-          cardUrl: tempFilePaths
+          postData:{
+            ...this.postData,cardUrl:tempFilePaths
+          }
         })
       }
     })
@@ -101,5 +123,23 @@ Page({
       url: "/pages/businessPackage/businessPackage"
     })
   },
-
+  // 导航，获取定位,选点
+  goLocation(e){
+    wx.getLocation({
+      success:(res)=>{
+        const location = JSON.stringify({
+          latitude: res.latitude,
+          longitude: res.longitude
+        });
+        const category = '生活服务,娱乐休闲';
+        this.setData({
+          isClickChooseLocation:true
+        })
+        wx.navigateTo({
+          url: 'plugin://chooseLocation/index?key=' + key + '&referer=' + referer + '&location=' + location + '&category' + category
+        });
+      }
+    })
+    
+  }
 })

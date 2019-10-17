@@ -147,7 +147,9 @@
   font-size: var(--size26);
   color: #a8a7a7;
 }
-
+.registered{
+  padding-bottom:150rpx;
+}
 .registered .flex-bt {
   padding: 25rpx 0;
 }

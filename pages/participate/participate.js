@@ -1,5 +1,6 @@
 
 const QQMapWX = require('../../utils/qqmap-wx-jssdk.js');
+const GlobaleConfig = require('../../utils/config')
 //1.2实例化腾讯地图API核心类
 const qqmapsdk = new QQMapWX({
   key: 'H3GBZ-6CV6I-H4CGI-5CIDB-KWZ5K-E2BBU'
@@ -8,26 +9,12 @@ let app = getApp()
 Page({
   data: {
     location:'上海',
-    navArray:[{
-      name:'全部',
-      type:0
-    }, {
-        name: 'KTV',
-        type: 1
-      },{
-        name: '酒吧',
-        type: 2
-      }, {
-        name: '美食',
-        type: 3
-      }, {
-        name: '景点',
-        type: 4
-      }, {
-        name: '网吧',
-        type: 5
-      }],
-      navType:0,
+    postData:{
+      hotType:1,
+      locationType:0,
+      priceType:1,
+      sortType:0
+    },
     activityList: [{
       title: "佰分迪KTV娱乐会所",
       local: "南宁市青秀区厢竹大道5号",
@@ -43,90 +30,20 @@ Page({
       manNum: "1",
       womanAllNum: "3",
       womanNum: "1",
-    }, {
-      title: "佰分迪KTV娱乐会所",
-      local: "南宁市青秀区厢竹大道5号",
-      time: "2019.9.15  20:00 - 12:00",
-      label: [
-        "KTV",
-        "3男3女",
-        "68元/男"
-      ],
-      status: "活动招募中",
-      message: "缺1男2女",
-      manAllNum: "3",
-      manNum: "1",
-      womanAllNum: "3",
-      womanNum: "1",
-    }, {
-      title: "佰分迪KTV娱乐会所",
-      local: "南宁市青秀区厢竹大道5号",
-      time: "2019.9.15  20:00 - 12:00",
-      label: [
-        "KTV",
-        "3男3女",
-        "68元/男"
-      ],
-      status: "活动招募中",
-      message: "缺1男2女",
-      manAllNum: "10",
-      manNum: "4",
-      womanAllNum: "4",
-      womanNum: "3",
-      }, {
-        title: "佰分迪KTV娱乐会所",
-        local: "南宁市青秀区厢竹大道5号",
-        time: "2019.9.15  20:00 - 12:00",
-        label: [
-          "KTV",
-          "3男3女",
-          "68元/男"
-        ],
-        status: "活动招募中",
-        message: "缺1男2女",
-        manAllNum: "10",
-        manNum: "4",
-        womanAllNum: "4",
-        womanNum: "3",
-      }, {
-        title: "佰分迪KTV娱乐会所",
-        local: "南宁市青秀区厢竹大道5号",
-        time: "2019.9.15  20:00 - 12:00",
-        label: [
-          "KTV",
-          "3男3女",
-          "68元/男"
-        ],
-        status: "活动招募中",
-        message: "缺1男2女",
-        manAllNum: "10",
-        manNum: "4",
-        womanAllNum: "4",
-        womanNum: "3",
-      }]
+    }]
   },
-  navTap: function (navType) {
-    console.log(navType.target)
-      this.setData({
-        navType: navType.target.dataset.type
-      })
-    },
   onLoad: function () {
     
     //1.3wx.getLocation方法获取当前位置坐标。
     wx.getLocation({
       altitude: false,
       success: (res)=> {
-       
-        var latitude = res.latitude;
-        var longitude = res.longitude;
-
+        let latitude = res.latitude;
+        let longitude = res.longitude;
         app.globalData.location = {
-
           latitude: latitude,
           longitude: longitude
         }
-        console.log(app)
         qqmapsdk.reverseGeocoder({       //qqmapsdk.reverseGeocoder
 
           location: {
@@ -134,13 +51,10 @@ Page({
             longitude: app.globalData.location.longitude
           },
           success:  (res) =>{
-            console.log(res)
             let address = res.result.address_component.city;
-
             this.setData({
               location: address
             });
-
           },
           fail: function (res) {
             wx.showToast({
@@ -157,7 +71,34 @@ Page({
     });
 
   },
-  globalData: {
-    url: ''
+  onMyNavEvent(e){ 
+    // type === 1 一级导航 2  二级导航
+    if(e.detail.type === 1){
+        this.setData({
+          navType:e.detail.navType
+        })
+    }else{
+      let navType = {};
+      for(let i = 0;i < e.detail.navStatusArray;i++){
+        let item = e.detail.navStatusArray;
+        navType[item.type] = item.status;
+      }
+      this.setData({
+        postData:{
+          ...this.data.postData,...navType
+        }
+      })
+    }
+  },
+  getPageList(){
+    wx.request({
+      url:GlobaleConfig.domain,
+      params:{
+        ...this.data.postData
+      },
+      success:(res)=>{
+        console.log(res)
+      }
+    })
   }
 })

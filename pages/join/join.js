@@ -11,7 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+      isClickChooseLocation:false,
   },
 
   /**
@@ -33,12 +33,15 @@ Page({
    */
   onShow: function () {
     const location = chooseLocation.getLocation();
-    console.log(location);
+    console.log(this.data.isClickChooseLocation);
     // 腾讯内置导航
-    if(location){
+    if(location && this.data.isClickChooseLocation){
       let endPoint = JSON.stringify({  //终点
           ...location
       });
+      this.setData({
+        isClickChooseLocation:false
+      })
       wx.navigateTo({
           url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint
       });
@@ -98,85 +101,18 @@ Page({
       phoneNumber: e.currentTarget.dataset.phonenumber //仅为示例，并非真实的电话号码
     })
   },
-  // 导航，获取定位
+  // 导航，获取定位,选点
   goLocation(e){
     const location = JSON.stringify({
       latitude: e.currentTarget.dataset.latitude,
       longitude: e.currentTarget.dataset.longitude
     });
     const category = '生活服务,娱乐休闲';
-     
+    this.setData({
+      isClickChooseLocation:true
+    })
     wx.navigateTo({
       url: 'plugin://chooseLocation/index?key=' + key + '&referer=' + referer + '&location=' + location + '&category' + category
     });
-
-
-
-    return false;
-
-    wx.getSetting({
-      success(res) {
-        console.log(res)
-        if (!res.authSetting['scope.userLocation']) {
-          wx.authorize({
-            scope: 'scope.userLocation',
-            success () {
-              // 微信小程序手动获取自己位置wx.chooseLocation
-              wx.chooseLocation({
-                success:function(res){
-                  console.log(res,"location")
-                  console.log(res.name)
-                  console.log(res.latitude)
-                  console.log(res.longitude)
-                },
-                fail: function () {
-                  // fail
-                  },
-                  complete: function () {
-                  // complete
-                  }
-              })
-            }
-          })
-        }else{
-          console.log(11111)
-          wx.getLocation({
-            type: 'gcj02', //返回可以用于wx.openLocation的经纬度
-            success (res) {
-              const latitude = res.latitude
-              const longitude = res.longitude
-               // 微信小程序手动获取自己位置wx.chooseLocation
-            wx.chooseLocation({
-              latitude,
-              longitude,
-              success:function(res){
-                console.log(2222)
-                console.log(res,"location")
-                console.log(res.name)
-                console.log(res.latitude)
-                console.log(res.longitude)
-              },
-              fail: function (res) {
-                console.log(res)
-                // fail
-                },
-                complete: function () {
-                // complete
-                }
-            })
-              // wx.openLocation({
-              //   latitude:116.288998,
-              //   longitude:39.957866,
-              //   scale: 18
-              // })
-            }
-           })
-           
-        }
-
-
-      }
-    })
-    
   }
 })
