@@ -9,24 +9,12 @@
       <text>人数</text>
       <text class="ipt">套餐提供</text>
     </view>
-    <view class="td flex-bt">
-      <text>1男1女</text>
-      <input class="ipt" placeholder="请输入标题" value="果盘1个，啤酒10瓶"></input>
+    <view class="td flex-bt" wx:for="{{ packages }}" wx:key="idx" wx:for-item="item" >
+      <text>{{ item.num }}男{{ item.num }}女</text>
+      <input class="ipt" placeholder="套餐内容" value="{{ item.text }}"></input>
     </view>
-    <view class="td flex-bt">
-      <text>1男1女</text>
-      <input class="ipt" placeholder="请输入标题" value="果盘1个，啤酒10瓶"></input>
-    </view>
-    <view class="td flex-bt">
-      <text>1男1女</text>
-      <input class="ipt" placeholder="请输入标题" value="果盘1个，啤酒10瓶"></input>
-    </view>
-    <view class="td flex-bt">
-      <text>1男1女</text>
-      <input class="ipt" placeholder="请输入标题" value="果盘1个，啤酒10瓶"></input>
-    </view>
-    <view class="checkImg flex">
-      <image src="/assets/images/home/guanggaotu.png"></image>
+    <view class="checkImg flex" bindtap="uploadCard" >
+      <image src="{{ cardUrl }}"></image>
       <text>更换</text>
     </view>
 

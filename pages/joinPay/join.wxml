@@ -118,6 +118,33 @@
     <view class="title">
        聚会时间
     </view>
+    <view class="time">
+       <text>2019年9月20日 20:30</text>
+    </view>
+    <view class="title">
+       请选择聚会人数
+    </view>
+    <view class="people">
+        <view class="left">  <text> 6</text> </view>
+        <view class="right"> 
+            <text class="active"> 1男1女</text>
+            <text> 1男1女</text>
+            <text> 1男1女</text>
+            <text> 1男1女</text>
+            <text> 1男1女</text>
+            <text> 1男1女</text>
+        </view>
+    </view>
+    <view class="title">
+       是否所有人可见   
+       <text style="margin-left:50rpx;"> 是 </text> 
+       <image style="margin-right:50rpx;" src="../../assets/images/iconRadioB.png"></image>  
+       <text> 否 </text>
+       <image src="../../assets/images/iconRadioA.png"></image>
+    </view>
+    <view class="tips">
+       如选是则任何平台xxxxxxxx
+    </view>
 </view>
 
 

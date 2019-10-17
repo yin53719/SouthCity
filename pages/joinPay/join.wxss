@@ -147,6 +147,7 @@ image{
   color: #151515;
   font-weight: bold;
   padding: 30rpx 0;
+  font-size: 32rpx;
 }
 .setMeal .tabbar{
   text-align: center;
@@ -175,8 +176,6 @@ image{
   text-align: center;
   font-size: 24rpx;
   padding:  16rpx 0;
-}
-.setMeal .detils{
   display: flex;
 }
 .setMeal .detils text{
@@ -210,19 +209,72 @@ image{
 .setMeal .detils.cell text.center{
   border:none;
 }
+/* 聚会活动详情 */
 .activityDetils{
   border-top: solid 20rpx #f1f1f1;
-
+  padding: 0 30rpx;
+  padding-bottom: 200rpx;
+  padding-top: 10rpx;
 }
 .activityDetils .title{
   color: #151515;
   font-weight: bold;
   padding: 30rpx 0;
+  font-size: 32rpx;
+}
+.activityDetils .title image{
+  width: 29rpx;
+  height: 29rpx;
+  vertical-align: middle;
+}
+.activityDetils .title text{
+  font-size: 28rpx;
+  color: #5d5d5d;
+}
+.activityDetils .time text{
+  color: #4ce293;
+  font-size: 26rpx;
+  border:solid 1rpx #4ce293;
+  padding: 14rpx 56rpx;
+  background: #f0fff7;
+}
+.activityDetils  .people{
+  width: 100%;
+  display: flex;
+}
+.activityDetils  .people .left{
+    width:165rpx;
+    float: left;
+}
+.activityDetils  .people .left text{
+     padding:15rpx 60rpx;
+    border:solid 1rpx #f1f1f1;
+    display: inline-block;
+    text-align: center;
+    font-size: 26rpx;
+}
+.activityDetils  .people .right{
+   flex:1;
+}
+.activityDetils  .people .right text{
+    padding:15rpx 60rpx;
+    border:solid 1rpx #f1f1f1;
+    display: inline-block;
+    text-align: center;
+    font-size: 26rpx;
+    margin-right: 33rpx;
+    margin-bottom: 33rpx;
+}
+.activityDetils  .people .right text.active{
+  color: #40e59b;
+  border: solid 1px #40e59b;
+  background: #f0fff7;
 }
 
-
-
-
+.activityDetils .tips{
+  color: #adadad;
+  font-size: 22rpx;
+}
 .footer{
   background: #f9f9f9;
   height: 114rpx;

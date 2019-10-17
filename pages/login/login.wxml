@@ -61,7 +61,7 @@
       <picker mode="time" start="00:00" end="23:59" value="{{businessTimestart}}" bindchange="bindDateChangestart">
         <input placeholder-class="phcolor" disabled="true" value="{{businessTimestart}}" type="text" placeholder="请选择时间"></input>
       </picker>
-      -
+     
            <picker mode="time" start="00:00" end="23:59" value="{{businessTimeend}}" bindchange="bindDateChangeend">
         <input placeholder-class="phcolor" disabled="true" value="{{businessTimeend}}" type="text" placeholder="请选择时间"></input>
       </picker>

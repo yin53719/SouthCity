@@ -15,7 +15,7 @@ Page({
       {
         name: '酒吧',
         code: '2',
-        checked: true,
+        checked: false,
 
       },
       {
@@ -47,7 +47,7 @@ Page({
         code: '7'
       }
     ],
-    birthDay: '2013.01.12',
+    birthDay: '00:00-23:59',
     bitList: []
   },
 
@@ -116,6 +116,9 @@ Page({
     this.setData({
       bitList: e.detail
     })
+  },
+  dateChange(e){
+    console.log(e.detail)
   },
   uploadCard() {
     const that = this;

@@ -7,10 +7,13 @@
     <image wx:if="{{!disable}}" src="/assets/images/editor.png"></image>
   </block>
   <block wx:if="{{type=='date'}}" class="flex-bt">
-    <picker mode="date" value="{{placeholder}}" bindchange="bindDateChange">
-      <input type="text" disabled="{{true}}" placeholder="{{placeholder}}"></input>
+    <picker mode="time" value="{{ dateStart }}" bindchange="bindDateChangeStart">
+      <input type="text" disabled="{{true}}" placeholder="{{ dateStart }}"></input>
     </picker>
-    <image wx:if="{{!disable}}" src="/assets/images/editor.png"></image>
+    <picker mode="time" value="{{ dateEnd }}" bindchange="bindDateChangeEnd">
+      <input type="text" disabled="{{true}}" placeholder="{{ dateEnd }}"></input>
+    </picker>
+    <!-- <image wx:if="{{!disable}}" src="/assets/images/editor.png"></image> -->
   </block>
   <block wx:if="{{type=='number'}}" class="flex-bt">
     <input type="{{type}}" maxlength="{{maxlength}}" disabled="{{disable}}" placeholder="{{placeholder}}"></input>

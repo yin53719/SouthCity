@@ -6,14 +6,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    packages:[],
+    cardUrl:'/assets/images/home/guanggaotu.png'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let packages = [];
+     for(let i=1;i<11;i++){
+        packages.push({
+          text:'',
+          num:i
+        })
+     }
 
+     this.setData({
+       packages
+     })
   },
 
   /**
@@ -63,6 +74,22 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  // 上传营业执照
+  uploadCard() {
+    const that = this;
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success(res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePaths = res.tempFilePaths;
+        that.setData({
+          cardUrl: tempFilePaths
+        })
+      }
+    })
   },
   gotolink(){
     wx.reLaunch({

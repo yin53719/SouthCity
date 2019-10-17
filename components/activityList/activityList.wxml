@@ -28,7 +28,7 @@
         </view>
       </view>
       <view wx:if="{{type ==='4'}}" class="button hexiao">
-        <view class="flex">
+        <view class="flex" bindtap="scanCodeHandle" >
           <image src="/assets/images/home/hexiao.png"></image>
           <text>核销</text>
         </view>

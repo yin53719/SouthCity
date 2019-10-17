@@ -11,7 +11,7 @@
    
   </view>
   <!-- 导航组件 -->
-  <navmenu></navmenu>
+  <navmenu bind:mynavevent="onMyNavEvent" ></navmenu>
   <!-- 活动列表-->
   <view class="content">
     <activity-cell type="3" wx:for="{{activityList}}" wx:key="key" data="{{item}}"></activity-cell>

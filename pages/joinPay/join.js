@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+        items: [{ name: 'USA', value: '是' },
+        { name: 'CHN', value: '否', checked: 'true' }
+        ]
   },
 
   /**

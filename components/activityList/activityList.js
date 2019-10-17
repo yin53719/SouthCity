@@ -55,6 +55,13 @@ Component({
         })
       }
       console.log(this.data.type)
+    },
+    scanCodeHandle(){
+      wx.scanCode({
+        success(res) {
+          console.log(res)
+        }
+      })
     }
   }
 })

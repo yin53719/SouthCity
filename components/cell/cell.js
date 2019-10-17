@@ -32,7 +32,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    date: "2013.11.02"
+    dateStart: "00:00",
+    dateEnd: "24:00"
   },
   options: {
     addGlobalClass: true
@@ -41,9 +42,19 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    bindDateChange: function(e) {
-      console.log('picker发送选择改变，携带值为', utils.dateReplace(e.detail.value, '.'))
-      this.triggerEvent('dateChange', utils.dateReplace(e.detail.value, '.'))
+    bindDateChangeStart: function(e) {
+      console.log('picker发送选择改变，携带值为', e)
+      this.setData({
+        dateStart: e.detail.value
+      })
+      this.triggerEvent('dateChange', e.detail.value +'-'+this.data.dateEnd)
+    },
+    bindDateChangeEnd: function (e) {
+      console.log('picker发送选择改变，携带值为', e)
+      this.setData({
+        dateEnd: e.detail.value
+      })
+      this.triggerEvent('dateChange', this.data.dateStart + '-' + e.detail.value)
     },
     checkboxChange: function(e) {
       console.log('checkbox发生change事件，携带value值为：', e.detail.value);
