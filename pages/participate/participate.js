@@ -15,9 +15,14 @@ Page({
       priceType:1,
       sortType:0
     },
-    activityList: []
+    activityList: [],
+    searchValue: 'app.globalData.openid'
   },
   onLoad: function () {
+    console.log(app.globalData.openid);
+    this.setData({
+      searchValue: app.globalData.openid
+    })
     let activityList = [];
     for(let i=0;i<10;i++){
       activityList.push({
@@ -40,19 +45,8 @@ Page({
     this.setData({
       activityList
     })
-    //1.3wx.getLocation方法获取当前位置坐标。
-    if (app.globalData.authorize['scope.userLocation']) {
-      this.getAddress();
-    } else {
-      wx.authorize({
-        scope: "scope.userLocation",
-        success: () => {
-          app.globalData.authorize['scope.userLocation'] = true;
-          this.getAddress();
-        }
-      })
-    }
- 
+
+    this.getAddress();
 
   },
   getAddress(){

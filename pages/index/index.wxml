@@ -10,7 +10,10 @@
   </view>
   <!-- btn -->
   <view class="goIn" >
-        <text bindtap="goIntap" >
+        <button  class="btn" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+            立即进入
+        </button>
+        <text bindtap="goLonin2" wx:else class="btn" >
             立即进入
         </text>
   </view>

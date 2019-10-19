@@ -1,5 +1,6 @@
 
-// pages/businessPackage/businessPackage.js
+const GlobaleConfig = require('../../utils/config')
+
 Page({
 
   /**
@@ -26,55 +27,7 @@ Page({
        packages
      })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
+  
   // 上传营业执照
   uploadCard() {
     const that = this;
@@ -85,9 +38,22 @@ Page({
       success(res) {
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths;
-        that.setData({
-          cardUrl: tempFilePaths
+        wx.uploadFile({
+          url: GlobaleConfig.domain + 'index/tool/upload', //仅为示例，非真实的接口地址
+          filePath: tempFilePaths[0],
+          name: 'file',
+          formData: {
+            'user': 'test'
+          },
+          success (res){
+            const data = res.data;
+            console.log(res.data)
+            that.setData({
+              cardUrl: data.info.url
+            })
+          }
         })
+        
       }
     })
   },

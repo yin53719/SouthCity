@@ -40,6 +40,8 @@
   display: inline-block;
  flex: 1;
  padding-left: 16rpx;
+ height: 56rpx;
+ line-height: 56rpx;
 }
 .topBar .nice{
   display: inline-block;

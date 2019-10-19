@@ -155,7 +155,7 @@
      <text >￥<text style="font-size:56rpx;">138</text></text>
      <text>您的AA费用</text>
   </view>
-  <button class="btn" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfoAndPay" >
+  <button class="btn" bindtap="wxpay" >
      <image src="../../assets/images/joinBtn.png" ></image>
      <text>立即支付</text>
   </button>

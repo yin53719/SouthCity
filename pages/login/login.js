@@ -1,5 +1,6 @@
 let plugin = requirePlugin('routePlan');
 const chooseLocation = requirePlugin('chooseLocation');
+const GlobaleConfig = require('../../utils/config')
 const key = 'H3GBZ-6CV6I-H4CGI-5CIDB-KWZ5K-E2BBU'; //使用在腾讯位置服务申请的key
 const referer = '南宁同城信息网'; //调用插件的app的名称
 Page({
@@ -49,41 +50,6 @@ Page({
     }
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  },
-
   changeSwitch(e) {
     console.log(e.target.dataset)
     this.setData({
@@ -109,9 +75,19 @@ Page({
       success(res) {
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths;
-        that.setData({
-          postData:{
-            ...this.postData,cardUrl:tempFilePaths
+        wx.uploadFile({
+          url: GlobaleConfig.domain + 'index/tool/upload', //仅为示例，非真实的接口地址
+          filePath: tempFilePaths[0],
+          name: 'file',
+          formData: {
+            'user': 'test'
+          },
+          success(res) {
+            const data = res.data;
+            console.log(res)
+            that.setData({
+              cardUrl: data.info.url
+            })
           }
         })
       }

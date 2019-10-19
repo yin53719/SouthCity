@@ -8,7 +8,7 @@
     
     <view class="search">
       <image  src="../../assets/images/search.png"></image>
-      <input confirm-type="search" placeholder="搜索你喜欢的聚会活动"></input>
+      <input confirm-type="search" value="{{ searchValue }}"  placeholder="搜索你喜欢的聚会活动"></input>
     </view>
     <view class="nice">
         <image src="../../assets/images/nice.png"></image>
