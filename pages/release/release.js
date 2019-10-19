@@ -15,9 +15,9 @@ Page({
       status: "成功接待",
       message: "N人",
       manAllNum: "3",
-      manNum: "1",
+      manNum: [1, 2, 3, 4, 5],
       womanAllNum: "3",
-      womanNum: "1",
+      womanNum: [1, 2, 3, 4, 5],
     }]
   },
   navTap: function (navType) {

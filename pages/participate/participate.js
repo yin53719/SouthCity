@@ -37,9 +37,9 @@ Page({
         status: "活动招募中",
         message: "缺1男2女",
         manAllNum: "3",
-        manNum: "1",
+        manNum: [1, 2],
         womanAllNum: "3",
-        womanNum: "1",
+        womanNum: [1,2,3,4,5],
       })
     }
     this.setData({

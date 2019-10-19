@@ -33,7 +33,7 @@ Page({
     const that = this;
     wx.chooseImage({
       count: 1,
-      sizeType: ['original', 'compressed'],
+      sizeType: ['original'],
       sourceType: ['album', 'camera'],
       success(res) {
         // tempFilePath可以作为img标签的src属性显示图片
@@ -46,10 +46,10 @@ Page({
             'user': 'test'
           },
           success (res){
-            const data = res.data;
-            console.log(res.data)
+            const data = JSON.parse(res.data);
+            console.log(data)
             that.setData({
-              cardUrl: data.info.url
+              cardUrl: GlobaleConfig.domain + data.info.url
             })
           }
         })

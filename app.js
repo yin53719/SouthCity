@@ -2,7 +2,7 @@ const GlobaleConfig = require('./utils/config')
 App({
   onLaunch: function () {
     // 展示本地存储能
-
+ 
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -44,6 +44,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    openid:''
+    openid:'',
+    domain: 'https://juaa.shu0.cn/',
   }
 })

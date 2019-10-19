@@ -36,9 +36,25 @@
     </view>
   </view>
   <view class="bottom flex-bt" wx:if="{{ type !== '3' }}" >
-  <!-- 头像 列表 -->
-    <view class="people">
-      <image>  </image>
+    <view>
+      <view class="flex" >
+        <view class="man flex">
+          <image src="/assets/images/home/man.png"></image>
+          <text>男</text>
+        </view>
+        <view class="check">
+            <image src="" style="left:{{ (i-1)*55 }}rpx;" wx:for="{{data.manNum}}" wx:for-item="i" wx:key="key"  >  </image>
+        </view>
+      </view>
+      <view class="flex" style="margin-top: 15rpx">
+        <view class="woman flex">
+          <image src="/assets/images/home/woman.png"></image>
+          <text>女</text>
+        </view>
+        <view class="check">
+           <image src="" style="left:{{ (i-1)*55 }}rpx;" wx:for="{{data.womanNum}}" wx:for-item="i" wx:key="key"  >  </image>
+        </view>
+      </view>
     </view>
 
     <view wx:if="{{type ==='1'}}" class="button hexiao">

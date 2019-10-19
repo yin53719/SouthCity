@@ -1,4 +1,5 @@
-// components/navMenu/navMenu.js
+const app = getApp();
+
 Component({
   /**
    * 组件的属性列表
@@ -6,7 +7,7 @@ Component({
   properties: {
 
   },
-
+  
   /**
    * 组件的初始数据
    */
@@ -14,21 +15,6 @@ Component({
     navArray:[{
       name:'全部',
       type:0
-      },{
-        name: 'KTV',
-        type: 1
-      },{
-        name: '酒吧',
-        type: 2
-      }, {
-        name: '美食',
-        type: 3
-      }, {
-        name: '景点',
-        type: 4
-      }, {
-        name: '网吧',
-        type: 5
       }],
       navType:0,
       navStatusArray:[{
@@ -50,7 +36,24 @@ Component({
       }]
 
   },
-
+  created() {
+    wx.request({
+      url: app.globalData.domain + 'index/tool/typelist',
+      method:'post',
+      success: (res) => {
+        let list = this.data.navArray;
+        for (let i in res.data.info){
+          list.push({
+            type:i,
+            name: res.data.info[i]
+          });
+        }
+        this.setData({
+          navArray: list
+        })
+      }
+    })
+  },
   /**
    * 组件的方法列表
    */

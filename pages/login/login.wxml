@@ -31,26 +31,26 @@
   <view class="login registered" wx:else>
     <view class="flex-bt">
       <image class="username" src="/assets/images/login/username.png"></image>
-      <input placeholder-class="phcolor" type="text" placeholder="请输入账号"></input>
+      <input value="{{ postData.account }}" data-name="account" bindinput="bindinput" placeholder-class="phcolor" type="text" placeholder="请输入账号"></input>
     </view>
     <view class="flex-bt">
       <image class="password" src="/assets/images/login/password.png"></image>
-      <input placeholder-class="phcolor" type="text" placeholder="请输入登录密码"></input>
+      <input value="{{ postData.password }}" data-name="password" placeholder-class="phcolor" type="text" placeholder="请输入登录密码"></input>
       <image class="cansee" src="/assets/images/login/cansee.png"></image>
     </view>
     <view class="flex-bt">
       <image class="password" src="/assets/images/login/password.png"></image>
-      <input placeholder-class="phcolor" type="text" placeholder="确认登录密码"></input>
+      <input value="{{ postData.repassword }}" data-name="repassword" placeholder-class="phcolor" type="text" placeholder="确认登录密码"></input>
       <image class="cansee" src="/assets/images/login/cansee.png"></image>
     </view>
     <view class="flex-bt">
       <image class="password" src="/assets/images/login/icon-hy.png"></image>
-      <input placeholder-class="phcolor" disabled="true" type="text" placeholder="请选择行业"></input>
+      <input value="{{ postData.type }}" placeholder-class="phcolor" disabled="true" type="text" placeholder="请选择行业"></input>
       <image class="rightMore" src="/assets/images/login/rightMore.png"></image>
     </view>
     <view class="flex-bt">
       <image class="password" src="/assets/images/login/icon-dm.png"></image>
-      <input placeholder-class="phcolor" type="text" placeholder="请输入店名"></input>
+      <input value="{{ postData.name }}" data-name="name"  placeholder-class="phcolor" type="text" placeholder="请输入店名"></input>
     </view>
     <view class="flex-bt">
       <image class="password" src="/assets/images/login/icon-dz.png"></image>
@@ -70,7 +70,7 @@
      
     <view class="flex-bt ">
       <image class="password " src="/assets/images/login/icon-lxr.png "></image>
-      <input placeholder-class="phcolor " type="text " placeholder="请输入联系人 "></input>
+      <input value="{{ postData.contact }}"  placeholder-class="phcolor " type="text " placeholder="请输入联系人 "></input>
     </view>
     
     <view class="flex uploadcard " bindtap="uploadCard" >
