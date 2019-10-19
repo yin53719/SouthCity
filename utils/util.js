@@ -17,8 +17,24 @@ const formatNumber = n => {
 const dateReplace = (str,t)=>{
   return str.replace(/\-/g, t)
 }
+const getLocation = (_this) =>{
+  wx.getLocation({
+    success: (res) => {
+      wx.chooseLocation({
+        latitude: res.latitude,
+        longitude: res.longitude,
+        success: (res) => {
+          _this.locationCallBack(res)
+        }
+      })
+
+    }
+  })
+}
+
 
 module.exports = {
   formatTime: formatTime,
-  dateReplace: dateReplace
+  dateReplace: dateReplace,
+  getLocation
 }

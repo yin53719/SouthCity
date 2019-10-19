@@ -41,9 +41,24 @@ Page({
       activityList
     })
     //1.3wx.getLocation方法获取当前位置坐标。
+    if (app.globalData.authorize['scope.userLocation']) {
+      this.getAddress();
+    } else {
+      wx.authorize({
+        scope: "scope.userLocation",
+        success: () => {
+          app.globalData.authorize['scope.userLocation'] = true;
+          this.getAddress();
+        }
+      })
+    }
+ 
+
+  },
+  getAddress(){
     wx.getLocation({
       altitude: false,
-      success: (res)=> {
+      success: (res) => {
         let latitude = res.latitude;
         let longitude = res.longitude;
         app.globalData.location = {
@@ -51,12 +66,11 @@ Page({
           longitude: longitude
         }
         qqmapsdk.reverseGeocoder({       //qqmapsdk.reverseGeocoder
-
           location: {
             latitude: app.globalData.location.latitude,
             longitude: app.globalData.location.longitude
           },
-          success:  (res) =>{
+          success: (res) => {
             let address = res.result.address_component.city;
             this.setData({
               location: address
@@ -75,7 +89,6 @@ Page({
 
       }
     });
-
   },
   onMyNavEvent(e){ 
     // type === 1 一级导航 2  二级导航

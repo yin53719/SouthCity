@@ -48,7 +48,7 @@ Component({
       }
       if (this.data.type == 3) {
         wx.navigateTo({
-          url: '/pages/joinPay/join',
+          url: '/pages/joinPay/joinPay',
           success: function (res) { },
           fail: function (res) { },
           complete: function (res) { },

@@ -295,14 +295,22 @@ image{
   font-size: 28rpx;
   display: block;
 }
-.footer view.btn image{
+.footer .btn image{
   width: 376rpx;
   height: 114rpx;
 }
-.footer view.btn{
+.footer .btn{
   position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  line-height: 50rpx;
 }
-.footer view.btn text{
+.footer .btn:after{
+  border:none;
+}
+.footer .btn text{
   display: block;
   position: absolute;
   top:34rpx;

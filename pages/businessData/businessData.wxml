@@ -3,7 +3,7 @@
   <view class="form">
     <cell title="选择行业" bind:getchecked="getchecked" bind:boxchangeindex="boxchangeindex" type="checkbox" items="{{checkBoxItems}}"></cell>
     <cell title="店名" type="text" placeholder="郑"></cell>
-    <cell title="地址" type="text" placeholder=""></cell>
+    <cell title="地址" type="address" placeholder="点击选中地址"></cell>
     <cell title="营业时间" type="date" bind:dateChange="dateChange" placeholder="{{birthDay}}"></cell>
     <cell title="联系人" type="text" placeholder=""></cell>
     <cell title="联系手机" maxlength="11" type="number" placeholder="13321100909"></cell>

@@ -36,27 +36,9 @@
     </view>
   </view>
   <view class="bottom flex-bt" wx:if="{{ type !== '3' }}" >
-    <view>
-      <view class="flex">
-        <view class="man flex">
-          <image src="/assets/images/home/man.png"></image>
-          <text>男</text>
-        </view>
-        <view class="check">
-          <image wx:for="{{data.manNum * 1}}" wx:key="key" src="/assets/images/home/manchecked.png"></image>
-          <image wx:for="{{(data.manAllNum - data.manNum)*1}}" wx:key="key" src="/assets/images/home/check.png"></image>
-        </view>
-      </view>
-      <view class=" flex">
-        <view class="woman flex">
-          <image src="/assets/images/home/woman.png"></image>
-          <text>女</text>
-        </view>
-        <view class="check">
-          <image wx:for="{{data.womanNum * 1}}" wx:key="key" src="/assets/images/home/womanchecked.png"></image>
-          <image wx:for="{{(data.womanAllNum - data.womanNum)*1}}" wx:key="key" src="/assets/images/home/check.png"></image>
-        </view>
-      </view>
+  <!-- 头像 列表 -->
+    <view class="people">
+      <image>  </image>
     </view>
 
     <view wx:if="{{type ==='1'}}" class="button hexiao">

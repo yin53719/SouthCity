@@ -3,7 +3,12 @@
   <text>{{title}}</text>
 
   <block wx:if="{{type=='text'}}" class="flex-bt">
-    <input type="{{type}}" disabled="{{disable}}" placeholder="{{placeholder}}"></input>
+    <input type="{{type}}" disabled="{{disable}}"   placeholder="{{placeholder}}"></input>
+    <image wx:if="{{!disable}}" src="/assets/images/editor.png"></image>
+  </block>
+  <!-- 获取地址 -->
+  <block wx:if="{{type=='address'}}" class="flex-bt">
+    <input type="{{type}}" disabled="{{disable}}" bindtap="getAddress" value="{{ location.address }}" placeholder="{{placeholder}}"></input>
     <image wx:if="{{!disable}}" src="/assets/images/editor.png"></image>
   </block>
   <block wx:if="{{type=='date'}}" class="flex-bt">
