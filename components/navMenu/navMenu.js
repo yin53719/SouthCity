@@ -37,15 +37,14 @@ Component({
 
   },
   created() {
-    wx.request({
-      url: app.globalData.domain + 'index/tool/typelist',
-      method:'post',
-      success: (res) => {
+    app.wxRequest({
+      url: 'index/tool/typelist',
+      success:(res)=>{
         let list = this.data.navArray;
-        for (let i in res.data.info){
+        for (let i in res.info) {
           list.push({
-            type:i,
-            name: res.data.info[i]
+            type: i,
+            name: res.info[i]
           });
         }
         this.setData({

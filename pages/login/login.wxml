@@ -16,11 +16,11 @@
   <view class="login" wx:if="{{switch=='0'}}">
     <view class="flex-bt">
       <image class="username" src="/assets/images/login/username.png"></image>
-      <input placeholder-class="phcolor" type="text" placeholder="请输入账号"></input>
+      <input value="{{ postData.account }}" data-name="account" bindinput="bindinput" placeholder-class="phcolor" type="text" placeholder="请输入账号"></input>
     </view>
     <view class="flex-bt">
       <image class="password" src="/assets/images/login/password.png"></image>
-      <input placeholder-class="phcolor" type="text" placeholder="请输入登录密码"></input>
+      <input placeholder-class="phcolor" value="{{ postData.password }}" data-name="password" bindinput="bindinput" type="text" placeholder="请输入登录密码"></input>
       <image class="cansee" src="/assets/images/login/cansee.png"></image>
     </view>
     <view class="loginButton" bindtap="login">登录</view>
@@ -35,61 +35,66 @@
     </view>
     <view class="flex-bt">
       <image class="password" src="/assets/images/login/password.png"></image>
-      <input value="{{ postData.password }}" data-name="password" placeholder-class="phcolor" type="text" placeholder="请输入登录密码"></input>
+      <input value="{{ postData.password }}" data-name="password" bindinput="bindinput" placeholder-class="phcolor" type="text" placeholder="请输入登录密码"></input>
       <image class="cansee" src="/assets/images/login/cansee.png"></image>
     </view>
     <view class="flex-bt">
       <image class="password" src="/assets/images/login/password.png"></image>
-      <input value="{{ postData.repassword }}" data-name="repassword" placeholder-class="phcolor" type="text" placeholder="确认登录密码"></input>
+      <input value="{{ postData.repassword }}" bindinput="bindinput" data-name="repassword" placeholder-class="phcolor" type="text" placeholder="确认登录密码"></input>
       <image class="cansee" src="/assets/images/login/cansee.png"></image>
     </view>
+    <!-- 选择行业 -->
     <view class="flex-bt">
       <image class="password" src="/assets/images/login/icon-hy.png"></image>
-      <input value="{{ postData.type }}" placeholder-class="phcolor" disabled="true" type="text" placeholder="请选择行业"></input>
+      <picker mode = "selector" bindchange="bindPickerChange" value="{{project[type].id}}" range="{{project}}" range-key="{{'val'}}">
+          <view style="margin-left:20rpx;" >
+            {{project[type].val}}
+          </view>
+      </picker>
       <image class="rightMore" src="/assets/images/login/rightMore.png"></image>
     </view>
     <view class="flex-bt">
       <image class="password" src="/assets/images/login/icon-dm.png"></image>
-      <input value="{{ postData.name }}" data-name="name"  placeholder-class="phcolor" type="text" placeholder="请输入店名"></input>
+      <input value="{{ postData.name }}" data-name="name" bindinput="bindinput" placeholder-class="phcolor" type="text" placeholder="请输入店名"></input>
     </view>
     <view class="flex-bt">
       <image class="password" src="/assets/images/login/icon-dz.png"></image>
-      <input placeholder-class="phcolor" type="text" value="{{ postData.address }}"  placeholder="请输入地址" bindtap="goLocation" ></input>
+      <input placeholder-class="phcolor" type="text" disabled="disabled" value="{{ postData.address }}"  placeholder="请输入地址" bindtap="goLocation" ></input>
     </view>
     <view class="flex-bt">
-      <image class="password" style="width:70rpx;" src="/assets/images/login/icon-sj.png"></image>
-      <picker mode="time" start="00:00" end="23:59" value="{{businessTimestart}}" bindchange="bindDateChangestart">
-        <input placeholder-class="phcolor" disabled="true" value="{{businessTimestart}}" type="text" placeholder="请选择时间"></input>
+      <image class="password" style="width:80rpx;" src="/assets/images/login/icon-sj.png"></image>
+      <picker mode="time" start="00:00" end="23:59" value="{{start_time}}" bindchange="bindDateChangeStart">
+        <input placeholder-class="phcolor" disabled="true" value="{{start_time}}" type="text" placeholder="请选择时间"></input>
       </picker>
      
-           <picker mode="time" start="00:00" end="23:59" value="{{businessTimeend}}" bindchange="bindDateChangeend">
-        <input placeholder-class="phcolor" disabled="true" value="{{businessTimeend}}" type="text" placeholder="请选择时间"></input>
+           <picker mode="time" start="00:00" end="23:59" value="{{end_time}}" bindchange="bindDateChangeEnd">
+        <input placeholder-class="phcolor" disabled="true" value="{{end_time}}" type="text" placeholder="请选择时间"></input>
       </picker>
       <image class="rightMore " src="/assets/images/login/rightMore.png "></image>
     </view>
      
     <view class="flex-bt ">
       <image class="password " src="/assets/images/login/icon-lxr.png "></image>
-      <input value="{{ postData.contact }}"  placeholder-class="phcolor " type="text " placeholder="请输入联系人 "></input>
+      <input value="{{ postData.contact }}" bindchange="bindPickerChange" placeholder-class="phcolor " type="text " placeholder="请输入联系人 "></input>
     </view>
     
     <view class="flex uploadcard " bindtap="uploadCard" >
-      <image src='{{ postData.cardUrl }}'></image>
+      <image src='{{ postData.licence }}'></image>
       <text>（点击上传营业执照）</text>
     </view>
     <view class="flex-bt ">
       <image class="password " src="/assets/images/login/icon-sj-07.png "></image>
       <view class="flex ">
-        <input placeholder-class="phcolor " type="number" placeholder="请输入手机号码 " value=""></input>
+        <input placeholder-class="phcolor" type="number" bindinput="bindinput"  data-name="phone" placeholder="请输入手机号码 " value="{{ postData.phone }}"></input>
         <view class="flex getCode ">
           <text>更换</text>
-          <text>获取验证码</text>
+          <text bindtap="getCode" >获取验证码</text>
         </view>
       </view>
     </view>
     <view class="flex-bt">
       <image class="password" src="/assets/images/login/password.png"></image>
-      <input placeholder-class="phcolor" type="text" placeholder="请输入验证码"></input>
+      <input placeholder-class="phcolor" value="{{ postData.code }}" bindinput="bindinput"  type="text" data-name="code" placeholder="请输入验证码"></input>
     </view>
 
     <view bindtap="registered" class="loginButton ">提交审核</view>

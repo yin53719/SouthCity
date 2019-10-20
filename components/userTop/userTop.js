@@ -12,10 +12,6 @@ Component({
   options: {
     addGlobalClass: true
   },
-  attached() {
-    console.log(this.data)
-
-  },
   /**
    * 组件的初始数据
    */

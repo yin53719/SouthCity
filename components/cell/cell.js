@@ -77,17 +77,7 @@ Component({
     },
     // 获取地址
     getAddress(){
-      if (app.globalData.authorize['scope.userLocation']){
-        utils.getLocation(this)
-      }else{
-        wx.authorize({
-          scope: "scope.userLocation",
-          success: () => {
-            app.globalData.authorize['scope.userLocation'] = true;
-            this.getAddress();
-          }
-        })
-      }
+      utils.getLocation(this)
     }
   }
 })

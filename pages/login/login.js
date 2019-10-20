@@ -10,48 +10,101 @@ Page({
    */
   data: {
     switch: '0', //0登录  1注册,
+    type:1,
     postData:{
       address:'',
-      cardUrl:'/assets/images/login/uploadcard.png',
-      account:'',
-      password:''
+      licence:'/assets/images/login/uploadcard.png',
+      account:'111111',
+      password:'123456',
+      repassword:'123456',
+      name:'南城同城信息网',
+      contact:'12345',
+      phone:'17717038360',
+      code:'9527'
     },
-    isClickChooseLocation:false
+    start_time: '00:00',
+    end_time: '24:00',
+    isClickChooseLocation:false,
+    project:[]
   },
+  onLoad() {
+    app.wxRequest({
+      url: 'index/tool/typelist',
+      success: (res) => {
+        let list = this.data.project;
+        for (let i in res.info) {
+          list.push({
+            id: i,
+            val: res.info[i]
+          });
+        }
+        this.setData({
+          project: list
+        })
+      }
+    })
 
+  },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
     const location = chooseLocation.getLocation();
-    console.log(location);
     // 腾讯内置导航
     if(location && this.data.isClickChooseLocation){
       // let postData = {}
       this.setData({
         isClickChooseLocation:false,
         postData:{
-          ...this.data.postData, ...location
+          ...this.data.postData, 
+          address:location.address,
+          longitude: location.longitude,
+          latitude: location.latitude
         }
       })
 
     }
   },
-
+  // 获取验证码
+  getCode(){
+    let phone = this.data.postData.phone
+    if (!phone){
+      wx.showToast({
+        title: '手机号码必填',
+      })
+      return false;
+    }
+    app.wxRequest({
+      url: 'index/index/sendsms',
+      method:'post',
+      data:{
+        phone:phone
+      },
+      success: (res) => {
+        if(res.code === 1){
+          wx.showToast({
+            title:res.msg
+          })
+        }
+      }
+    })
+  },
+  // 改变下拉选项
+  bindPickerChange: function (event) {
+    this.setData({   //给变量赋值
+      idx: event.detail.value,
+    })
+  },
   changeSwitch(e) {
-    console.log(e.target.dataset)
     this.setData({
       switch: e.target.dataset.type
     })
-    console.log(this.data.switch)
   },
-  bindDateChangestart: function(e) {
-    console.log('picker发送选择改变，携带值为',e.detail.value)
-    this.setData({ businessTimestart:e.detail.value})
+  bindDateChangeStart: function(e) {
+    this.setData({ start_time:e.detail.value})
   },
-  bindDateChangeend: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({ businessTimeend: e.detail.value })
+  bindDateChangeEnd: function (e) {
+    this.setData({ end_time: e.detail.value })
   },
   // 上传营业执照
   uploadCard(){
@@ -75,7 +128,8 @@ Page({
             console.log(data)
             that.setData({
               postData:{
-                ...that.postData, cardUrl: app.globalData.domain + data.info.url
+                ...that.postData, 
+                licence: app.globalData.domain + data.info.url
               }
             })
           }
@@ -84,16 +138,35 @@ Page({
     })
   },
   login(){
-    wx.navigateTo({
-      url: "/pages/businessUser/businessUser"
+    app.wxRequest({
+      method: 'post',
+      url: 'index/store/login',
+      data:{
+        account:this.data.postData.account,
+        password:this.data.postData.password
+      },
+      success:()=>{
+        wx.showToast({
+          title: '成功',
+          icon: 'success',
+          duration: 2000
+        })
+        wx.navigateTo({
+          url: "/pages/businessUser/businessUser"
+        })
+      }
     })
+    
   },
   registered(){
-    wx.request({
-      url: app.globalData.domain + 'index/store/register',
+    app.wxRequest({
+      url: 'index/store/register',
       method:'post',
       data:{
-        ...this.data.postData
+        ...this.data.postData,
+        start_time: this.data.start_time,
+        end_time: this.data.end_time,
+        type:this.data.type
       },
       success:(res)=>{
         console.log(res);
@@ -124,7 +197,6 @@ Page({
     
   },
   bindinput(e){
-    console.log(e);
     this.setData({
       postData:{
         ...this.data.postData, [e.target.dataset.name]: e.detail.value

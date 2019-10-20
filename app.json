@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/participate/participate",
     "pages/index/index",
     "pages/businessPackage/businessPackage",
     "pages/businessData/businessData",
@@ -15,7 +14,7 @@
     "pages/join/join",
     "pages/joinPay/joinPay",
     "pages/test/test",
-    
+    "pages/participate/participate",
     "pages/release/release",
     "pages/myFollow/myFollow"
   ],

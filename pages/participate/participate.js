@@ -16,7 +16,7 @@ Page({
       sortType:0
     },
     activityList: [],
-    searchValue: 'app.globalData.openid'
+    searchValue: ''
   },
   onLoad: function () {
     console.log(app.globalData.openid);
