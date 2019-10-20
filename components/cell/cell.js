@@ -61,21 +61,16 @@ Component({
         })
     },
     bindDateChangeStart: function(e) {
-      console.log('picker发送选择改变，携带值为', e)
       this.setData({
         dateStart: e.detail.value
       })
-      this.triggerEvent('dateChange', e.detail.value +'-'+this.data.dateEnd)
-    },
-    onShow(){
-      console.log();
+      this.triggerEvent('dateChangeStart', e.detail.value)
     },
     bindDateChangeEnd: function (e) {
-      console.log('picker发送选择改变，携带值为', e)
       this.setData({
         dateEnd: e.detail.value
       })
-      this.triggerEvent('dateChange', this.data.dateStart + '-' + e.detail.value)
+      this.triggerEvent('dateChangeEnd',e.detail.value)
     },
     setCheckboxItem: function(e) {
       let items = this.data.items;
@@ -101,6 +96,7 @@ Component({
       this.setData({
         location: { ...res }
       })
+      this.triggerEvent('getLocation',res)
     },
     // 获取地址
     getAddress(){

@@ -63,13 +63,29 @@ Page({
         ...this.data,[e.detail.name]:e.detail.value
       })
   },
+  getLocation(res){
+    this.setData({
+      ...this.data,
+      longitude:res.detail.longitude,
+      latitude:res.detail.latitude,
+      address:res.detail.address,
+
+    })
+  },
   boxchangeindex: function (e) {
     this.setData({
       type: e.detail.index
     })
   },
-  dateChange(e){
-    console.log(e.detail)
+  dateChangeStart(e){
+    this.setData({
+      ...this.data,start_time:e.detail
+    })
+  },
+  dateChangeEnd(e) {
+    this.setData({
+      ...this.data, end_time: e.detail
+    })
   },
   uploadCard() {
     const that = this;
@@ -103,7 +119,7 @@ Page({
       url: 'index/store/register',
       method:'post',
       data:{
-        ...this.data
+        ...this.data, name: this.data.shopName
       },
       success:(res)=>{
 

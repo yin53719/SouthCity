@@ -2,9 +2,9 @@
 <view class="wrapper">
   <view class="form">
     <cell title="选择行业"  bind:boxchangeindex="boxchangeindex" type="checkbox" items="{{checkBoxItems}}"></cell>
-    <cell title="店名" type="text" placeholder="{{ name }}" name="name" bind:inputChange="inputChange"></cell>
-    <cell title="地址" type="address" placeholder="点击选中地址" placeholder="{{ address }}"></cell>
-    <cell title="营业时间" type="date" bind:dateChange="dateChange" placeholder="{{ do_business}}"></cell>
+    <cell title="店名" type="text" placeholder="{{ name }}" name="shopName" bind:inputChange="inputChange"></cell>
+    <cell title="地址" type="address" bind:getLocation="getLocation"  placeholder="点击选中地址" placeholder="{{ address }}"></cell>
+    <cell title="营业时间" type="date" bind:dateChangeStart="dateChangeStart" placeholder="{{ do_business}}" bind:dateChangeEnd="dateChangeEnd" ></cell>
     <cell title="联系人" bind:inputChange="inputChange" name="contact" type="text" placeholder="{{ contact }}"></cell>
     <cell title="联系手机" maxlength="11" type="number" bind:inputChange="inputChange" name="phone"  placeholder="{{ phone }}"></cell>
     <cell title="验证码" maxlength="6" bind:inputChange="inputChange" name="code"  type="text" placeholder="{{ code }}"></cell>
