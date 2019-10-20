@@ -2,16 +2,16 @@
 <view class="wrapper">
   <view class="top">
     <view class="flex-bt">
-      <text class="title">{{data.name}}</text>
+      <text class="title">{{afterObj.name}}</text>
       <view class="flex-bt message">
-        <text>{{data.status}}</text>
-        <text>{{data.message}}</text>
+        <text>{{afterObj.status}}</text>
+        <text>{{afterObj.message}}</text>
       </view>
     </view>
     <view class="flex-bt top-center">
       <view class="flex-bt local">
-        <text>{{data.time}}</text>
-        <text>{{data.address}}</text>
+        <text>{{afterObj.begin_time}}</text>
+        <text style="text-align:left;display:block;width:100%;">{{afterObj.address}}</text>
       </view>
       <view class="button seeData" bindtap="goJoin" wx:if="{{ type=='1'}}">查看详情</view>
       <view class="button seeData" bindtap="goJoin" wx:if="{{ type=='2'}}">我要参与</view>
@@ -19,7 +19,10 @@
     </view>
     <view class="flex-bt">
       <view class="flex-bt label">
-        <text wx:for="{{data.label}}" wx:key="key">{{item}}</text>
+      <!-- label -->
+        <text >{{afterObj.type_name}}</text>
+        <text >{{afterObj.type}}</text>
+        <text >{{afterObj.price}}元/位</text>
       </view>
       <view wx:if="{{type ==='1'}}" class="button sign">
         <view class="flex">
@@ -38,26 +41,17 @@
   <view class="bottom flex-bt" wx:if="{{ type !== '3' }}" >
     <view>
       <view class="flex" >
-        <view class="man flex">
+        <!-- <view class="man flex">
           <image src="/assets/images/home/man.png"></image>
           <text>男</text>
-        </view>
+        </view> -->
         <view class="check">
-            <image src="" style="left:{{ (i-1)*55 }}rpx;" wx:for="{{data.manNum}}" wx:for-item="i" wx:key="key"  >  </image>
-        </view>
-      </view>
-      <view class="flex" style="margin-top: 15rpx">
-        <view class="woman flex">
-          <image src="/assets/images/home/woman.png"></image>
-          <text>女</text>
-        </view>
-        <view class="check">
-           <image src="" style="left:{{ (i-1)*55 }}rpx;" wx:for="{{data.womanNum}}" wx:for-item="i" wx:key="key"  >  </image>
+            <image src="{{item}}" style="left:{{ (i-1)*55 }}rpx;" wx:for="{{afterObj.headimgurl}}" wx:for-item="item" wx:key="key" wx:for-index="i" >  </image>
         </view>
       </view>
     </view>
 
-    <view wx:if="{{type ==='1'}}" class="button hexiao">
+    <view wx:if="{{type ==='1'}}" class="button hexiao" bindtap="scanCodeHandle" >
       <view class="flex">
         <image src="/assets/images/home/hexiao.png"></image>
         <text>核销</text>

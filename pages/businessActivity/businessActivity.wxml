@@ -3,6 +3,6 @@
   <user-top type="3"></user-top>
   <user-nav-button></user-nav-button>
   <view class="content">
-    <activity-list type="4" wx:for="{{activityList}}" wx:key="key" data="{{item}}"></activity-list>
+    <activity-list type="4" wx:for="{{activityList}}" wx:key="key" injectionData="{{item}}"></activity-list>
   </view>
 </view>

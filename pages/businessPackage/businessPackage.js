@@ -97,7 +97,7 @@ Page({
       data:{
         title:this.data.title,
         img:this.data.img,
-        detils:JSON.stringify(this.data.detail)
+        detail:JSON.stringify(this.data.detail)
       },
       success:(res)=>{
         console.log(res);

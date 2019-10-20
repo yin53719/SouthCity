@@ -57,7 +57,7 @@ App({
   wxRequest({ method, url, params, data, success, errFun}) {
     wx.request({
       url: this.globalData.domain+url,
-      method: method ? method:'get',
+      method: method ? method:'post',
       params:params,
       data: data,
       header: {
@@ -70,7 +70,9 @@ App({
         success(res.data);
       },
       fail: function (err) {
-        errFun(err);
+        wx.showToast({
+          title: '服务异常',
+        })
       }
     })
   }

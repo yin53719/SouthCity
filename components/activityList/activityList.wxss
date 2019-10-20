@@ -120,6 +120,7 @@
   margin: 0;
   position: relative;
   height:65rpx;
+  margin-left: 50rpx;
 }
 .check image{
   margin-left: 12rpx;

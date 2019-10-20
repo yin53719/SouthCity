@@ -9,6 +9,8 @@ Component({
     title: String,
     type: String,
     placeholder: String,
+   
+    name: String,
     disable: {
       type: Boolean,
       value: false
@@ -16,9 +18,7 @@ Component({
     maxlength: Number,
     items: {
       type: Array,
-      value: function() {
-        return []
-      }
+      name: String
     },
     checkedbox: {
       type: String,
@@ -34,15 +34,32 @@ Component({
     dateEnd: "24:00",
     location:{
       address:''
-    }
+    },
+    phone: '',
   },
   options: {
     addGlobalClass: true
+  },
+  ready(){
+    console.log(this.placeholder.phone)
+    this.setData({
+      phone:this.data.placeholder
+    })
   },
   /**
    * 组件的方法列表
    */
   methods: {
+    bindinput(e){
+        this.triggerEvent('inputChange',{
+          value:e.detail.value,
+          name: e.target.dataset.name
+        })
+
+        this.setData({
+          ...this.data, [e.target.dataset.name]:e.detail.value
+        })
+    },
     bindDateChangeStart: function(e) {
       console.log('picker发送选择改变，携带值为', e)
       this.setData({
@@ -60,14 +77,24 @@ Component({
       })
       this.triggerEvent('dateChange', this.data.dateStart + '-' + e.detail.value)
     },
-    checkboxChange: function(e) {
-      console.log('checkbox发生change事件，携带value值为：', e.detail.value);
-      this.triggerEvent('getchecked', e.detail.value)
-    },
     setCheckboxItem: function(e) {
+      let items = this.data.items;
+      console.log(e)
+      for (let i =0;i< items.length;i++){
+        if (i == e.target.dataset.index){
+
+          items[i].checked = !items[i].checked
+          continue;
+        }
+        items[i].checked = false;
+      }
+    
+       this.setData({
+         items
+       })
+
       this.triggerEvent('boxchangeindex', {
-        'index': e.target.dataset.index,
-        'checked': e.target.dataset.checked
+        'index': e.target.dataset.index
       })
     },
     locationCallBack(res){
@@ -78,6 +105,30 @@ Component({
     // 获取地址
     getAddress(){
       utils.getLocation(this)
+    },
+    getCode(){
+      console.log(this.data.placeholder)
+      let phone = this.data.phone || this.data.placeholder
+      if (!phone) {
+        wx.showToast({
+          title: '手机号码必填',
+        })
+        return false;
+      }
+      app.wxRequest({
+        url: 'index/index/sendsms',
+        method: 'post',
+        data: {
+          phone: phone
+        },
+        success: (res) => {
+          if (res.code === 1) {
+            wx.showToast({
+              title: res.msg
+            })
+          }
+        }
+      })
     }
   }
 })

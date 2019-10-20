@@ -1,54 +1,23 @@
 const GlobaleConfig = require('../../utils/config')
-
+const app = getApp();
 
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    cardUrl: '/assets/images/login/uploadcard.png',
-    checkBoxItems: [{
-        name: 'KTV',
-        code: '1',
-        checked: false,
-
-      },
-      {
-        name: '酒吧',
-        code: '2',
-        checked: false,
-
-      },
-      {
-        name: '美食',
-        code: '3',
-        checked: false,
-
-      },
-      {
-        name: '景点',
-        code: '4',
-        checked: false,
-
-      },
-      {
-        name: '美丽',
-        code: '5',
-        checked: false,
-
-      },
-      {
-        name: '电影',
-        checked: true,
-        code: '6'
-      },
-      {
-        name: '网吧',
-        checked: false,
-        code: '7'
-      }
-    ],
-    birthDay: '00:00-23:59',
+    "type": 1,
+    "name": "名称",
+    "address": "门店地址",
+    "longitude": "1.1",
+    "latitude": "2.1",
+    "start_time": "08:00",
+    "end_time": "23:00",
+    "contact": "啊三",
+    "phone": 13000000001,
+    "licence": "upload/image/20190819/1565960577.png",
+    checkBoxItems: [],
+    do_business: '00:00-23:59',
     bitList: []
   },
 
@@ -56,19 +25,47 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
-  },
-
-
-  boxchangeindex: function (e) {
-    const temp = `checkBoxItems[${e.detail.index}].checked`
-    this.setData({
-      [temp]: !e.detail.checked
+    
+    app.wxRequest({
+      url:'index/store/detail',
+      success:(res)=>{
+         this.setData({
+           ...res.info, do_business: res.info.start_time +'-'+ res.info.end_time
+         })
+        app.wxRequest({
+          url: 'index/tool/typelist',
+          success: (res) => {
+            let checkBoxItems = [];
+            for (let x in res.info) {
+              let checked = false;
+              if(this.data.type == x){
+                checked = true;
+              }
+              checkBoxItems.push({
+                name: res.info[x],
+                type: x,
+                checked: checked
+              })
+            }
+            console.log(checkBoxItems)
+            this.setData({
+              checkBoxItems
+            })
+          }
+        })
+      }
     })
   },
-  getchecked: function (e) {
+
+  inputChange(e){
+      console.log(e);
+      this.setData({
+        ...this.data,[e.detail.name]:e.detail.value
+      })
+  },
+  boxchangeindex: function (e) {
     this.setData({
-      bitList: e.detail
+      type: e.detail.index
     })
   },
   dateChange(e){
@@ -94,11 +91,23 @@ Page({
             const data = JSON.parse(res.data);
             console.log(data)
             that.setData({
-              cardUrl: GlobaleConfig.domain + data.info.url
+              licence: GlobaleConfig.domain + data.info.url
             })
           }
         })
       }
     })
   },
+  saveShop(){
+    app.wxRequest({
+      url: 'index/store/register',
+      method:'post',
+      data:{
+        ...this.data
+      },
+      success:(res)=>{
+
+      }
+    })
+  }
 })

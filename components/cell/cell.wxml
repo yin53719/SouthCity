@@ -3,12 +3,12 @@
   <text>{{title}}</text>
 
   <block wx:if="{{type=='text'}}" class="flex-bt">
-    <input type="{{type}}" disabled="{{disable}}"   placeholder="{{placeholder}}"></input>
+    <input type="{{type}}" disabled="{{disable}}" data-name="{{ name }}" bindinput="bindinput"  placeholder="{{placeholder}}"></input>
     <image wx:if="{{!disable}}" src="/assets/images/editor.png"></image>
   </block>
   <!-- 获取地址 -->
   <block wx:if="{{type=='address'}}" class="flex-bt">
-    <input type="{{type}}" disabled="{{disable}}" bindtap="getAddress" value="{{ location.address }}" placeholder="{{placeholder}}"></input>
+    <input type="{{type}}" disabled="disable" bindtap="getAddress" value="{{ location.address }}" placeholder="{{placeholder}}"></input>
     <image wx:if="{{!disable}}" src="/assets/images/editor.png"></image>
   </block>
   <block wx:if="{{type=='date'}}" class="flex-bt">
@@ -18,18 +18,17 @@
     <picker mode="time" value="{{ dateEnd }}" bindchange="bindDateChangeEnd">
       <input type="text" disabled="{{true}}" placeholder="{{ dateEnd }}"></input>
     </picker>
-    <!-- <image wx:if="{{!disable}}" src="/assets/images/editor.png"></image> -->
+
   </block>
   <block wx:if="{{type=='number'}}" class="flex-bt">
-    <input type="{{type}}" maxlength="{{maxlength}}" disabled="{{disable}}" placeholder="{{placeholder}}"></input>
-    <text class="getVarCode">获取验证码</text>
+    <input type="{{type}}" maxlength="{{maxlength}}" bindinput="bindinput" value="{{ phone }}"  disabled="{{disable}}" data-name="phone"  placeholder="{{placeholder}}"></input>
+    <text class="getVarCode" bindtap="getCode" >获取验证码</text>
   </block>
   <block wx:if="{{type=='checkbox'}}">
-    <checkbox-group bindchange="checkboxChange" class="flex">
-      <label class="checkbox" wx:for="{{items}}" wx:key="index" bindtap="setCheckboxItem">
-        <text class="{{item.checked?'active':''}}" data-index="{{index}}" data-checked="{{item.checked}}">{{item.name}}</text>
-        <checkbox value="{{item.code}}" checked="{{item.checked}}" />
-      </label>
-    </checkbox-group>
+     <br/>
+     <view class="checkbox">
+         <text class="button {{ item.checked?'active':'' }}" bindtap="setCheckboxItem"  wx:for="{{ items }}" data-index="{{ idx }}"  wx:key="idx" wx:for-index="idx" wx:for-item="item" >{{ item.name }} </text>
+     </view>
+     
   </block>
 </view>

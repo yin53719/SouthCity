@@ -14,13 +14,13 @@ Page({
     postData:{
       address:'',
       licence:'/assets/images/login/uploadcard.png',
-      account:'111111',
-      password:'123456',
-      repassword:'123456',
-      name:'南城同城信息网',
-      contact:'12345',
-      phone:'17717038360',
-      code:'9527'
+      account:'',
+      password:'',
+      repassword:'',
+      name:'南城城信息网',
+      contact:'',
+      phone:'',
+      code:''
     },
     start_time: '00:00',
     end_time: '24:00',

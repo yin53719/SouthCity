@@ -34,7 +34,36 @@ text.getVarCode {
   padding: 3rpx 10rpx;
   margin-left: 15rpx;
 }
+view.checkbox{
 
+  width: 100%;
+}
+view.checkbox .button{
+  margin: 0;
+  padding: 0;
+  border:solid 1px #f1f1f1;
+  text-align: center;
+  height: 60rpx;
+  width:146rpx;
+  line-height: 60rpx;
+  margin-right: 29rpx;
+  display: inline-block;
+  flex: none;
+  margin-top: 30rpx;
+  border-radius: 60rpx;
+  color: #838384;
+}
+view.checkbox .button:nth-of-type(4){
+  margin-right: 0;
+}
+
+
+view.checkbox .button.active{
+  background:  #40e59b;
+  color: #fff;
+}
+
+/* 
 checkbox-group {
   width: 100%;
   flex-wrap: wrap;
@@ -65,4 +94,4 @@ checkbox-group text.active {
   color: #fff;
   background: var(--colorG);
   border: 1rpx solid var(--colorG);
-}
+} */
