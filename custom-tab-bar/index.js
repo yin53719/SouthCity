@@ -36,10 +36,8 @@ Component({
   methods: {
     switchTab(e) {
       const data = e.currentTarget.dataset
-      console.log(data)
       const url = data.path
       wx.switchTab({url})
-      console.log(data.index)
       this.getTabBar().setData({
         selected: data.index
       })

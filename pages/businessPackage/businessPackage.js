@@ -1,31 +1,33 @@
 
 const GlobaleConfig = require('../../utils/config')
-
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    packages:[],
-    cardUrl:'/assets/images/home/guanggaotu.png'
+    detail:[],
+    title: '',
+    img: '/assets/images/home/guanggaotu.png'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let packages = [];
-     for(let i=1;i<11;i++){
-        packages.push({
-          text:'',
-          num:i
-        })
-     }
 
-     this.setData({
-       packages
-     })
+   app.wxRequest({
+     url:'index/store/getmeal',
+     success:(res)=>{
+       console.log(res);
+
+       this.setData({
+         ...res.info
+       })
+     }
+   })
+     
   },
   
   // 上传营业执照
@@ -49,7 +51,7 @@ Page({
             const data = JSON.parse(res.data);
             console.log(data)
             that.setData({
-              cardUrl: GlobaleConfig.domain + data.info.url
+              img: GlobaleConfig.domain + data.info.url
             })
           }
         })
@@ -57,9 +59,69 @@ Page({
       }
     })
   },
+  setPackage(){
+    let data = this.data;
+    if (!data.title){
+      wx.showToast({
+        title: '套餐标题必填',
+        icon:'none'
+      })
+      return false;
+    }
+    
+    let mealContent = true;
+    for(let i=0;i<data.detail.length;i++){
+      console.log(data.detail[i].content)
+      if (data.detail[i].content && data.detail[i].content.length>0){
+           mealContent = false;
+           break;
+        }
+    }
+    if (mealContent) {
+      wx.showToast({
+        title: '套餐内容必填，至少填写一项！',
+        icon: 'none'
+      })
+      return false;
+    }
+    if (data.img.indexOf('https://') === -1) {
+      wx.showToast({
+        title: '套餐图片必填',
+        icon: 'none'
+      })
+      return false;
+    }
+    app.wxRequest({
+      url:'index/store/setmeal',
+      method:'post',
+      data:{
+        title:this.data.title,
+        img:this.data.img,
+        detils:JSON.stringify(this.data.detail)
+      },
+      success:(res)=>{
+        console.log(res);
+        this.gotolink();
+      }
+    })
+  },
   gotolink(){
     wx.reLaunch({
       url: '/pages/businessUser/businessUser',
     })
+  },
+  bindinput(e) {
+    if (e.target.dataset.type === 'meal'){
+      let detail = this.data.detail;
+      detail[e.target.dataset.index].content = e.detail.value;
+      this.setData({
+        detail
+      })
+    }else{
+      this.setData({
+        title: e.detail.value
+      })
+    }
+   
   }
 })
