@@ -51,7 +51,7 @@ Page({
     wx.login({
       success: (res) => {
         wx.request({
-          url: app.globalDatadomain + 'index/login/index',
+          url: app.globalData.domain + 'index/login/index',
           method: 'post',
           data: {
             code: res.code,
@@ -59,7 +59,7 @@ Page({
             encryptedData: e.detail.encryptedData
           },
           success: (res) => {
-            this.globalData.openid = res.data.info.openid;
+            app.globalData.openid = res.data.info.openid;
             this.goLonin2();
           }
         })
