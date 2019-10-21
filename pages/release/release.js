@@ -4,32 +4,21 @@ Page({
   data: {
     location: '上海',
     activityList: [{
-      title: "佰分迪KTV娱乐会所",
-      local: "南宁市青秀区厢竹大道5号",
-      time: "2019.9.15  20:00 - 12:00",
-      label: [
-        "KTV",
-        "3男3女",
-        "68元/男"
-      ],
-      status: "成功接待",
-      message: "N人",
-      manAllNum: "3",
-      manNum: [1, 2, 3, 4, 5],
-      womanAllNum: "3",
-      womanNum: [1, 2, 3, 4, 5],
+      "type": '2男3女',
+        "man_num": 2,
+        "woman_num": 3,
+        "begin_time": 1571554526,
+        "status": 2,
+        "headimgurl": [
+          "upload/image/20190819/1565960577.png", "upload/image/20190819/1565960577.png"
+        ],
+        "name": "门店名称",
+        "address": "门店地址1111",
+        "price": 10.01,
+        act_type:1
     }]
-  },
-  navTap: function (navType) {
-    console.log(navType.target)
-    this.setData({
-      navType: navType.target.dataset.type
-    })
   },
   onLoad: function () {
 
-  },
-  globalData: {
-    url: ''
   }
 })

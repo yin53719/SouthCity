@@ -122,7 +122,9 @@ Page({
         ...this.data, name: this.data.shopName
       },
       success:(res)=>{
-
+        wx.navigateTo({
+          url: "/pages/businessUser/businessUser"
+        })
       }
     })
   }

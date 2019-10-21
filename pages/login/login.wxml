@@ -27,6 +27,7 @@
       <view bindtap="changePasswordSee" class="cansee">
         <image src="/assets/images/login/cansee.png"></image>
       </view>
+
     </view>
     <view class="loginButton" bindtap="login">登录</view>
     <view class="help">忘记密码?</view>
@@ -52,6 +53,7 @@
         <image src="/assets/images/login/cansee.png"></image>
       </view>
     </view>
+   
     <!-- 选择行业 -->
     <view class="flex-bt">
       <image class="password" src="/assets/images/login/icon-hy.png"></image>

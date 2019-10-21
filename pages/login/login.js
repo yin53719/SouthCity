@@ -10,7 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    switchT: '1', //0登录  1注册,
+    switchT: '0', //0登录  1注册,
     idx: "1",
     passwordSee: true,
     password2See: true,
