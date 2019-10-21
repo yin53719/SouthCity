@@ -21,22 +21,28 @@ Page({
   onLoad: function () {
     console.log(app.globalData.openid)
     if(!app.globalData.openid){
-      wx.login({
-        success: (res) => {
-          wx.request({
-            url: app.globalData.domain + 'index/login/index',
-            method: 'post',
-            data: {
-              code: res.code,
-              iv: e.detail.iv,
-              encryptedData: e.detail.encryptedData
-            },
+      wx.getUserInfo({
+        success:(res)=>{
+          let detail = res;
+          wx.login({
             success: (res) => {
-              app.globalData.openid = res.data.info.openid;
+              wx.request({
+                url: app.globalData.domain + 'index/login/index',
+                method: 'post',
+                data: {
+                  code: res.code,
+                  iv: detail.iv,
+                  encryptedData: detail.encryptedData
+                },
+                success: (res) => {
+                  app.globalData.openid = res.data.info.openid;
+                }
+              })
             }
           })
         }
       })
+      
     }
     let activityList = [];
     for(let i=0;i<10;i++){
