@@ -56,23 +56,30 @@ App({
   **/
   wxRequest({ method, url, params, data, success, errFun}) {
     wx.request({
-      url: this.globalData.domain+url,
+      url: this.globalData.domain + url,
       method: method ? method:'post',
       params:params,
       data: data,
       header: {
-        'content-type': method == 'GET' ? 'application/json' : 'application/x-www-form-urlencoded',
+        'content-type':  'application/json',
         'Accept': 'application/json',
         'Authorization':this.globalData.openid
       },
-      dataType: 'json',
       success: function (res) {
-        success(res.data);
+        if(res.data.code === 1){
+          success(res.data);
+        }else{
+          wx.showToast({
+            title:res.data.msg
+          })
+        }
+        
       },
       fail: function (err) {
         wx.showToast({
           title: '服务异常',
         })
+        errFun(err)
       }
     })
   }
