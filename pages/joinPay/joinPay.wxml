@@ -7,6 +7,11 @@
       <view> 佰分迪KTV娱乐会所,随心所欲，想唱就唱</view>
       <view class="right" style="width:200rpx;">
           <text>浏览量：4417</text>
+          <view class="comment">
+          <image style="width:22rpx;height:23rpx;" src="../../assets/images/handle.png" ></image>
+          <text> 好评率 99%</text>
+          </view>
+          
       </view>
   </view>
   <view class="titleCell mt20" style="margin-bottom:38rpx;">

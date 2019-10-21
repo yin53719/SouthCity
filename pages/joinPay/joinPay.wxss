@@ -50,7 +50,18 @@ image{
   float: right;
   background: #fff3f7;
 }
-
+.titleCell .right .comment{
+  float: right;
+  margin-top: 20rpx;
+}
+.titleCell .right .comment text{
+  color: #f85b92;
+}
+.titleCell .right .comment image{
+  vertical-align: top;
+  margin-right: 10rpx;
+  margin-top: 5rpx;
+}
 .titleCell .label text{
   color: #f85b92;
   font-size: 26rpx;
