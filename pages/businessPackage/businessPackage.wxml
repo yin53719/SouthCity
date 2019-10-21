@@ -16,6 +16,7 @@
     <view class="checkImg flex" bindtap="uploadCard" >
       <image src="{{ img || '/assets/images/home/guanggaotu.png' }}"></image>
       <text>更换</text>
+      <text>建议比例750*450 图片类型jpg*png</text>
     </view>
 
   </view>
