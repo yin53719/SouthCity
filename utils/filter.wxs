@@ -1,0 +1,12 @@
+var DateFr = {
+  getMinutes: function(time, splitStr) {
+    var d = time / 1000;
+    var s = d % 60 < 10 ? '0' + d % 60 : d % 60;
+    var m = parseInt(d / 60);
+    return m + splitStr + s;
+  }
+}
+
+module.exports = {
+  getMinutes: DateFr.getMinutes
+}

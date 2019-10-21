@@ -99,6 +99,13 @@
 .login .cansee {
   width: 25rpx;
   height: 15rpx;
+  padding: 15rpx;
+}
+
+.login .cansee image {
+  width: 25rpx;
+  height: 15rpx;
+  vertical-align: top;
 }
 
 .login .rightMore {
@@ -147,9 +154,11 @@
   font-size: var(--size26);
   color: #a8a7a7;
 }
-.registered{
-  padding-bottom:150rpx;
+
+.registered {
+  padding-bottom: 150rpx;
 }
+
 .registered .flex-bt {
   padding: 25rpx 0;
 }
@@ -161,6 +170,11 @@
 
 .getCode text {
   white-space: nowrap;
+}
+
+.getCode text:last-child.countdown {
+  color: #e3e3e3;
+  border: 1rpx solid #e3e3e3;
 }
 
 .getCode text:last-child {
