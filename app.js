@@ -1,4 +1,4 @@
-const GlobaleConfig = require('./utils/config')
+
 App({
   onLaunch: function () {
     // 展示本地存储能
@@ -17,7 +17,7 @@ App({
               wx.login({
                 success: (res) => {
                   wx.request({
-                    url:GlobaleConfig.domain + 'index/login/index',
+                    url: this.globalData.domain + 'index/login/index',
                     method: 'post',
                     data: {
                       code: res.code,

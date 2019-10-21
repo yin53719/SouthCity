@@ -48,7 +48,24 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-    this.goLonin2();
+    wx.login({
+      success: (res) => {
+        wx.request({
+          url: app.globalDatadomain + 'index/login/index',
+          method: 'post',
+          data: {
+            code: res.code,
+            iv: e.detail.iv,
+            encryptedData: e.detail.encryptedData
+          },
+          success: (res) => {
+            this.globalData.openid = res.data.info.openid;
+            this.goLonin2();
+          }
+        })
+      }
+    })
+    
   },
   goLonin2(){
     wx.switchTab({

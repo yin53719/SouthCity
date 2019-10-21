@@ -19,7 +19,7 @@ Page({
     searchValue: ''
   },
   onLoad: function () {
-
+    console.log(app.globalData.openid)
     let activityList = [];
     for(let i=0;i<10;i++){
       activityList.push({
