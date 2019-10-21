@@ -16,7 +16,8 @@ Page({
       ],
       "name": "门店名称",
       "address": "门店地址",
-      "price": 10.01
+      "price": 10.01,
+      act_type:1
     }]
   },
 

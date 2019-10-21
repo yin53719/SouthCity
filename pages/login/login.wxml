@@ -20,7 +20,7 @@
     </view>
     <view class="flex-bt">
       <image class="password" src="/assets/images/login/password.png"></image>
-      <input placeholder-class="phcolor" value="{{ postData.password }}" data-name="password" bindinput="bindinput" type="text" placeholder="请输入登录密码"></input>
+      <input placeholder-class="phcolor" value="{{ postData.password }}" data-name="password" bindinput="bindinput" type="password" placeholder="请输入登录密码"></input>
       <image class="cansee" src="/assets/images/login/cansee.png"></image>
     </view>
     <view class="loginButton" bindtap="login">登录</view>
@@ -35,12 +35,12 @@
     </view>
     <view class="flex-bt">
       <image class="password" src="/assets/images/login/password.png"></image>
-      <input value="{{ postData.password }}" data-name="password" bindinput="bindinput" placeholder-class="phcolor" type="text" placeholder="请输入登录密码"></input>
+      <input value="{{ postData.password }}" data-name="password" bindinput="bindinput" placeholder-class="phcolor" type="password" placeholder="请输入登录密码"></input>
       <image class="cansee" src="/assets/images/login/cansee.png"></image>
     </view>
     <view class="flex-bt">
       <image class="password" src="/assets/images/login/password.png"></image>
-      <input value="{{ postData.repassword }}" bindinput="bindinput" data-name="repassword" placeholder-class="phcolor" type="text" placeholder="确认登录密码"></input>
+      <input value="{{ postData.repassword }}" bindinput="bindinput" data-name="repassword" placeholder-class="phcolor" type="password" placeholder="确认登录密码"></input>
       <image class="cansee" src="/assets/images/login/cansee.png"></image>
     </view>
     <!-- 选择行业 -->
