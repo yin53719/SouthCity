@@ -92,15 +92,14 @@ Component({
         'index': e.target.dataset.index
       })
     },
-    locationCallBack(res){
-      this.setData({
-        location: { ...res }
-      })
-      this.triggerEvent('getLocation',res)
-    },
     // 获取地址
     getAddress(){
-      utils.getLocation(this)
+      utils.getLocation((res)=>{
+        this.setData({
+          location: { ...res }
+        })
+        this.triggerEvent('getLocation', res)
+      })
     },
     getCode(){
       console.log(this.data.placeholder)

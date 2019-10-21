@@ -1,7 +1,7 @@
 <!--pages/home/join/join.wxml-->
 <view class="main">
   <view class="banner">
-     <image src="../../assets/images/join-banner.jpg"></image>
+       <image src="https://cdn-1251334980.cos.ap-shanghai.myqcloud.com/join-banner.jpg"></image>
   </view>
   <view class="titleCell mt60">
       <view> 佰分迪KTV娱乐会所,随心所欲，想唱就唱</view>

@@ -1,9 +1,6 @@
 const utils = require("../../utils/util.js")
-let plugin = requirePlugin('routePlan');
-const chooseLocation = requirePlugin('chooseLocation');
 const app = getApp();
-const key = 'H3GBZ-6CV6I-H4CGI-5CIDB-KWZ5K-E2BBU'; //使用在腾讯位置服务申请的key
-const referer = '南宁同城信息网'; //调用插件的app的名称
+
 Page({
 
   /**
@@ -28,7 +25,6 @@ Page({
     },
     start_time: '00:00',
     end_time: '24:00',
-    isClickChooseLocation: false,
     project: [],
     canGetCode: true,
     getCodeTime: 5 * 60 * 1000
@@ -54,23 +50,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
-    const location = chooseLocation.getLocation();
-    // 腾讯内置导航
-    if (location && this.data.isClickChooseLocation) {
-      // let postData = {}
-      this.setData({
-        isClickChooseLocation: false,
-        postData: {
-          ...this.data.postData,
-          address: location.address,
-          longitude: location.longitude,
-          latitude: location.latitude
-        }
-      })
 
-    }
-  },
   // 获取验证码
   getCode() {
     let phone = this.data.postData.phone
@@ -132,6 +112,15 @@ Page({
       sizeType: ['original'],
       sourceType: ['album', 'camera'],
       success(res) {
+        let size = res.tempFiles[0].size;
+        let sizeM = size / 1024 / 1024;
+        if (sizeM>1){
+         wx.showToast({
+           title: '文件不能大于2M',
+           icon:'none'
+         })
+          return false;
+        }
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths;
         wx.uploadFile({
@@ -283,20 +272,15 @@ Page({
   },
   // 导航，获取定位,选点
   goLocation(e) {
-    wx.getLocation({
-      success: (res) => {
-        const location = JSON.stringify({
-          latitude: res.latitude,
-          longitude: res.longitude
-        });
-        const category = '生活服务,娱乐休闲';
-        this.setData({
-          isClickChooseLocation: true
-        })
-        wx.navigateTo({
-          url: 'plugin://chooseLocation/index?key=' + key + '&referer=' + referer + '&location=' + location + '&category' + category
-        });
-      }
+    utils.getLocation((res) => {
+      this.setData({
+        postData: {
+          ...this.data.postData,
+          address: res.address,
+          longitude: res.longitude,
+          latitude: res.latitude
+        }
+      })
     })
 
   },

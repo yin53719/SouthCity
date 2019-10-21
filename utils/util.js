@@ -36,14 +36,18 @@ const isPhone = (test) => {
 }
 
 
-const getLocation = (_this) => {
+const getLocation = (success) => {
   wx.getLocation({
     success: (res) => {
       wx.chooseLocation({
         latitude: res.latitude,
         longitude: res.longitude,
         success: (res) => {
-          _this.locationCallBack(res)
+          success({
+            longitude: res.longitude,
+            latitude: res.latitude,
+            address: res.address,
+          })
         }
       })
 

@@ -38,6 +38,15 @@ Page({
       sizeType: ['original'],
       sourceType: ['album', 'camera'],
       success(res) {
+        let size = res.tempFiles[0].size;
+        let sizeM = size / 1024 / 1024;
+        if (sizeM > 1) {
+          wx.showToast({
+            title: '文件不能大于2M',
+            icon: 'none'
+          })
+          return false;
+        }
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths;
         wx.uploadFile({
