@@ -1,4 +1,5 @@
 // pages/home/user/user.js
+const app = getApp();
 Page({
 
   /**
@@ -8,7 +9,8 @@ Page({
     navButton: [{
       link: "",
       text: "待参加",
-      num: "0"
+      num: "0",
+      type:'take_un'
     }, {
       link: "",
       text: "已参加",
@@ -25,35 +27,55 @@ Page({
     buttonList: [{
       link: '/pages/myActivity/myActivity',
       text: "我的活动",
+      id: 1,
       imgurl: "/assets/images/home/hd.png"
     }, {
       link: '/pages/index/index',
       text: "活动规则",
+      id: 2,
       imgurl: "/assets/images/home/gz.png"
     }, {
       link: '/pages/userCenter/userCenter',
       text: "个人资料",
+      id: 3,
       imgurl: "/assets/images/home/zl.png"
     }, {
       link: '/pages/login/login',
       text: "商家入驻",
+      id:4,
       imgurl: "/assets/images/home/rz.png"
-    }]
+    }],
+    "nickname": "昵称",
+    "headimgurl": "upload/image/20190819/1565960577.png",
+    "credit": 100,
+    "take_un": 10,
+    "take_alr": 20,
+    "take_off": 30,
+    "take_foc": 40,
+    "balance": 50.01,
+    "store": {
+      "is_login": 1,
+      "has_store": 1,
+      "audit_status": 2
+    },
+    injectionData:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    app.wxRequest({
+      url:'index/index/info',
+      success:(res)=>{
+        this.setData({
+          ...res.info,
+          injectionData:res.info
+        })
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
 
   /**
    * 生命周期函数--监听页面显示
@@ -64,46 +86,22 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  },
-
   goToUrl: function(e) {
-    const data = e.currentTarget.dataset
-    wx.navigateTo({
-      url: data.url,
-    })
+    const data = e.currentTarget.dataset;
+    if (data.id){
+      let url = '/pages/login/login';
+      if (this.data.store.is_login === 1){
+        url = '/pages/businessUser/businessUser';
+      }
+      wx.navigateTo({
+        url: url,
+      })
+    }else{
+      wx.navigateTo({
+        url: data.url,
+      })
+    }
+    
   },
   getCash(){
     //发起网络请求

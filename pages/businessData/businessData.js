@@ -7,7 +7,7 @@ Page({
    */
   data: {
     "type": 1,
-    "name": "名称",
+    "store_name": "名称",
     "address": "门店地址",
     "longitude": "1.1",
     "latitude": "2.1",
@@ -29,6 +29,7 @@ Page({
     app.wxRequest({
       url:'index/store/detail',
       success:(res)=>{
+        let resB = res;
          this.setData({
            ...res.info, do_business: res.info.start_time +'-'+ res.info.end_time
          })
@@ -37,8 +38,10 @@ Page({
           success: (res) => {
             let checkBoxItems = [];
             for (let x in res.info) {
+              console.log(x)
               let checked = false;
-              if(this.data.type == x){
+              console.log(resB)
+              if (resB.type == x){
                 checked = true;
               }
               checkBoxItems.push({
@@ -60,12 +63,11 @@ Page({
   inputChange(e){
       console.log(e);
       this.setData({
-        ...this.data,[e.detail.name]:e.detail.value
+        [e.detail.name]:e.detail.value
       })
   },
   getLocation(res){
     this.setData({
-      ...this.data,
       longitude:res.detail.longitude,
       latitude:res.detail.latitude,
       address:res.detail.address,
@@ -74,7 +76,7 @@ Page({
   },
   boxchangeindex: function (e) {
     this.setData({
-      type: e.detail.index
+      type: e.detail.index+1
     })
   },
   dateChangeStart(e){
@@ -106,7 +108,7 @@ Page({
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths;
         wx.uploadFile({
-          url: GlobaleConfig.domain + 'index/tool/upload', //仅为示例，非真实的接口地址
+          url: app.globalData.domain + 'index/tool/upload', //仅为示例，非真实的接口地址
           filePath: tempFilePaths[0],
           name: 'file',
           formData: {
@@ -116,7 +118,7 @@ Page({
             const data = JSON.parse(res.data);
             console.log(data)
             that.setData({
-              licence: GlobaleConfig.domain + data.info.url
+              licence: app.globalData.domain + data.info.url
             })
           }
         })
@@ -128,9 +130,12 @@ Page({
       url: 'index/store/register',
       method:'post',
       data:{
-        ...this.data, name: this.data.shopName || this.data.name
+        ...this.data
       },
       success:(res)=>{
+        wx.showToast({
+          title: '修改成功'
+        })
         wx.navigateTo({
           url: "/pages/businessUser/businessUser"
         })

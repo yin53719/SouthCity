@@ -2,7 +2,7 @@
 <view class="wrapper">
   <view class="top">
     <view class="flex-bt">
-      <text class="title">{{afterObj.name}}</text>
+      <text class="title">{{afterObj.store_name}}</text>
       <view class="flex-bt message">
         <text>{{afterObj.status}}</text>
         <text>{{afterObj.message}}</text>

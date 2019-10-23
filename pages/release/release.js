@@ -1,4 +1,5 @@
 
+let app = getApp()
 
 Page({
   data: {
@@ -12,13 +13,26 @@ Page({
         "headimgurl": [
           "upload/image/20190819/1565960577.png", "upload/image/20190819/1565960577.png"
         ],
-        "name": "门店名称",
+        "store_name": "门店名称",
         "address": "门店地址1111",
         "price": 10.01,
         act_type:1
-    }]
+    }],
+    page:1,
+    limit:10
   },
   onLoad: function () {
-
+      app.wxRequest({
+        url:'index/index/store',
+        data:{
+          page: this.data.page,
+          limit: this.data.limit,
+        },
+        success:(res)=>{
+          this.setData({
+            activityList: res.info
+          })
+        }
+      })
   }
 })

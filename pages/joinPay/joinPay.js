@@ -13,14 +13,51 @@ Page({
   data: {
         items: [{ name: 'USA', value: '是' },
         { name: 'CHN', value: '否', checked: 'true' }
-        ]
+        ],
+    "id": 1,
+    "store_name": "名称",
+    "type": 1,
+    "phone": 13000000001,
+    "address": "门店地址",
+    "longitude": "200.321",
+    "latitude": "563.001",
+    "start_time": "08:00",
+    "end_time": "23:00",
+    "img": "upload/image/20190819/1565960577.png",
+    "views": 20,
+    "price": 10.01,
+		"detail": [
+      {
+        "type": "1男1女",
+        "content": "啤酒1瓶"
+      },
+      {
+        "type": "2男2女",
+        "content": "啤酒2瓶"
+      }
+    ],
+    "combo": [
+     
+        "1男1女", "2男2女"
+
+    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.wxRequest({
+      url: 'index/index/storedetail',
+      data: {
+        id:this.data.id
+      },
+      success: (res) => {
+        this.setData({
+          activityList: res.info
+        })
+      }
+    })
   },
   goHome(){
     wx.reLaunch({

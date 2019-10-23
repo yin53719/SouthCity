@@ -11,17 +11,8 @@
     <input type="{{type}}" disabled="disable" bindtap="getAddress" value="{{ location.address }}" placeholder="{{placeholder}}"></input>
     <image wx:if="{{!disable}}" src="/assets/images/editor.png"></image>
   </block>
-  <block wx:if="{{type=='date'}}" class="flex-bt">
-    <picker mode="time" value="{{ dateStart }}" bindchange="bindDateChangeStart">
-      <input type="text" disabled="{{true}}" placeholder="{{ dateStart }}"></input>
-    </picker>
-    <picker mode="time" value="{{ dateEnd }}" bindchange="bindDateChangeEnd">
-      <input type="text" disabled="{{true}}" placeholder="{{ dateEnd }}"></input>
-    </picker>
-
-  </block>
   <block wx:if="{{type=='number'}}" class="flex-bt">
-    <input type="{{type}}" maxlength="{{maxlength}}" bindinput="bindinput" value="{{ phone }}"  disabled="{{disable}}" data-name="phone"  placeholder="{{placeholder}}"></input>
+    <input type="{{type}}" maxlength="{{maxlength}}" bindinput="bindinput"  disabled="{{disable}}" data-name="phone"  placeholder="{{placeholder}}"></input>
     <text class="getVarCode" bindtap="getCode" >获取验证码</text>
   </block>
   <block wx:if="{{type=='checkbox'}}">

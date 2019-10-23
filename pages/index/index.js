@@ -2,7 +2,7 @@ const app = getApp();
 const GlobaleConfig = require('../../utils/config')
 Page({
   data: {
-    motto: 'Hello World',
+    notice: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -14,6 +14,16 @@ Page({
     })
   },
   onLoad: function () {
+
+
+    app.wxRequest({
+      url:'index/login/rules',
+      success:(res)=>{
+          this.setData({
+            notice: res.info.notice
+          })
+      }
+    })
     
     if (app.globalData.userInfo) {
       this.setData({

@@ -7,7 +7,7 @@ Component({
     navButton: {
       type:Array,
       value:()=>[]
-    },
+    }
   },
   options: {
     addGlobalClass: true

@@ -1,0 +1,13 @@
+<!--components/cell/cell.wxml-->
+<view class="flex-bt" style="flex-wrap:nowrap">
+  <text>{{title}}</text>
+  <block class="flex-bt">
+    <picker mode="time" value="{{ dateStart }}" bindchange="bindDateChangeStart">
+      <input type="text" disabled="{{true}}" placeholder="{{ dateStart }}"></input>
+    </picker>
+    <picker mode="time" value="{{ dateEnd }}" bindchange="bindDateChangeEnd">
+      <input type="text" disabled="{{true}}" placeholder="{{ dateEnd }}"></input>
+    </picker>
+
+  </block>
+</view>

@@ -9,20 +9,9 @@ Component({
     title: String,
     type: String,
     placeholder: String,
-   
-    name: String,
     disable: {
       type: Boolean,
       value: false
-    },
-    maxlength: Number,
-    items: {
-      type: Array,
-      name: String
-    },
-    checkedbox: {
-      type: String,
-      value: '0'
     }
   },
 
@@ -41,7 +30,6 @@ Component({
     addGlobalClass: true
   },
   ready(){
-
     this.setData({
       dateStart: this.data.placeholder.split('-')[0],
       dateEnd: this.data.placeholder.split('-')[1],

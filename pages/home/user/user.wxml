@@ -2,7 +2,7 @@
 <view class="wrapper">
   <user-top></user-top>
   <view class="content">
-    <user-nav-button navButton="{{navButton}}"></user-nav-button>
+    <user-nav-button navButton="{{navButton}}" ></user-nav-button>
     <view class="priceSum flex-bt">
       <view class="flex-bt">
         <text>账户余额</text>
@@ -14,7 +14,7 @@
       </view>
     </view>
     <view class="buttonList flex-bt">
-      <view class="flex-bt" wx:for="{{buttonList}}" bindtap="goToUrl" data-url="{{item.link}}" wx:key="k">
+      <view class="flex-bt" wx:for="{{buttonList}}" bindtap="goToUrl" data-url="{{item.link}}" wx:key="k" data-id="{{ item.id }}" >
         <image src="{{item.imgurl}}"></image>
         <text>{{item.text}}</text>
       </view>
