@@ -88,7 +88,7 @@ Page({
 
   goToUrl: function(e) {
     const data = e.currentTarget.dataset;
-    if (data.id){
+    if (data.id == 4){
       let url = '/pages/login/login';
       if (this.data.store.is_login === 1){
         url = '/pages/businessUser/businessUser';
