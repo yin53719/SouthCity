@@ -47,10 +47,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options.params.id)
     app.wxRequest({
       url: 'index/index/storedetail',
       data: {
-        id:this.data.id
+        id:options.params.id
       },
       success: (res) => {
         this.setData({
@@ -65,7 +66,22 @@ Page({
     })
   },
   wxpay(res){
-    console.log(app.globalData)
+    app.wxRequest({
+      url:'index/index/publishsubmit',
+      data:{
+        id:this.data.id
+      },
+      success:(res)=>{
+        wx.requestPayment({
+           ...res.info,
+          'success':function(res){
+            console.log(res)
+          },
+          'fail':function(res){},
+          'complete':function(res){}
+          })
+      }
+    })
   },
   // 导航，获取定位,选点
   goLocation(e) {

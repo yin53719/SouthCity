@@ -72,10 +72,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    goJoin:function(){
+    goJoin:function(event){
       if (this.data.type == 1){
         wx.navigateTo({
-          url: '/pages/join/join',
+          url: '/pages/join/join?id='+event.target.dataset.id,
           success: function(res) {},
           fail: function(res) {},
           complete: function(res) {},
@@ -83,7 +83,7 @@ Component({
       }
       if (this.data.type == 2){
         wx.navigateTo({
-          url: '/pages/join/join',
+          url: '/pages/join/join?id='+event.target.dataset.id,
           success: function(res) {},
           fail: function(res) {},
           complete: function(res) {},
@@ -91,10 +91,18 @@ Component({
       }
       if (this.data.type == 3) {
         wx.navigateTo({
-          url: '/pages/joinPay/joinPay',
+          url: '/pages/joinPay/joinPay?id='+event.target.dataset.id,
           success: function (res) { },
           fail: function (res) { },
           complete: function (res) { },
+        })
+      }
+      if (this.data.type == 4){
+        wx.navigateTo({
+          url: '/pages/join/join?id='+event.target.dataset.id,
+          success: function(res) {},
+          fail: function(res) {},
+          complete: function(res) {},
         })
       }
       console.log(this.data.type)
