@@ -45,6 +45,7 @@ App({
     userInfo: null,
     openid:'',
     domain: 'https://juaa.shu0.cn/',
+    navArrayObj:{}
   },
   /**
   * 封装wx.request请求

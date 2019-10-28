@@ -1,12 +1,12 @@
 <!--pages/home/join/join.wxml-->
 <view class="main">
   <view class="banner">
-     <image src="https://cdn-1251334980.cos.ap-shanghai.myqcloud.com/join-banner.jpg"></image>
+     <image src="{{ img }}"></image>
   </view>
   <view class="titleCell mt60">
-      <view> 佰分迪KTV娱乐会所,随心所欲，想唱就唱</view>
+      <view> {{ store_name }}</view>
       <view class="right" style="width:200rpx;">
-          <text>浏览量：4417</text>
+          <text>浏览量：{{ views }}</text>
           <view class="comment">
           <image style="width:22rpx;height:23rpx;" src="../../assets/images/handle.png" ></image>
           <text> 好评率 99%</text>
@@ -16,12 +16,12 @@
   </view>
   <view class="titleCell mt20" style="margin-bottom:38rpx;">
       <view  class="label">
-          <text>KTV</text>
-          <text>3男3女</text>
-          <text>68元/位</text>
+          <text>{{ type_name }}</text>
+          <!-- <text>3男3女</text> -->
+          <text>{{ price }}元/位</text>
       </view>
       <view class="right" style="width:200rpx;">
-          <text class="people">已报名：1男1女</text>
+          <!-- <text class="people">已报名：1男1女</text> -->
       </view>
   </view>
   <!-- 聚会详情 区块 -->
@@ -29,13 +29,13 @@
       <view>
          <view class="left">
             <image  src="../../assets/images/time.png" ></image>
-            <text>07-09 12:00:00</text>
+            <text>{{ start_time }}-{{ end_time }}</text>
           </view>
       </view>
-       <view bindtap="goLocation" data-latitude="31.38467505202846" data-longitude="121.2264036080268">
+       <view bindtap="goLocation" data-latitude="{{ latitude }}" data-longitude="{{ longitude }}">
          <view class="left">
             <image  src="../../assets/images/location2.png" ></image>
-            <text>企业广场</text>
+            <text>{{ address }}</text>
           </view>
           <view class="right"><image src="../../assets/images/right.png" ></image> </view>
       </view>
@@ -43,43 +43,11 @@
       <view>
          <view class="left">
             <image  src="../../assets/images/call.png" ></image>
-            <text>1380000000000</text>
+            <text data-phoneNumber="{{ phone }}" bindtap="makePhoneCall">{{ phone}}</text>
           </view>
           <view class="right"><image src="../../assets/images/right.png" ></image> </view>
       </view>
   </view>
- <!-- 加入成员 -->
- <view class="blockCell">
-   <view class="title"><text>目前已经加入成员</text></view>
-   <view class="people">
-      <view class="left">
-          <image></image>
-          <text>人生如梦 女 23岁 </text>
-          <text class="label">美丽</text>
-          <text class="label">美丽</text>
-          <text class="label">美丽</text>
-      </view>
-      <view class="right">
-          <image src="../../assets/images/anCrown.png"></image>
-           <text>信誉度99%</text>
-      </view>
-
-   </view>
-   <view class="people">
-      <view class="left">
-          <image></image>
-          <text>人生如梦 男 23岁 </text>
-          <text class="label male">阳光</text>
-          <text class="label male">美丽</text>
-          <text class="label male">美丽</text>
-      </view>
-      <view class="right">
-          <image src="../../assets/images/anCrown.png"></image>
-           <text>信誉度99%</text>
-      </view>
-
-   </view>
- </view>
  <!-- 套餐详情 -->
  <view class="setMeal">
      <!-- tabbar -->
@@ -92,14 +60,9 @@
         <text class="center">套餐提供</text>
         <text class="w150">价格</text>
     </view>
-    <view class="detils cell">
-        <text class="w150">2-3人</text>
-        <text class="center">果盘一个，瓶酒</text>
-        <text class="w150"></text>
-    </view>
-    <view class="detils cell">
-        <text class="w150">2-3人</text>
-        <text class="center">果盘一个，瓶酒果盘一个，瓶酒果盘一个，瓶酒</text>
+    <view class="detils cell" wx:for="{{ detail }}" wx:key="idx" wx:for-index="idx" wx:for-item="item">
+        <text class="w150">{{ item.type }}</text>
+        <text class="center">{{ item.content }}</text>
         <text class="w150"></text>
     </view>
  </view>
@@ -109,7 +72,9 @@
        聚会时间
     </view>
     <view class="time">
-       <text>2019年9月20日 20:30</text>
+    <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+       <text>{{ begin_time  }}</text>
+       </picker>
     </view>
     <view class="title">
        请选择聚会人数
@@ -117,12 +82,7 @@
     <view class="people">
         <view class="left">  <text> 6</text> </view>
         <view class="right"> 
-            <text class="active"> 1男1女</text>
-            <text> 1男1女</text>
-            <text> 1男1女</text>
-            <text> 1男1女</text>
-            <text> 1男1女</text>
-            <text> 1男1女</text>
+            <text class="active" wx:for="{{ combo }}" wx:key="idx" wx:for-index="idx" wx:for-item="item"> {{ item }}</text>
         </view>
     </view>
     <view class="title">
@@ -142,7 +102,7 @@
 <!-- 底部操作按钮 -->
 <view class="footer">
   <view class="money">
-     <text >￥<text style="font-size:56rpx;">138</text></text>
+     <text >￥<text style="font-size:56rpx;">{{ price  }}</text></text>
      <text>您的AA费用</text>
   </view>
   <button class="btn" bindtap="wxpay" >

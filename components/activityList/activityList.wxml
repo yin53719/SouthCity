@@ -3,25 +3,25 @@
   <view class="top">
     <view class="flex-bt">
       <text class="title">{{afterObj.store_name}}</text>
-      <view class="flex-bt message">
+      <view class="flex-bt message" wx:if="{{ type=='2'}}">
         <text>{{afterObj.status}}</text>
         <text>{{afterObj.message}}</text>
       </view>
     </view>
     <view class="flex-bt top-center">
       <view class="flex-bt local">
-        <text>{{afterObj.begin_time}}</text>
+        <text style="text-align:left;display:block;width:100%;">{{afterObj.start_time}}- {{ afterObj.end_time }}</text>
         <text style="text-align:left;display:block;width:100%;">{{afterObj.address}}</text>
       </view>
-      <view class="button seeData" bindtap="goJoin" wx:if="{{ type=='1'}}">查看详情</view>
-      <view class="button seeData" bindtap="goJoin" wx:if="{{ type=='2'}}">我要参与</view>
-      <view class="button seeData" bindtap="goJoin" wx:if="{{ type=='3'}}">我要发布</view>
+      <view class="button seeData" data-id="{{ afterObj.id }}" bindtap="goJoin" wx:if="{{ type=='1'}}">查看详情</view>
+      <view class="button seeData" data-id="{{ afterObj.id }}" bindtap="goJoin" wx:if="{{ type=='2'}}">我要参与</view>
+      <view class="button seeData" data-id="{{ afterObj.id }}"  bindtap="goJoin" wx:if="{{ type=='3'}}">我要发布</view>
     </view>
     <view class="flex-bt">
       <view class="flex-bt label">
       <!-- label -->
         <text >{{afterObj.type_name}}</text>
-        <text >{{afterObj.type}}</text>
+        <text wx:if="{{ type=='2'}}">{{afterObj.type}}</text>
         <text >{{afterObj.price}}元/位</text>
       </view>
       <view wx:if="{{type ==='1'}}" class="button sign">

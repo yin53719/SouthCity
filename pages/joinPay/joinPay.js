@@ -14,9 +14,10 @@ Page({
         items: [{ name: 'USA', value: '是' },
         { name: 'CHN', value: '否', checked: 'true' }
         ],
+    begin_time:'2019-10-28',
     "id": 1,
     "store_name": "名称",
-    "type": 1,
+    "type_name": 1,
     "phone": 13000000001,
     "address": "门店地址",
     "longitude": "200.321",
@@ -26,6 +27,7 @@ Page({
     "img": "upload/image/20190819/1565960577.png",
     "views": 20,
     "price": 10.01,
+     public:1,
 		"detail": [
       {
         "type": "1男1女",
@@ -47,17 +49,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.params.id)
+    console.log(app.globalData.navArrayObj)
     app.wxRequest({
       url: 'index/index/storedetail',
       data: {
-        id:options.params.id
+        id:options.id
       },
       success: (res) => {
         this.setData({
-          activityList: res.info
+          ...res.info, type_name: app.globalData.navArrayObj[res.info.type]
         })
       }
+    })
+  },
+  bindDateChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      begin_time: e.detail.value
     })
   },
   goHome(){
@@ -67,20 +75,27 @@ Page({
   },
   wxpay(res){
     app.wxRequest({
-      url:'index/index/publishsubmit',
+      url:'index/index/storesubmit',
       data:{
-        id:this.data.id
+        begin_time: new Date(this.data.begin_time).getTime()/1000,
+        public: this.data.public,
+        id:this.data.id,
+        type: this.data.type
       },
       success:(res)=>{
         wx.requestPayment({
            ...res.info,
-          'success':function(res){
+          success:function(res){
             console.log(res)
-          },
-          'fail':function(res){},
-          'complete':function(res){}
-          })
+          }
+        })
       }
+    })
+  },
+  // 打电话
+  makePhoneCall(e) {
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.phonenumber //仅为示例，并非真实的电话号码
     })
   },
   // 导航，获取定位,选点

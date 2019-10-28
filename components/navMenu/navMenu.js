@@ -50,6 +50,8 @@ Component({
         this.setData({
           navArray: list
         })
+
+        app.globalData.navArrayObj = res.info;
       }
     })
   },

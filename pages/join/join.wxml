@@ -51,10 +51,10 @@
           <view class="right"><image src="../../assets/images/right.png" ></image> </view>
       </view>
       <!-- 联系方式 -->
-      <view bindtap="makePhoneCall" data-phoneNumber="17717038360" >
+      <view bindtap="makePhoneCall" data-phoneNumber="{{ phone }}" >
          <view class="left">
             <image  src="../../assets/images/call.png" ></image>
-            <text>1380000000000</text>
+            <text>{{ phone }}</text>
           </view>
           <view class="right"><image src="../../assets/images/right.png" ></image> </view>
       </view>
@@ -74,21 +74,6 @@
           <image src="../../assets/images/anCrown.png"></image>
            <text>信誉度99%</text>
       </view>
-
-   </view>
-   <view class="people">
-      <view class="left">
-          <image></image>
-          <text>人生如梦 男 23岁 </text>
-          <text class="label male">阳光</text>
-          <text class="label male">美丽</text>
-          <text class="label male">美丽</text>
-      </view>
-      <view class="right">
-          <image src="../../assets/images/anCrown.png"></image>
-           <text>信誉度99%</text>
-      </view>
-
    </view>
  </view>
  <!-- 套餐详情 -->
@@ -109,14 +94,9 @@
         <text class="center">套餐提供</text>
         <text class="w150">价格</text>
     </view>
-    <view class="detils cell">
-        <text class="w150">2-3人</text>
-        <text class="center">果盘一个，瓶酒</text>
-        <text class="w150"></text>
-    </view>
-    <view class="detils cell">
-        <text class="w150">2-3人</text>
-        <text class="center">果盘一个，瓶酒果盘一个，瓶酒果盘一个，瓶酒</text>
+    <view class="detils cell" wx:for="{{ detail }}" wx:key="idx" wx:for-index="idx" wx:for-item="item">
+        <text class="w150">{{ item.type }}</text>
+        <text class="center">{{ item.content }}</text>
         <text class="w150"></text>
     </view>
  </view>
@@ -138,7 +118,7 @@
      <text>
      转发</text>
   </view>
-  <view class="btn">
+  <view class="btn" bindtap="wxpay" >
      <image src="../../assets/images/joinBtn.png" ></image>
      <text>马上参与</text>
   </view>

@@ -34,6 +34,25 @@ Page({
       phoneNumber: e.currentTarget.dataset.phonenumber //仅为示例，并非真实的电话号码
     })
   },
+  wxpay(res) {
+    app.wxRequest({
+      url: 'index/index/publishsubmit',
+      data: {
+        begin_time: new Date(this.data.begin_time).getTime() / 1000,
+        public: this.data.public,
+        id: this.data.id,
+        type: this.data.type
+      },
+      success: (res) => {
+        wx.requestPayment({
+          ...res.info,
+          success: function (res) {
+            console.log(res)
+          }
+        })
+      }
+    })
+  },
   // 导航，获取定位,选点
   goLocation(e){
     console.log(e)

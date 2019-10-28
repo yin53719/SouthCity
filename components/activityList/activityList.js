@@ -58,7 +58,7 @@ Component({
         console.log(res);
         this.setData({
           afterObj: {
-            ...this.data.afterObj, type_name: res.info[afterObj.act_type]
+            ...this.data.afterObj, type_name: res.info[afterObj.act_type || afterObj.type]
           }
         })
       }
@@ -73,6 +73,7 @@ Component({
    */
   methods: {
     goJoin:function(event){
+      console.log(event)
       if (this.data.type == 1){
         wx.navigateTo({
           url: '/pages/join/join?id='+event.target.dataset.id,

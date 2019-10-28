@@ -11,15 +11,27 @@ Page({
     location:'上海',
     postData:{
       hotType:1,
+      keyword:"",//搜索框
       locationType:0,
       priceType:1,
-      sortType:0
+      sortType:0,
+      page:1,
+      limit:10
     },
     activityList: [],
-    searchValue: ''
+    searchValue: '',
+    banner:''
   },
   onLoad: function () {
-    console.log(app.globalData.openid)
+    console.log(app.globalData.openid);
+    app.wxRequest({
+      url:'index/login/banner',
+      success:(res)=>{
+          this.setData({
+            banner: res.info.banner
+          })
+      }
+    })
     if(!app.globalData.openid){
       wx.getUserInfo({
         success:(res)=>{
@@ -36,6 +48,7 @@ Page({
                 },
                 success: (res) => {
                   app.globalData.openid = res.data.info.openid;
+                  this.getPageList()
                 }
               })
             }
@@ -44,28 +57,9 @@ Page({
       })
       
     }
-    let activityList = [];
-    for(let i=0;i<1;i++){
-      activityList.push({
-        "type": '2男3女',
-        "man_num": 2,
-        "woman_num": 3,
-        "begin_time": 1571554526,
-        "status": 2,
-        "headimgurl": [
-          "upload/image/20190819/1565960577.png", "upload/image/20190819/1565960577.png"
-        ],
-        "name": "门店名称",
-        "address": "门店地址1111",
-        "price": 10.01,
-        act_type:1
-      })
-    }
-    this.setData({
-      activityList
-    })
-
+  
     this.getAddress();
+    
 
   },
   getAddress(){
@@ -107,7 +101,7 @@ Page({
     // type === 1 一级导航 2  二级导航
     if(e.detail.type === 1){
         this.setData({
-          navType:e.detail.navType
+          type:e.detail.navType
         })
     }else{
       let navType = {};
@@ -124,15 +118,27 @@ Page({
     }
   },
   getPageList(){
-    wx.request({
-      url:GlobaleConfig.domain,
-      params:{
-        ...this.data.postData
+    app.wxRequest({
+      url:'index/index/publish',
+      data:{
+        page: this.data.page,
+        limit: this.data.limit,
+        keyword: this.data.keyword,
+        order: this.data.order,
+        act_type: this.data.act_type
       },
       success:(res)=>{
-        console.log(res)
+        this.setData({
+          activityList:res.info
+        })
       }
     })
+  },
+  bindinput(e){
+    this.setData({
+      keyword: e.detail.detail
+    })
+    this.getPageList();
   },
   /**
    * 页面上拉触底事件的处理函数
